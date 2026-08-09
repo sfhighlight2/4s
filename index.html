@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4S Summit — Steal The Secrets of The Top 1% Medical Aestetic Practices</title>
+<meta name="description" content="At the 4S Summit on September 25-27, 2026 in Kansas City, MO AND on December 4-6, 2026 in Miami, FL. Get a clear blueprint for success in your exact niche.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   4S SUMMIT — OPT-IN PAGE
+   ============================================================ */
+
+@font-face {
+  font-family: 'Seasons';
+  src: url('assets/69bccb4e3147fd9845717e95.ttf') format('truetype');
+  font-display: swap;
+}
+
+:root{
+  --headline: 'Seasons', 'Playfair Display', Georgia, serif;
+  --body: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --black:#000000;
+  --white:#ffffff;
+  --tan:#b89c87;
+  --tan-light:#c8b1a5;
+  --tan-deep:#a3846c;
+  --cream:#fffbf2;
+  --gold:#daa520;
+  --olive:#36301b;
+  --charcoal:#303030;
+  --red:#e93d3d;
+  --green:#2e7d32;
+
+  --wrap:1140px;
+  --wrap-narrow:940px;
+
+  --radius:5px;
+  --radius-card:12px;
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;}
+
+body{
+  margin:0;
+  font-family:var(--body);
+  font-size:16px;
+  line-height:1.45;
+  color:var(--black);
+  background:var(--white);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+img{max-width:100%;height:auto;display:block;border:0;}
+
+p{margin:0;}
+
+/* ---------- layout helpers ---------- */
+
+.section{position:relative;padding:40px 0;overflow:hidden;}
+.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 20px;position:relative;z-index:2;}
+.wrap-narrow{max-width:var(--wrap-narrow);}
+.center{text-align:center;}
+
+/* Full-bleed background image layer */
+.bg{
+  position:absolute;
+  inset:0;
+  background-repeat:no-repeat;
+  background-position:center center;
+  background-size:cover;
+  z-index:0;
+  pointer-events:none;
+}
+
+/* ---------- typography ---------- */
+
+.display{
+  font-family:var(--headline);
+  font-weight:400;
+  font-size:clamp(34px,4.1vw,59px);
+  line-height:1.08;
+  letter-spacing:.5px;
+  margin:0;
+  color:var(--black);
+}
+.display.on-dark{color:var(--white);}
+
+/* animated tan gradient used on the second half of every headline */
+.grad{
+  background:linear-gradient(150deg,
+    #c8b1a5 0%, #b89c87 25%, #c8b1a5 50%, #b89c87 75%, #c8b1a5 100%);
+  background-size:300% 300%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  color:transparent;
+  animation:gradientMove 6s ease infinite;
+}
+@keyframes gradientMove{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+.eyebrow-pill{
+  display:inline-block;
+  font-size:18px;
+  font-weight:500;
+  line-height:1.2;
+  padding:12px 26px;
+  border:1px solid rgba(184,156,135,.75);
+  border-radius:999px;
+  background:rgba(184,156,135,.06);
+  margin-bottom:18px;
+}
+.eyebrow-pill.on-dark{
+  color:var(--white);
+  border-color:rgba(255,255,255,.35);
+  background:rgba(255,255,255,.06);
+}
+
+.lede{
+  font-size:18px;
+  font-weight:500;
+  line-height:1.5;
+}
+.lede.on-dark{color:var(--white);}
+
+.body-copy{font-size:18px;font-weight:400;line-height:1.55;}
+.body-copy.on-dark{color:rgba(255,255,255,.92);}
+
+/* ---------- CTA button ---------- */
+
+.cta-block{margin:26px 0 0;}
+.cta-block.is-center{display:flex;flex-direction:column;align-items:center;}
+
+.btn{
+  position:relative;
+  display:inline-block;
+  border:0;
+  cursor:pointer;
+  text-decoration:none;
+  padding:16px 32px;
+  min-width:432px;
+  border-radius:var(--radius);
+  color:var(--white);
+  text-align:center;
+  overflow:hidden;
+  background:linear-gradient(135deg,var(--tan-light),var(--tan),var(--tan-light));
+  background-size:200% 200%;
+  box-shadow:0 6px 20px rgba(184,156,135,.28);
+  transition:transform .25s ease, box-shadow .25s ease, background-position .6s ease;
+  font-family:var(--body);
+}
+.btn:hover{
+  transform:translateY(-2px);
+  background-position:100% 50%;
+  box-shadow:0 12px 30px rgba(184,156,135,.42);
+}
+.btn:active{transform:translateY(0);}
+
+/* shine sweep */
+.btn::after{
+  content:"";
+  position:absolute;
+  top:0;left:-120%;
+  width:70%;height:100%;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,.45),transparent);
+  transform:skewX(-20deg);
+  animation:btnShine 3.6s ease-in-out infinite;
+  pointer-events:none;
+}
+@keyframes btnShine{
+  0%{left:-120%;}
+  55%{left:130%;}
+  100%{left:130%;}
+}
+
+.btn .btn-main{
+  display:block;
+  font-size:26px;
+  font-weight:800;
+  line-height:1.2;
+  letter-spacing:.2px;
+}
+.btn .btn-sub{
+  display:block;
+  font-size:17px;
+  font-weight:400;
+  line-height:normal;
+  opacity:.8;
+  margin-top:2px;
+}
+.btn.btn-sm{min-width:0;width:100%;max-width:396px;padding:14px 26px;}
+.btn.btn-sm .btn-main{font-size:22px;}
+.btn.btn-sm .btn-sub{font-size:15px;}
+
+.cta-dates{
+  font-size:16px;
+  font-weight:400;
+  line-height:1.45;
+  margin-top:12px;
+}
+.cta-dates b{font-weight:700;}
+.cta-dates.on-dark{color:var(--white);}
+
+/* ============================================================
+   1. HERO
+   ============================================================ */
+
+.hero{
+  position:relative;
+  padding:0;
+  background:#f7f4f1;
+}
+.hero .bg{
+  background-image:url('assets/6a7466f28684435c587c2798.jpg');
+  background-position:center center;
+  background-size:100% 100%;
+}
+.hero-inner{
+  position:relative;
+  z-index:2;
+  width:100%;
+  max-width:1206px;
+  margin:0 auto;
+  padding:52px 20px 60px;
+  min-height:57.5vw;
+  max-height:900px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.hero-col{max-width:600px;}
+
+.hero-logo{width:200px;margin-bottom:44px;}
+
+.hero-quote{
+  border-left:3px solid var(--tan);
+  padding-left:16px;
+  margin:22px 0 24px;
+  font-size:19px;
+  font-weight:500;
+  line-height:1.45;
+  max-width:540px;
+}
+
+.checklist{list-style:none;margin:0;padding:0;display:grid;gap:16px;max-width:570px;}
+.checklist li{
+  position:relative;
+  padding-left:30px;
+  font-size:17px;
+  line-height:1.45;
+}
+.checklist li b{font-weight:700;}
+.checklist li::before{
+  content:"";
+  position:absolute;
+  left:0;top:3px;
+  width:17px;height:17px;
+  border-radius:50%;
+  background:var(--tan) url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/11px 11px no-repeat;
+}
+
+.hero .cta-block{margin-top:30px;}
+
+/* ============================================================
+   2. INTRO VIDEO
+   ============================================================ */
+
+.s-video{padding:56px 0 64px;background:#faf8f6;}
+.s-video .bg{background-image:url('assets/6a7435f5f4dee0f60f940432.jpg');background-size:100% 100%;}
+
+.video-frame{
+  width:100%;
+  max-width:580px;
+  margin:0 auto 26px;
+  aspect-ratio:16/9;
+  background:#000;
+  overflow:hidden;
+  box-shadow:0 18px 46px rgba(54,48,27,.18);
+}
+.video-frame iframe,
+.video-frame video{width:100%;height:100%;display:block;border:0;object-fit:cover;}
+
+.s-video .body-copy{max-width:930px;margin:0 auto;}
+
+/* give the intro video more presence on desktop */
+@media (min-width:901px){
+  .video-frame{max-width:720px;}
+}
+
+/* ============================================================
+   3. COUNTDOWN
+   ============================================================ */
+
+.s-countdown{padding:64px 0 70px;background:#100c08;}
+.s-countdown .bg{background-image:url('assets/6a746bdb95133c52552c0a5c.jpg');}
+
+.countdown{
+  display:flex;
+  justify-content:center;
+  gap:clamp(18px,4vw,52px);
+  margin:34px 0 30px;
+}
+.cd-unit{min-width:74px;text-align:center;}
+.cd-num{
+  font-size:clamp(38px,4.2vw,54px);
+  font-weight:700;
+  line-height:1;
+  color:var(--white);
+  font-variant-numeric:tabular-nums;
+}
+.cd-label{
+  font-size:16px;
+  font-weight:400;
+  color:rgba(255,255,255,.85);
+  margin-top:8px;
+}
+
+/* ============================================================
+   4. TESTIMONIALS
+   ============================================================ */
+
+.s-testimonials{padding:60px 0 40px;background:#f8f6f4;}
+.s-testimonials .bg{background-image:url('assets/6a7435deac7d7ffc646a8ed5.jpg');background-size:100% 100%;}
+
+.brand-mark{width:200px;margin:0 auto 26px;}
+
+.t-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+  margin-top:42px;
+}
+.t-card{
+  background:rgba(240,232,225,.72);
+  border:1px solid rgba(184,156,135,.35);
+  border-radius:8px;
+  padding:26px 24px 28px;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  backdrop-filter:blur(2px);
+}
+.t-video{
+  width:100%;
+  aspect-ratio:16/9;
+  background:#000;
+  border-radius:2px;
+  overflow:hidden;
+}
+.t-video video{width:100%;height:100%;display:block;object-fit:cover;background:#000;}
+.t-quote{
+  font-size:17px;
+  line-height:1.5;
+  text-align:center;
+  font-weight:400;
+}
+.t-quote b{font-weight:800;}
+
+/* ============================================================
+   5. PARTNERS
+   ============================================================ */
+
+.s-partners{padding:20px 0 56px;background:#f8f6f4;}
+.s-partners .bg{background-image:url('assets/6a7435deac7d7ffc646a8ed5.jpg');background-size:100% 100%;}
+
+.marquee{
+  position:relative;
+  overflow:hidden;
+  /* full-bleed without a transform, so the reveal animation can't cancel it */
+  width:100vw;
+  margin:26px 0 18px calc(50% - 50vw);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+}
+.marquee-track{
+  display:flex;
+  align-items:center;
+  gap:64px;
+  width:max-content;
+  animation:marquee 46s linear infinite;
+}
+.marquee:hover .marquee-track{animation-play-state:paused;}
+.marquee-track img{
+  height:44px;
+  width:150px;
+  object-fit:contain;
+  object-position:center;
+  flex:0 0 auto;
+  opacity:.9;
+}
+@keyframes marquee{
+  from{transform:translateX(0);}
+  to{transform:translateX(-50%);}
+}
+
+.partners-note{font-size:18px;font-weight:400;margin-top:10px;}
+
+/* ============================================================
+   6. HEADACHES (dark)
+   ============================================================ */
+
+.s-pain{padding:64px 0 70px;background:#0b0806;}
+.s-pain .bg{
+  background-image:url('assets/6a746bc1a36de46d6a5a9fe4.jpg');
+  background-size:100% 100%;
+}
+.s-pain .wrap{max-width:1115px;}
+
+.pain-sub{
+  font-size:clamp(20px,2.1vw,29px);
+  font-weight:500;
+  color:var(--white);
+  margin-top:14px;
+}
+
+.pain-list{display:grid;gap:32px;margin-top:44px;}
+
+.pain-card{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:44px;
+  align-items:start;
+  padding:26px;
+  border:1px solid rgba(184,156,135,.30);
+  border-radius:var(--radius-card);
+  background:linear-gradient(180deg,rgba(24,18,13,.72),rgba(10,8,6,.80));
+  box-shadow:0 20px 50px rgba(0,0,0,.35);
+}
+.pain-photo{
+  width:100%;
+  aspect-ratio:4/3;
+  object-fit:cover;
+  border-radius:6px;
+  border:1px solid rgba(184,156,135,.25);
+}
+.pain-head{display:flex;align-items:center;gap:16px;}
+.pain-num{width:48px;height:48px;border-radius:8px;flex:0 0 auto;}
+.pain-title{
+  font-size:clamp(20px,2vw,25px);
+  font-weight:600;
+  color:var(--white);
+  line-height:1.2;
+  margin:0;
+}
+.pain-rule{
+  height:1px;
+  background:rgba(184,156,135,.32);
+  margin:22px 0 20px;
+}
+.pain-card .body-copy{font-size:17px;}
+.pain-card .cta-block{margin-top:22px;}
+
+.pain-closer{
+  font-size:clamp(22px,2.4vw,31px);
+  font-weight:600;
+  color:var(--white);
+  margin-top:52px;
+}
+
+/* ============================================================
+   7. TRANSFORM
+   ============================================================ */
+
+.s-transform{padding:64px 0 70px;background:var(--cream);}
+.s-transform .bg{background-image:url('assets/6a746860568ec7352487e3a3.jpg');background-size:100% 100%;}
+.s-transform .wrap{max-width:990px;}
+
+.tf-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+  margin-top:40px;
+}
+.tf-card{
+  background:linear-gradient(180deg,rgba(255,255,255,.9),rgba(252,247,240,.86));
+  border:1px solid rgba(184,156,135,.35);
+  border-radius:var(--radius-card);
+  padding:28px 26px 30px;
+  display:flex;
+  flex-direction:column;
+  box-shadow:0 14px 34px rgba(54,48,27,.08);
+}
+.tf-title{
+  font-size:21px;
+  font-weight:700;
+  line-height:1.25;
+  margin:0 0 20px;
+}
+.tf-title.bad{color:var(--tan-deep);}
+.tf-title.good{color:var(--green);}
+
+.tf-list{list-style:none;margin:0 0 26px;padding:0;display:grid;gap:14px;}
+.tf-list li{position:relative;padding-left:28px;font-size:17px;line-height:1.45;}
+.tf-list li::before{
+  position:absolute;left:0;top:0;
+  font-weight:800;
+  font-size:17px;
+}
+.tf-list.bad li::before{content:"\2715";color:var(--red);}
+.tf-list.good li::before{content:"\2713";color:#22a04a;}
+
+.tf-card .cta-block{margin-top:auto;display:flex;justify-content:center;}
+
+/* ============================================================
+   8. MORE PROOF
+   ============================================================ */
+
+.s-proof{padding:64px 0 72px;background:#f7f5f3;}
+.s-proof .bg{background-image:url('assets/6a746cb29a9c7792eaf877ac.jpg');background-size:100% 100%;}
+.s-proof .wrap{max-width:1075px;}
+
+.proof-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+  margin:40px 0 44px;
+}
+.proof-video{
+  width:100%;
+  aspect-ratio:16/9;
+  background:#000;
+  overflow:hidden;
+  box-shadow:0 14px 34px rgba(54,48,27,.14);
+}
+.proof-video video{width:100%;height:100%;display:block;object-fit:cover;background:#000;}
+
+/* ---------- "Enable sound" pill overlay on every player ---------- */
+
+.has-sound-pill{position:relative;}
+
+.sound-pill{
+  position:absolute;
+  top:12px;
+  left:12px;
+  z-index:3;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 14px 8px 11px;
+  border:0;
+  border-radius:999px;
+  background:rgba(0,0,0,.72);
+  color:#fff;
+  font-family:var(--body);
+  font-size:15px;
+  font-weight:500;
+  line-height:1;
+  cursor:pointer;
+  transition:background .2s ease, opacity .2s ease;
+}
+.sound-pill:hover{background:rgba(0,0,0,.88);}
+.sound-pill svg{width:17px;height:17px;flex:0 0 auto;}
+.sound-on .sound-pill{opacity:0;pointer-events:none;}
+
+/* ============================================================
+   9. FOOTER
+   ============================================================ */
+
+.footer{
+  background:linear-gradient(141deg,var(--black) 0%,var(--charcoal) 52%,var(--black) 100%);
+  padding:52px 0 46px;
+  text-align:center;
+  color:var(--white);
+}
+.footer-logo{width:180px;margin:0 auto 22px;}
+.footer-copy{font-size:19px;font-weight:700;margin-bottom:18px;}
+.footer-disclaimer{
+  font-size:16px;
+  font-weight:400;
+  line-height:1.5;
+  color:rgba(255,255,255,.9);
+  max-width:1010px;
+  margin:0 auto 20px;
+}
+.footer-links{font-size:17px;font-weight:700;margin-bottom:12px;}
+.footer-links a{color:var(--white);text-decoration:none;}
+.footer-links a:hover{text-decoration:underline;}
+.footer-credit{font-size:16px;color:rgba(255,255,255,.9);}
+.footer-credit a{color:var(--tan);font-weight:700;text-decoration:none;}
+.footer-credit a:hover{text-decoration:underline;}
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+
+[data-reveal]{opacity:0;transform:translateY(28px);}
+[data-reveal="left"]{transform:translateX(-38px);}
+[data-reveal="right"]{transform:translateX(38px);}
+[data-reveal].in{
+  opacity:1;
+  transform:none;
+  transition:opacity 1s linear, transform 1s linear;
+}
+
+@media (prefers-reduced-motion:reduce){
+  [data-reveal]{opacity:1!important;transform:none!important;}
+  .grad{animation:none;}
+  .btn::after{animation:none;}
+  .marquee-track{animation:none;}
+  html{scroll-behavior:auto;}
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width:1100px){
+  .t-grid{grid-template-columns:repeat(2,1fr);}
+  .btn{min-width:0;width:100%;max-width:432px;}
+  .cta-block{display:flex;flex-direction:column;align-items:center;text-align:center;}
+  .hero .cta-block{align-items:flex-start;text-align:left;}
+}
+
+/* Mid range: the desktop hero split still applies, but the copy column and the
+   portrait start competing for the same space — fade the plate under the text. */
+@media (min-width:901px) and (max-width:1200px){
+  .hero .bg{
+    background-image:linear-gradient(100deg,
+                       rgba(250,247,244,.94) 0%,
+                       rgba(250,247,244,.86) 40%,
+                       rgba(250,247,244,.35) 60%,
+                       rgba(250,247,244,0) 76%),
+                     url('assets/6a7466f28684435c587c2798.jpg');
+    background-size:auto, cover;
+  }
+  .hero-inner{padding-left:34px;padding-right:34px;}
+  .hero-col{max-width:min(58vw,560px);}
+  .hero .display{font-size:clamp(38px,4.9vw,54px);}
+  .hero-quote{font-size:18px;}
+  .checklist li{font-size:16px;}
+}
+
+@media (max-width:900px){
+  .hero .bg{
+    background-image:linear-gradient(180deg,rgba(250,247,244,.95) 0%,rgba(250,247,244,.88) 55%,rgba(250,247,244,.62) 100%),
+                     url('assets/6a7466f28684435c587c2798.jpg');
+    background-position:center right;
+    background-size:auto, cover;
+  }
+  .hero-inner{min-height:0;padding:40px 20px 52px;max-height:none;}
+  .hero-col{max-width:none;}
+  .pain-card{grid-template-columns:1fr;gap:26px;}
+  .tf-grid{grid-template-columns:1fr;}
+  .proof-grid{grid-template-columns:1fr;gap:22px;}
+  .marquee-track{gap:44px;}
+  .marquee-track img{height:36px;}
+}
+
+@media (max-width:640px){
+  .t-grid{grid-template-columns:1fr;}
+  .section{padding:44px 0;}
+  .hero-logo{width:160px;margin-bottom:30px;}
+  .btn .btn-main{font-size:21px;}
+  .btn .btn-sub{font-size:14px;}
+  .btn.btn-sm .btn-main{font-size:19px;}
+  .btn.btn-sm .btn-sub{font-size:13px;}
+  .eyebrow-pill{font-size:16px;padding:10px 20px;}
+  .countdown{gap:14px;}
+  .cd-unit{min-width:60px;}
+  .pain-card{padding:20px;}
+  .footer-copy{font-size:17px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ========================================================
+     1. HERO
+     ======================================================== -->
+<header class="hero">
+  <div class="bg" role="presentation"></div>
+  <div class="hero-inner">
+    <div class="hero-col">
+      <img class="hero-logo" src="assets/6a74098effc85279f489dfa5.png" alt="4S Summit" width="2186" height="725" data-reveal="left">
+
+      <span class="eyebrow-pill" data-reveal="left">Steal The Secrets of</span>
+
+      <h1 class="display" data-reveal="left">
+        The Top 1% <span class="grad">Medical<br>Aestetic Practices</span>
+      </h1>
+
+      <p class="hero-quote" data-reveal="left">
+        At the 4S Summit on September 25–27, 2026 in Kansas City, MO AND on December 4–6, 2026 in Miami, FL.
+      </p>
+
+      <ul class="checklist" data-reveal="left">
+        <li>Get a <b>CLEAR BLUEPRINT</b> for success in your exact niche and learn the tried and true strategies for maximizing conversions, revenue, retention, client LTV, and profitability.</li>
+        <li>Skip the guesswork by getting <b>DIRECT ANSWERS</b> to your most burning business questions.</li>
+        <li>And <b>FINALLY</b> solve your biggest growing pains so that you can smash the goals even you thought were <b>IMPOSSIBLE.</b></li>
+      </ul>
+
+      <div class="cta-block" data-reveal="left">
+        <a class="btn" href="tickets.html">
+          <span class="btn-main">YES! GET TICKET(S)</span>
+          <span class="btn-sub">Exclusive Discount On The Next Page</span>
+        </a>
+        <p class="cta-dates"><b>September 25–27, 2026</b>, in Kansas City, MO …AND <b>December 4–6, 2026</b>, in Miami, FL.</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ========================================================
+     2. INTRO VIDEO
+     ======================================================== -->
+<section class="section s-video">
+  <div class="bg" role="presentation"></div>
+  <div class="wrap center">
+    <div class="video-frame" data-reveal>
+      <iframe
+        src="https://www.youtube.com/embed/X6PBi4oqPgY?rel=0"
+        title="Terri Ross invites you to the 4S Summit"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen loading="lazy"></iframe>
+    </div>
+
+    <p class="body-copy" data-reveal>
+      The 4S Summit stands at the forefront of the aesthetics industry, offering an unparalleled opportunity to
+      delve into the core pillars of business success: Strategy, Systems, Sales, and Skills. This summit is not just an event;
+      it's a 2 1/2 day transformative journey for aesthetic professionals eager to elevate their practice to new heights.
+    </p>
+
+    <div class="cta-block is-center" data-reveal>
+      <a class="btn" href="tickets.html">
+        <span class="btn-main">YES! GET TICKET(S)</span>
+        <span class="btn-sub">Exclusive Discount On The Next Page</span>
+      </a>
+      <p class="cta-dates center"><b>September 25–27, 2026</b>, in Kansas City, MO<br>…AND <b>December 4–6, 2026</b>, in Miami, FL.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================
+     3. COUNTDOWN
+     ======================================================== -->
+<section class="section s-countdown">
+  <div class="bg" role="presentation"></div>
+  <div class="wrap center">
+    <h2 class="display on-dark" data-reveal>When Is The <span class="grad">Next 4S Summit?</span></h2>
+
+    <p class="lede on-dark" style="margin-top:18px" data-reveal>
+      <b>September 25–27, 2026</b>, in Kansas City, MO …AND <b>December 4–6, 2026</b>, in Miami, FL.
+    </p>
+
+    <div class="countdown" data-reveal aria-live="off">
+      <div class="cd-unit"><div class="cd-num" id="cd-days">00</div><div class="cd-label">days</div></div>
+      <div class="cd-unit"><div class="cd-num" id="cd-hours">00</div><div class="cd-label">hours</div></div>
+      <div class="cd-unit"><div class="cd-num" id="cd-minutes">00</div><div class="cd-label">minutes</div></div>
+      <div class="cd-unit"><div class="cd-num" id="cd-seconds">00</div><div class="cd-label">seconds</div></div>
+    </div>
+
+    <div class="cta-block is-center" data-reveal>
+      <a class="btn" href="tickets.html">
+        <span class="btn-main">YES! GET TICKET(S)</span>
+        <span class="btn-sub">Exclusive Discount On The Next Page</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================
+     4. TESTIMONIALS
+     ======================================================== -->
+<section class="section s-testimonials">
+  <div class="bg" role="presentation"></div>
+  <div class="wrap center">
+    <img class="brand-mark" src="assets/6a742310a177d5c2b9379e88.png" alt="4S Summit" data-reveal>
+
+    <h2 class="display" data-reveal>Hear From Other <span class="grad">Owners Like You</span></h2>
+    <p class="lede" style="margin-top:14px" data-reveal>Isn't It Time You Learn The Shortcuts of Your Industry's Top 1%?</p>
+
+    <div class="t-grid">
+      <figure class="t-card" data-reveal style="margin:0">
+        <div class="t-video">
+          <video controls muted playsinline preload="metadata"
+            src="https://assets.cdn.filesafe.space/jlHkSuyCxK6xIj7cYbeY/media/6a7429fea177d5c2b9464418.mp4"></video>
+        </div>
+        <figcaption class="t-quote">"I've been in the aesthetic industry for over 40 years… No matter <b>HOW MANY</b> times I hear Terri speak, I always learn something new."</figcaption>
+      </figure>
+
+      <figure class="t-card" data-reveal style="margin:0">
+        <div class="t-video">
+          <video controls muted playsinline preload="metadata"
+            src="https://assets.cdn.filesafe.space/jlHkSuyCxK6xIj7cYbeY/media/6a74282a47e61ee43a617c89.mp4"></video>
+        </div>
+        <figcaption class="t-quote">"Having the ability to understand how to get the most out of the first interaction with the patient is what I find <b>MOST VALUABLE</b>!"</figcaption>
+      </figure>
+
+      <figure class="t-card" data-reveal style="margin:0">
+        <div class="t-video">
+          <video controls muted playsinline preload="metadata"
+            src="https://assets.cdn.filesafe.space/jlHkSuyCxK6xIj7cYbeY/media/6a7429fef4dee0f60f6f0585.mp4"></video>
+        </div>
+        <figcaption class="t-quote">"The information that I've gotten so far has been <b>INVALUABLE</b>… It was so much information in such a short amount of time! "</figcaption>
+      </figure>
+
+      <figure class="t-card" data-reveal style="margin:0">
+        <div class="t-video">
+          <video controls muted playsinline preload="metadata"
+            src="https://assets.cdn.filesafe.space/jlHkSuyCxK6xIj7cYbeY/media/6a74282aa177d5c2b93fa660.mp4"></video>
+        </div>
+        <figcaption class="t-quote">"It's a great open floor where fellow colleagues can share their thoughts and opinions and get <b>GREAT</b> feedback, so I'm going back to the practice with <b>EVEN MORE</b> than I expected.</figcaption>
+      </figure>
+
+      <figure class="t-card" data-reveal style="margin:0">
+        <div class="t-video">
+          <video controls muted playsinline preload="metadata"
+            src="https://assets.cdn.filesafe.space/jlHkSuyCxK6xIj7cYbeY/media/6a74282aac7d7ffc64511319.mp4"></video>
+        </div>
+        <figcaption class="t-quote">"Terri and her team. They've seen it, they've heard it, and the best part is, they know how to solve it…<br>This is the only summit that <b>EXISTS</b> for people like me."</figcaption>
+      </figure>
+
+      <figure class="t-card" data-reveal style="margin:0">
+        <div class="t-video">
+          <video controls muted playsinline preload="metadata"
+            src="https://assets.cdn.filesafe.space/jlHkSuyCxK6xIj7cYbeY/media/6a74282a47e61ee43a617c96.mp4"></video>
+        </div>
+        <figcaption class="t-quote">"I have invested in other trainings, and <b>NOTHING</b> compares to the 4S Summit because they teach you the numbers IN your aesthetics business."</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================
+     5. PARTNERS
+     ======================================================== -->
+<section class="section s-partners">
+  <div class="bg" role="presentation"></div>
+  <div class="wrap center">
+    <h2 class="display" data-reveal>Our Partners</h2>
+
+    <div class="marquee" data-reveal>
+      <div class="marquee-track" id="marquee-track">
+        <img src="assets/6a742f6ec863244457aa0f8b.png" alt="Partner logo">
+        <img src="assets/6a742f6eac7d7ffc646399a6.png" alt="Partner logo">
+        <img src="assets/6a742f6ef4dee0f60f7e7e3c.png" alt="Partner logo">
+        <img src="assets/6a742f6ec863244457aa0f94.png" alt="Partner logo">
+        <img src="assets/6a742f6ea177d5c2b9554d41.png" alt="Partner logo">
+        <img src="assets/6a742f6eac7d7ffc646399af.png" alt="Partner logo">
+        <img src="assets/6a742f72c863244457aa0fd7.png" alt="Partner logo">
+        <img src="assets/6a742f72f4dee0f60f7e909c.png" alt="Partner logo">
+        <img src="assets/6a742f72a177d5c2b9555d88.png" alt="Partner logo">
+        <img src="assets/6a742f72a177d5c2b9555dad.png" alt="Partner logo">
+        <img src="assets/6a742f73f4dee0f60f7e926a.png" alt="Partner logo">
+        <img src="assets/6a742f73c863244457aa0ff8.png" alt="Partner logo">
+        <img src="assets/6a742f76ac7d7ffc6463a8e0.png" alt="Partner logo">
+        <img src="assets/6a742f7647e61ee43a709d43.png" alt="Partner logo">
+        <img src="assets/6a742f76ac7d7ffc6463a8c0.png" alt="Partner logo">
+        <img src="assets/6a742f77c863244457aa1056.png" alt="Partner logo">
+        <img src="assets/6a742f76c863244457aa1048.png" alt="Partner logo">
+      </div>
+    </div>
+
+    <p class="partners-note" data-reveal>And countless others…</p>
+
+    <div class="cta-block is-center" data-reveal>
+      <a class="btn" href="tickets.html">
+        <span class="btn-main">YES! GET TICKET(S)</span>
+        <span class="btn-sub">Exclusive Discount On The Next Page</span>
+      </a>
+      <p class="cta-dates center"><b>September 25–27, 2026</b>, in Kansas City, MO<br>…AND <b>December 4–6, 2026</b>, in Miami, FL.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================
+     6. BIGGEST HEADACHES
+     ======================================================== -->
+<section class="section s-pain">
+  <div class="bg" role="presentation"></div>
+  <div class="wrap center">
+    <span class="eyebrow-pill on-dark" data-reveal>Overcome The Biggest Headaches In</span>
+    <h2 class="display" data-reveal><span class="grad">Your Medical Aestetics Practice</span></h2>
+    <p class="pain-sub" data-reveal>And Finally Expand Beyond Your Wildest Dreams</p>
+
+    <div class="pain-list">
+
+      <article class="pain-card" data-reveal>
+        <img class="pain-photo" src="assets/6a745e0f791b229b3ca3d4e6.jpg" alt="4S Summit panel discussion on stage" loading="lazy">
+        <div style="text-align:left">
+          <div class="pain-head">
+            <img class="pain-num" src="assets/6a744b369a9c7792ea5fa338.png" alt="01" loading="lazy">
+            <h3 class="pain-title">Turbocharge Your Business Growth</h3>
+          </div>
+          <div class="pain-rule"></div>
+          <p class="body-copy on-dark">By unlocking 50–150% top-line growth in just 12 months by optimizing key processes in addition to learning what reports to run and how to interpret them as you may be missing out on opportunities right in front of you.</p>
+          <div class="cta-block">
+            <a class="btn btn-sm" href="tickets.html">
+              <span class="btn-main">YES! GET TICKET(S)</span>
+              <span class="btn-sub">Exclusive Discount On The Next Page</span>
+            </a>
+            <p class="cta-dates on-dark"><b>September 25–27, 2026</b>, in Kansas City, MO<br>…AND <b>December 4–6, 2026</b>, in Miami, FL.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="pain-card" data-reveal>
+        <img class="pain-photo" src="assets/6a7473be8684435c58c11dd1.jpg" alt="Attendees networking at the 4S Summit" loading="lazy">
+        <div style="text-align:left">
+          <div class="pain-head">
+            <img class="pain-num" src="assets/6a74508d8880872019109d47.png" alt="02" loading="lazy">
+            <h3 class="pain-title">Mastering The Art of Selling</h3>
+          </div>
+          <div class="pain-rule"></div>
+          <p class="body-copy on-dark">Learning how to master the art of consultation and how to ask the key questions that will appeal to the customer's emotions will increase your patient conversion rates and your revenue per hour. Learn how to be intentional vs. transactional.</p>
+          <div class="cta-block">
+            <a class="btn btn-sm" href="tickets.html">
+              <span class="btn-main">YES! GET TICKET(S)</span>
+              <span class="btn-sub">Exclusive Discount On The Next Page</span>
+            </a>
+            <p class="cta-dates on-dark"><b>September 25–27, 2026</b>, in Kansas City, MO<br>…AND <b>December 4–6, 2026</b>, in Miami, FL.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="pain-card" data-reveal>
+        <img class="pain-photo" src="assets/6a745e0ff4dee0f60ffcf9eb.jpg" alt="Breakout session at the 4S Summit" loading="lazy">
+        <div style="text-align:left">
+          <div class="pain-head">
+            <img class="pain-num" src="assets/6a74508d9a9c7792ea69aa16.png" alt="03" loading="lazy">
+            <h3 class="pain-title">Gain A Competitive Edge</h3>
+          </div>
+          <div class="pain-rule"></div>
+          <p class="body-copy on-dark">By developing your "UVP" Unique Value Proposition which is "WHY' clients choose you. How to build a comprehensive marketing strategy that targets your ideal audience, builds brand awareness, and generates endless leads for your business.</p>
+          <div class="cta-block">
+            <a class="btn btn-sm" href="tickets.html">
+              <span class="btn-main">YES! GET TICKET(S)</span>
+              <span class="btn-sub">Exclusive Discount On The Next Page</span>
+            </a>
+            <p class="cta-dates on-dark"><b>September 25–27, 2026</b>, in Kansas City, MO<br>…AND <b>December 4–6, 2026</b>, in Miami, FL.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="pain-card" data-reveal>
+        <img class="pain-photo" src="assets/6a745e0f791b229b3ca3d4f4.jpg" alt="4S Summit attendees at a workshop table" loading="lazy">
+        <div style="text-align:left">
+          <div class="pain-head">
+            <img class="pain-num" src="assets/6a74508df4dee0f60fc7f859.png" alt="04" loading="lazy">
+            <h3 class="pain-title">Master Your Finances</h3>
+          </div>
+          <div class="pain-rule"></div>
+          <p class="body-copy on-dark">You will learn the most critical KPIs and industry benchmarks that will provide insights so you can make informed decisions and create a resilient business that is both flexible and adaptive.</p>
+          <div class="cta-block">
+            <a class="btn btn-sm" href="tickets.html">
+              <span class="btn-main">YES! GET TICKET(S)</span>
+              <span class="btn-sub">Exclusive Discount On The Next Page</span>
+            </a>
+            <p class="cta-dates on-dark"><b>September 25–27, 2026</b>, in Kansas City, MO<br>…AND <b>December 4–6, 2026</b>, in Miami, FL.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="pain-card" data-reveal>
+        <img class="pain-photo" src="assets/6a745e0f568ec7352451d7e9.jpg" alt="Group photo of 4S Summit attendees" loading="lazy">
+        <div style="text-align:left">
+          <div class="pain-head">
+            <img class="pain-num" src="assets/6a74508d605a078260b8fee9.png" alt="05" loading="lazy">
+            <h3 class="pain-title">Stay Ahead of the Competition</h3>
+          </div>
+          <div class="pain-rule"></div>
+          <p class="body-copy on-dark">By developing a strong brand, differentiating yourself in the market, and adapting to changing trends and technologies.</p>
+          <div class="cta-block">
+            <a class="btn btn-sm" href="tickets.html">
+              <span class="btn-main">YES! GET TICKET(S)</span>
+              <span class="btn-sub">Exclusive Discount On The Next Page</span>
+            </a>
+            <p class="cta-dates on-dark"><b>September 25–27, 2026</b>, in Kansas City, MO<br>…AND <b>December 4–6, 2026</b>, in Miami, FL.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="pain-card" data-reveal>
+        <img class="pain-photo" src="assets/6a745e0f8684435c584a464b.jpg" alt="Speakers in conversation at the 4S Summit" loading="lazy">
+        <div style="text-align:left">
+          <div class="pain-head">
+            <img class="pain-num" src="assets/6a74508d605a078260b8fffb.png" alt="06" loading="lazy">
+            <h3 class="pain-title">Create Goals and a Forecast</h3>
+          </div>
+          <div class="pain-rule"></div>
+          <p class="body-copy on-dark">With a flexible, results-driven guide that will help you understand what treatments and services yield the highest ROI, what your rooms should make per hour, and what the most critical KPIs are that will help you achieve your goals faster</p>
+          <div class="cta-block">
+            <a class="btn btn-sm" href="tickets.html">
+              <span class="btn-main">YES! GET TICKET(S)</span>
+              <span class="btn-sub">Exclusive Discount On The Next Page</span>
+            </a>
+            <p class="cta-dates on-dark"><b>September 25–27, 2026</b>, in Kansas City, MO<br>…AND <b>December 4–6, 2026</b>, in Miami, FL.</p>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <p class="pain-closer" data-reveal>Isn't time you get your team trained in business growth?</p>
+
+    <div class="cta-block is-center" data-reveal>
+      <a class="btn" href="tickets.html">
+        <span class="btn-main">YES! GET TICKET(S)</span>
+        <span class="btn-sub">Exclusive Discount On The Next Page</span>
+      </a>
+      <p class="cta-dates on-dark center"><b>September 25–27, 2026</b>, in Kansas City, MO<br>…AND <b>December 4–6, 2026</b>, in Miami, FL.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================
+     7. HOW YOU WILL TRANSFORM
+     ======================================================== -->
+<section class="section s-transform">
+  <div class="bg" role="presentation"></div>
+  <div class="wrap center">
+    <h2 class="display" data-reveal>How You Will <span class="grad">Transform</span></h2>
+
+    <div class="tf-grid">
+      <div class="tf-card" data-reveal="left" style="text-align:left">
+        <h3 class="tf-title bad">"Figuring It Out" On Your Own</h3>
+        <ul class="tf-list bad">
+          <li>Keep guessing what might work and depend on trial and error</li>
+          <li>Get LOST on the internet, searching for solutions that are commonly GATEKEPT by the top players in the industry</li>
+          <li>Keep the same momentum you have now and hope that things will change.</li>
+        </ul>
+        <div class="cta-block">
+          <a class="btn btn-sm" href="tickets.html">
+            <span class="btn-main">YES! GET TICKET(S)</span>
+            <span class="btn-sub">Exclusive Discount On The Next Page</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="tf-card" data-reveal="right" style="text-align:left">
+        <h3 class="tf-title good">Attending The 4S Summit 2.5–Day Event</h3>
+        <ul class="tf-list good">
+          <li>Skip the guess work and get DIRECT ADVICE that is UNIQUE to your business</li>
+          <li>Find the EXACT SOLUTIONS to your biggest problems that are commonly GATEKEPT by the top players in the industry</li>
+          <li>Fast track your team toward smashing your 2025 goals</li>
+        </ul>
+        <div class="cta-block">
+          <a class="btn btn-sm" href="tickets.html">
+            <span class="btn-main">YES! GET TICKET(S)</span>
+            <span class="btn-sub">Exclusive Discount On The Next Page</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================
+     8. STILL READING — MORE PROOF
+     ======================================================== -->
+<section class="section s-proof">
+  <div class="bg" role="presentation"></div>
+  <div class="wrap center">
+    <h2 class="display" data-reveal>Still Reading? Okay. <span class="grad">Here's More Proof.</span></h2>
+
+    <div class="proof-grid">
+      <div class="proof-video" data-reveal>
+        <video controls muted playsinline preload="metadata"
+          src="https://assets.cdn.filesafe.space/jlHkSuyCxK6xIj7cYbeY/media/6a7457218684435c58314116.mp4"></video>
+      </div>
+      <div class="proof-video" data-reveal>
+        <video controls muted playsinline preload="metadata"
+          src="https://assets.cdn.filesafe.space/jlHkSuyCxK6xIj7cYbeY/media/6a7457213ee92d7b63f6cba5.mp4"></video>
+      </div>
+      <div class="proof-video" data-reveal>
+        <video controls muted playsinline preload="metadata"
+          src="https://assets.cdn.filesafe.space/jlHkSuyCxK6xIj7cYbeY/media/6a74572188808720192e9002.mp4"></video>
+      </div>
+      <div class="proof-video" data-reveal>
+        <video controls muted playsinline preload="metadata"
+          src="https://assets.cdn.filesafe.space/jlHkSuyCxK6xIj7cYbeY/media/6a74282a47e61ee43a617c7c.mp4"></video>
+      </div>
+    </div>
+
+    <div class="cta-block is-center" data-reveal>
+      <a class="btn" href="tickets.html">
+        <span class="btn-main">YES! GET TICKET(S)</span>
+        <span class="btn-sub">Exclusive Discount On The Next Page</span>
+      </a>
+      <p class="cta-dates center"><b>September 25–27, 2026</b>, in Kansas City, MO<br>…AND <b>December 4–6, 2026</b>, in Miami, FL.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================
+     9. FOOTER
+     ======================================================== -->
+<footer class="footer">
+  <div class="wrap">
+    <img class="footer-logo" src="assets/6a7471268684435c58b02b46.png" alt="4S Summit" loading="lazy">
+    <p class="footer-copy">© 2026 4S Summit. All Rights Reserved.</p>
+    <p class="footer-disclaimer">
+      The 4S Summit provides educational content, strategies, and resources designed to help aesthetic practice owners improve their
+      business knowledge and skills. Information shared during the event is for educational purposes only and does not guarantee specific
+      business results, revenue growth, or professional outcomes. Results may vary based on individual effort, implementation, market
+      conditions, and other factors.
+    </p>
+    <p class="footer-links">
+      <a href="#">Privacy Policy</a> | <a href="#">Terms &amp; Conditions</a> | Copyright 2026 – 4S Summit
+    </p>
+    <p class="footer-credit">Designed by <a href="https://livemediadigital.com" target="_blank" rel="noopener">Live Media Digital</a></p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ---------- countdown to the next 4S Summit ---------- */
+  var TARGET = new Date(2026, 8, 25, 0, 0, 0).getTime(); // Sept 25, 2026, local time
+
+  var els = {
+    days: document.getElementById('cd-days'),
+    hours: document.getElementById('cd-hours'),
+    minutes: document.getElementById('cd-minutes'),
+    seconds: document.getElementById('cd-seconds')
+  };
+
+  function tick() {
+    var diff = Math.max(0, TARGET - Date.now());
+    var s = Math.floor(diff / 1000);
+    var d = Math.floor(s / 86400);
+    var h = Math.floor((s % 86400) / 3600);
+    var m = Math.floor((s % 3600) / 60);
+    var sec = s % 60;
+
+    function pad(n) { return n < 10 ? '0' + n : String(n); }
+
+    els.days.textContent = d;
+    els.hours.textContent = pad(h);
+    els.minutes.textContent = pad(m);
+    els.seconds.textContent = pad(sec);
+  }
+
+  if (els.days) {
+    tick();
+    setInterval(tick, 1000);
+  }
+
+  /* ---------- scroll reveal ---------- */
+  var targets = document.querySelectorAll('[data-reveal]');
+
+  if (!('IntersectionObserver' in window)) {
+    targets.forEach(function (el) { el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+    targets.forEach(function (el) { io.observe(el); });
+  }
+
+  /* ---------- seamless partner marquee ---------- */
+  var track = document.getElementById('marquee-track');
+  if (track) {
+    track.innerHTML += track.innerHTML; // duplicate for a continuous -50% loop
+  }
+
+  /* ---------- video players: "Enable sound" pill + one at a time ---------- */
+  var videos = Array.prototype.slice.call(document.querySelectorAll('video'));
+
+  var MUTE_ICON =
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" ' +
+    'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+    '<path d="M11 5 6 9H2v6h4l5 4z"/><line x1="23" y1="9" x2="17" y2="15"/>' +
+    '<line x1="17" y1="9" x2="23" y2="15"/></svg>';
+
+  videos.forEach(function (v) {
+    var shell = v.parentNode;
+    if (!shell) { return; }
+    shell.classList.add('has-sound-pill');
+
+    var pill = document.createElement('button');
+    pill.type = 'button';
+    pill.className = 'sound-pill';
+    pill.innerHTML = MUTE_ICON + '<span>Enable sound</span>';
+
+    pill.addEventListener('click', function () {
+      v.muted = false;
+      v.volume = 1;
+      var p = v.play();
+      if (p && typeof p.catch === 'function') { p.catch(function () {}); }
+      shell.classList.add('sound-on');
+    });
+
+    v.addEventListener('volumechange', function () {
+      shell.classList.toggle('sound-on', !v.muted);
+    });
+
+    shell.appendChild(pill);
+
+    /* pause every other player when this one starts */
+    v.addEventListener('play', function () {
+      videos.forEach(function (other) {
+        if (other !== v) { other.pause(); }
+      });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

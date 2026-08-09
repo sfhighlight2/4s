@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reserve Your Seat — 4S Summit</title>
+<meta name="description" content="Reserve your seat at the 4S Summit — September 25-27, 2026 in Kansas City, MO or December 4-6, 2026 in Miami, FL.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+
+<!-- ============================================================
+     META (FACEBOOK) PIXEL  —  PASTE YOUR BASE PIXEL CODE HERE
+     ------------------------------------------------------------
+     Paste the standard snippet from Events Manager below. Nothing
+     else needs to change: the form already calls fbq() on submit
+     and safely no-ops until this pixel exists.
+
+     <script>
+     !function(f,b,e,v,n,t,s){...}(window, document,'script',
+     'https://connect.facebook.net/en_US/fbevents.js');
+     fbq('init', 'YOUR_PIXEL_ID');
+     fbq('track', 'PageView');
+     </script>
+     ============================================================ -->
+
+<style>
+@font-face{
+  font-family:'Seasons';
+  src:url('assets/69bccb4e3147fd9845717e95.ttf') format('truetype');
+  font-display:swap;
+}
+
+:root{
+  --headline:'Seasons','Playfair Display',Georgia,serif;
+  --body:'Plus Jakarta Sans',ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+
+  --black:#000000;
+  --white:#ffffff;
+  --tan:#b89c87;
+  --tan-light:#c8b1a5;
+  --tan-deep:#a3846c;
+  --cream:#fffbf2;
+  --charcoal:#303030;
+  --red:#e93d3d;
+  --green:#2e7d32;
+
+  --ink-soft:#4a4340;
+  --line:rgba(184,156,135,.35);
+
+  --radius:5px;
+  --radius-card:12px;
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+
+body{
+  margin:0;
+  font-family:var(--body);
+  font-size:16px;
+  line-height:1.45;
+  color:var(--black);
+  background:#f7f5f3;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+img{max-width:100%;height:auto;display:block;border:0;}
+p{margin:0;}
+
+.wrap{width:100%;max-width:1100px;margin:0 auto;padding:0 20px;position:relative;z-index:2;}
+
+/* ---------- page shell ---------- */
+
+.page{
+  position:relative;
+  min-height:100vh;
+  padding:34px 0 70px;
+  overflow:hidden;
+}
+.page-bg{
+  position:absolute;
+  inset:0;
+  background:url('assets/6a746cb29a9c7792eaf877ac.jpg') center/100% 100% no-repeat;
+  z-index:0;
+  pointer-events:none;
+}
+
+.topbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  margin-bottom:34px;
+}
+.topbar img{width:150px;}
+.back-link{
+  font-size:15px;
+  font-weight:600;
+  color:var(--ink-soft);
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  padding:9px 16px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:rgba(255,255,255,.6);
+  transition:background .2s ease,color .2s ease;
+}
+.back-link:hover{background:#fff;color:var(--black);}
+
+/* ---------- headline ---------- */
+
+.head{text-align:center;margin-bottom:34px;}
+.display{
+  font-family:var(--headline);
+  font-weight:400;
+  font-size:clamp(32px,4vw,54px);
+  line-height:1.08;
+  letter-spacing:.5px;
+  margin:0;
+}
+.grad{
+  background:linear-gradient(150deg,#c8b1a5 0%,#b89c87 25%,#c8b1a5 50%,#b89c87 75%,#c8b1a5 100%);
+  background-size:300% 300%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  color:transparent;
+  animation:gradientMove 6s ease infinite;
+}
+@keyframes gradientMove{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+.head p{
+  font-size:18px;
+  font-weight:500;
+  margin-top:14px;
+  color:var(--ink-soft);
+}
+
+/* ---------- layout ---------- */
+
+.cols{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);
+  gap:26px;
+  align-items:start;
+}
+
+.card{
+  background:linear-gradient(180deg,rgba(255,255,255,.96),rgba(252,248,244,.94));
+  border:1px solid var(--line);
+  border-radius:var(--radius-card);
+  box-shadow:0 18px 44px rgba(54,48,27,.10);
+  padding:30px 28px;
+}
+
+/* ---------- summary ---------- */
+
+.summary-label{
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:1.4px;
+  text-transform:uppercase;
+  color:var(--tan-deep);
+  margin-bottom:12px;
+}
+.summary-event{
+  font-family:var(--headline);
+  font-size:29px;
+  line-height:1.15;
+  margin-bottom:6px;
+}
+.summary-dates{
+  font-size:17px;
+  font-weight:700;
+  margin-bottom:22px;
+}
+.summary-rule{height:1px;background:var(--line);margin:22px 0;}
+
+.incl{list-style:none;margin:0;padding:0;display:grid;gap:13px;}
+.incl li{
+  position:relative;
+  padding-left:29px;
+  font-size:15.5px;
+  line-height:1.45;
+  color:var(--ink-soft);
+}
+.incl li::before{
+  content:"";
+  position:absolute;
+  left:0;top:2px;
+  width:17px;height:17px;
+  border-radius:50%;
+  background:var(--tan) url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/11px 11px no-repeat;
+}
+
+.summary-note{
+  margin-top:22px;
+  padding:14px 16px;
+  border-radius:8px;
+  background:rgba(184,156,135,.13);
+  font-size:14.5px;
+  line-height:1.5;
+  color:var(--ink-soft);
+}
+
+/* ---------- form ---------- */
+
+.form-title{
+  font-size:22px;
+  font-weight:800;
+  margin-bottom:4px;
+}
+.form-sub{
+  font-size:15.5px;
+  color:var(--ink-soft);
+  margin-bottom:24px;
+}
+
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.field{margin-bottom:16px;}
+
+.field label{
+  display:block;
+  font-size:14px;
+  font-weight:700;
+  margin-bottom:7px;
+}
+.req{color:var(--tan-deep);}
+
+.field input,
+.field select{
+  width:100%;
+  font-family:var(--body);
+  font-size:16px;
+  color:var(--black);
+  padding:13px 14px;
+  border:1px solid rgba(120,105,95,.32);
+  border-radius:7px;
+  background:#fff;
+  transition:border-color .18s ease, box-shadow .18s ease;
+  -webkit-appearance:none;
+  appearance:none;
+}
+.field select{
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23786959' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  background-position:right 13px center;
+  background-size:17px;
+  padding-right:42px;
+  cursor:pointer;
+}
+.field input:focus,
+.field select:focus{
+  outline:0;
+  border-color:var(--tan);
+  box-shadow:0 0 0 3px rgba(184,156,135,.22);
+}
+.field input::placeholder{color:#a89c94;}
+
+.field.invalid input,
+.field.invalid select{
+  border-color:var(--red);
+  box-shadow:0 0 0 3px rgba(233,61,61,.13);
+}
+.err{
+  display:none;
+  font-size:13.5px;
+  font-weight:600;
+  color:var(--red);
+  margin-top:6px;
+}
+.field.invalid .err{display:block;}
+
+/* ---------- submit ---------- */
+
+.btn{
+  position:relative;
+  display:block;
+  width:100%;
+  border:0;
+  cursor:pointer;
+  padding:17px 28px;
+  margin-top:6px;
+  border-radius:var(--radius);
+  color:var(--white);
+  text-align:center;
+  overflow:hidden;
+  font-family:var(--body);
+  background:linear-gradient(135deg,var(--tan-light),var(--tan),var(--tan-light));
+  background-size:200% 200%;
+  box-shadow:0 6px 20px rgba(184,156,135,.28);
+  transition:transform .25s ease, box-shadow .25s ease, background-position .6s ease, opacity .2s ease;
+}
+.btn:hover:not(:disabled){
+  transform:translateY(-2px);
+  background-position:100% 50%;
+  box-shadow:0 12px 30px rgba(184,156,135,.42);
+}
+.btn:active:not(:disabled){transform:translateY(0);}
+.btn:disabled{cursor:not-allowed;opacity:.72;}
+
+.btn::after{
+  content:"";
+  position:absolute;
+  top:0;left:-120%;
+  width:70%;height:100%;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,.45),transparent);
+  transform:skewX(-20deg);
+  animation:btnShine 3.6s ease-in-out infinite;
+  pointer-events:none;
+}
+.btn:disabled::after{animation:none;}
+@keyframes btnShine{
+  0%{left:-120%;}
+  55%{left:130%;}
+  100%{left:130%;}
+}
+
+.btn-main{display:block;font-size:23px;font-weight:800;line-height:1.2;}
+.btn-sub{display:block;font-size:15px;font-weight:400;opacity:.85;margin-top:2px;}
+
+.spinner{
+  display:none;
+  width:19px;height:19px;
+  margin:0 auto;
+  border:2.5px solid rgba(255,255,255,.4);
+  border-top-color:#fff;
+  border-radius:50%;
+  animation:spin .7s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg);}}
+.is-busy .spinner{display:block;}
+.is-busy .btn-main,
+.is-busy .btn-sub{display:none;}
+
+.form-foot{
+  margin-top:15px;
+  font-size:13.5px;
+  line-height:1.5;
+  color:var(--ink-soft);
+  text-align:center;
+}
+
+.form-error{
+  display:none;
+  margin-bottom:18px;
+  padding:13px 15px;
+  border-radius:8px;
+  border:1px solid rgba(233,61,61,.4);
+  background:rgba(233,61,61,.09);
+  color:#a32020;
+  font-size:14.5px;
+  font-weight:600;
+}
+.form-error.show{display:block;}
+
+/* ---------- success / dev fallback ---------- */
+
+.done{display:none;text-align:center;padding:14px 0 6px;}
+.done.show{display:block;}
+.done-mark{
+  width:58px;height:58px;
+  margin:0 auto 18px;
+  border-radius:50%;
+  background:var(--tan) url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/29px 29px no-repeat;
+}
+.done h2{font-family:var(--headline);font-size:31px;font-weight:400;margin:0 0 10px;}
+.done p{font-size:16px;color:var(--ink-soft);margin-bottom:16px;}
+.done-data{
+  text-align:left;
+  background:#faf7f4;
+  border:1px dashed var(--line);
+  border-radius:8px;
+  padding:16px;
+  font-size:13.5px;
+  line-height:1.75;
+  color:var(--ink-soft);
+  white-space:pre-wrap;
+  word-break:break-word;
+}
+
+/* ---------- footer ---------- */
+
+.footer{
+  background:linear-gradient(141deg,var(--black) 0%,var(--charcoal) 52%,var(--black) 100%);
+  padding:42px 0 38px;
+  text-align:center;
+  color:var(--white);
+}
+.footer-logo{width:160px;margin:0 auto 18px;}
+.footer-copy{font-size:17px;font-weight:700;margin-bottom:14px;}
+.footer-links{font-size:16px;font-weight:700;margin-bottom:11px;}
+.footer-links a{color:var(--white);text-decoration:none;}
+.footer-links a:hover{text-decoration:underline;}
+.footer-credit{font-size:15px;color:rgba(255,255,255,.9);}
+.footer-credit a{color:var(--tan);font-weight:700;text-decoration:none;}
+.footer-credit a:hover{text-decoration:underline;}
+
+/* ---------- responsive ---------- */
+
+@media (max-width:900px){
+  .cols{grid-template-columns:1fr;gap:20px;}
+  .page{padding:26px 0 54px;}
+
+  /* Stacked: lead with the form, event summary underneath.
+     Only the visual order changes — the summary holds no focusable
+     elements, so tab order is unaffected. */
+  .cols > .card--form{order:1;}
+  .cols > .card--summary{order:2;}
+}
+@media (max-width:600px){
+  .card{padding:24px 20px;}
+  .grid-2{grid-template-columns:1fr;gap:0;}
+  .topbar img{width:128px;}
+  .back-link{padding:8px 13px;font-size:14px;}
+  .summary-event{font-size:25px;}
+  .btn-main{font-size:20px;}
+  .btn-sub{font-size:14px;}
+}
+@media (max-width:380px){
+  .topbar{flex-direction:column;align-items:flex-start;gap:12px;}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .grad{animation:none;}
+  .btn::after{animation:none;}
+}
+</style>
+</head>
+<body>
+
+<main class="page">
+  <div class="page-bg" role="presentation"></div>
+
+  <div class="wrap">
+
+    <div class="topbar">
+      <a href="index.html" aria-label="4S Summit home">
+        <img src="assets/6a74098effc85279f489dfa5.png" alt="4S Summit">
+      </a>
+      <a class="back-link" href="index.html">&larr; Back</a>
+    </div>
+
+    <div class="head">
+      <h1 class="display">Reserve Your <span class="grad">Seat</span></h1>
+      <p>Tell us where to send your ticket details, then continue to secure checkout.</p>
+    </div>
+
+    <div class="cols">
+
+      <!-- ---------------- order summary ---------------- -->
+      <aside class="card card--summary">
+        <div class="summary-label">Your Event</div>
+        <div class="summary-event" id="summary-city">4S Summit — Kansas City, MO</div>
+        <div class="summary-dates" id="summary-dates">September 25–27, 2026</div>
+
+        <div class="summary-rule"></div>
+
+        <div class="summary-label">What's Included</div>
+        <ul class="incl">
+          <li>Full 2.5-day access to all Strategy, Systems, Sales &amp; Skills sessions</li>
+          <li>A clear blueprint for growth built around your exact niche</li>
+          <li>Direct answers to your most burning business questions</li>
+          <li>The KPIs, benchmarks and reports the top 1% actually run</li>
+          <li>Networking with aesthetic practice owners at your level and above</li>
+        </ul>
+
+        <div class="summary-note">
+          Your exclusive discount is applied on the checkout page after this step.
+        </div>
+      </aside>
+
+      <!-- ---------------- form ---------------- -->
+      <section class="card card--form">
+
+        <div id="form-wrap">
+          <h2 class="form-title">Your Details</h2>
+          <p class="form-sub">Takes about 30 seconds. All fields are required.</p>
+
+          <div class="form-error" id="form-error" role="alert"></div>
+
+          <form id="ticket-form" novalidate>
+
+            <div class="grid-2">
+              <div class="field" data-field="firstName">
+                <label for="firstName">First Name <span class="req">*</span></label>
+                <input type="text" id="firstName" name="firstName" autocomplete="given-name" placeholder="Jane">
+                <div class="err">Please enter your first name.</div>
+              </div>
+
+              <div class="field" data-field="lastName">
+                <label for="lastName">Last Name <span class="req">*</span></label>
+                <input type="text" id="lastName" name="lastName" autocomplete="family-name" placeholder="Doe">
+                <div class="err">Please enter your last name.</div>
+              </div>
+            </div>
+
+            <div class="field" data-field="email">
+              <label for="email">Email Address <span class="req">*</span></label>
+              <input type="email" id="email" name="email" autocomplete="email" inputmode="email" placeholder="jane@yourpractice.com">
+              <div class="err">Please enter a valid email address.</div>
+            </div>
+
+            <div class="field" data-field="phone">
+              <label for="phone">Phone Number <span class="req">*</span></label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="tel" placeholder="(555) 123-4567">
+              <div class="err">Please enter a valid phone number.</div>
+            </div>
+
+            <div class="field" data-field="business">
+              <label for="business">Practice / Business Name <span class="req">*</span></label>
+              <input type="text" id="business" name="business" autocomplete="organization" placeholder="Radiance Medical Aesthetics">
+              <div class="err">Please enter your practice or business name.</div>
+            </div>
+
+            <div class="field" data-field="event">
+              <label for="event">Which Event? <span class="req">*</span></label>
+              <select id="event" name="event">
+                <option value="kansas-city" selected>Kansas City, MO — September 25–27, 2026</option>
+                <option value="miami">Miami, FL — December 4–6, 2026</option>
+              </select>
+              <div class="err">Please choose an event.</div>
+            </div>
+
+            <button class="btn" type="submit" id="submit-btn">
+              <span class="btn-main">CONTINUE TO CHECKOUT</span>
+              <span class="btn-sub">Exclusive Discount Applied On The Next Page</span>
+              <span class="spinner" aria-hidden="true"></span>
+            </button>
+
+            <p class="form-foot">
+              You'll be taken to our secure checkout to complete your ticket purchase.
+            </p>
+          </form>
+        </div>
+
+        <!-- shown only when no payment link is configured yet -->
+        <div class="done" id="done">
+          <div class="done-mark" aria-hidden="true"></div>
+          <h2>Details Received</h2>
+          <p id="done-msg"></p>
+          <div class="done-data" id="done-data"></div>
+        </div>
+
+      </section>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <img class="footer-logo" src="assets/6a7471268684435c58b02b46.png" alt="4S Summit" loading="lazy">
+    <p class="footer-copy">© 2026 4S Summit. All Rights Reserved.</p>
+    <p class="footer-links">
+      <a href="#">Privacy Policy</a> | <a href="#">Terms &amp; Conditions</a> | Copyright 2026 – 4S Summit
+    </p>
+    <p class="footer-credit">Designed by <a href="https://livemediadigital.com" target="_blank" rel="noopener">Live Media Digital</a></p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ==========================================================
+     CONFIG  —  THE ONLY PART YOU NEED TO EDIT
+     ========================================================== */
+
+  var CONFIG = {
+
+    /* 1. GHL inbound webhook. Paste the URL from your GHL workflow
+          trigger ("Inbound Webhook"). Leave "" to skip posting. */
+    webhookUrl: '',
+
+    /* 2. GHL payment / order form links, one per event.
+          Leave "" and the page shows a confirmation panel instead
+          of redirecting, so you can test the form before go-live. */
+    paymentLinks: {
+      'kansas-city': '',
+      'miami': ''
+    },
+
+    /* 3. Meta (Facebook) pixel event fired on a successful submit.
+          "Lead" suits a form fill; switch to "InitiateCheckout" if
+          you'd rather optimise toward the checkout step. */
+    fbEvent: 'Lead',
+
+    /* Value/currency reported with the pixel event. Set value to a
+       number (e.g. 997) once ticket pricing is locked, or leave null. */
+    fbValue: null,
+    fbCurrency: 'USD',
+
+    /* How long to wait for the webhook before continuing to checkout.
+       We never block the sale on a slow webhook. */
+    webhookTimeoutMs: 3500
+  };
+
+  /* Event metadata — keep in sync with the <select> options. */
+  var EVENTS = {
+    'kansas-city': {
+      name: '4S Summit — Kansas City, MO',
+      city: 'Kansas City, MO',
+      dates: 'September 25–27, 2026'
+    },
+    'miami': {
+      name: '4S Summit — Miami, FL',
+      city: 'Miami, FL',
+      dates: 'December 4–6, 2026'
+    }
+  };
+
+  /* ==========================================================
+     Below here is wiring — no edits needed
+     ========================================================== */
+
+  var form      = document.getElementById('ticket-form');
+  var formWrap  = document.getElementById('form-wrap');
+  var submitBtn = document.getElementById('submit-btn');
+  var formError = document.getElementById('form-error');
+  var eventSel  = document.getElementById('event');
+  var doneBox   = document.getElementById('done');
+
+  /* ---------- preselect the event from ?event= (defaults to Kansas City) ---------- */
+
+  var params = new URLSearchParams(window.location.search);
+  var requested = (params.get('event') || '').toLowerCase();
+  if (EVENTS[requested]) { eventSel.value = requested; }
+
+  function syncSummary() {
+    var ev = EVENTS[eventSel.value] || EVENTS['kansas-city'];
+    document.getElementById('summary-city').textContent = ev.name;
+    document.getElementById('summary-dates').textContent = ev.dates;
+  }
+  eventSel.addEventListener('change', syncSummary);
+  syncSummary();
+
+  /* ---------- capture ad-tracking params so they reach GHL ---------- */
+
+  var TRACKING_KEYS = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','fbclid','gclid'];
+  var tracking = {};
+  TRACKING_KEYS.forEach(function (k) {
+    var v = params.get(k);
+    if (v) { tracking[k] = v; }
+  });
+
+  /* ---------- validation ---------- */
+
+  var RULES = {
+    firstName: function (v) { return v.length >= 2; },
+    lastName:  function (v) { return v.length >= 2; },
+    email:     function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v); },
+    phone:     function (v) { return v.replace(/[^\d]/g, '').length >= 10; },
+    business:  function (v) { return v.length >= 2; },
+    event:     function (v) { return !!EVENTS[v]; }
+  };
+
+  function fieldBox(name) {
+    return document.querySelector('[data-field="' + name + '"]');
+  }
+
+  function validate() {
+    var firstBad = null;
+
+    Object.keys(RULES).forEach(function (name) {
+      var input = document.getElementById(name);
+      var box   = fieldBox(name);
+      var ok    = RULES[name](input.value.trim());
+
+      box.classList.toggle('invalid', !ok);
+      input.setAttribute('aria-invalid', ok ? 'false' : 'true');
+      if (!ok && !firstBad) { firstBad = input; }
+    });
+
+    if (firstBad) {
+      formError.textContent = 'Please check the highlighted fields below.';
+      formError.classList.add('show');
+      firstBad.focus();
+      return false;
+    }
+
+    formError.classList.remove('show');
+    return true;
+  }
+
+  /* clear a field's error as soon as it becomes valid */
+  Object.keys(RULES).forEach(function (name) {
+    var input = document.getElementById(name);
+    input.addEventListener('input', function () {
+      if (RULES[name](input.value.trim())) {
+        fieldBox(name).classList.remove('invalid');
+      }
+    });
+  });
+
+  /* ---------- payload ---------- */
+
+  function collect() {
+    var key = eventSel.value;
+    var ev  = EVENTS[key] || EVENTS['kansas-city'];
+    var first = document.getElementById('firstName').value.trim();
+    var last  = document.getElementById('lastName').value.trim();
+
+    return {
+      first_name: first,
+      last_name: last,
+      full_name: first + ' ' + last,
+      email: document.getElementById('email').value.trim(),
+      phone: document.getElementById('phone').value.trim(),
+      business_name: document.getElementById('business').value.trim(),
+      event_id: key,
+      event_name: ev.name,
+      event_city: ev.city,
+      event_dates: ev.dates,
+      /* shared id so a future Conversions API call can dedupe
+         against the browser pixel event */
+      fb_event_id: 'ev-' + Date.now() + '-' + Math.random().toString(36).slice(2, 10),
+      page_url: window.location.href,
+      referrer: document.referrer || '',
+      submitted_at: new Date().toISOString(),
+      tracking: tracking
+    };
+  }
+
+  /* ---------- Meta pixel ---------- */
+
+  function firePixel(data) {
+    if (typeof window.fbq !== 'function') { return; }   // no-op until the pixel is installed
+    try {
+      var props = {
+        content_name: data.event_name,
+        content_category: 'Ticket Registration',
+        currency: CONFIG.fbCurrency
+      };
+      if (CONFIG.fbValue !== null) { props.value = CONFIG.fbValue; }
+      window.fbq('track', CONFIG.fbEvent, props, { eventID: data.fb_event_id });
+    } catch (e) { /* tracking must never block checkout */ }
+  }
+
+  /* ---------- webhook ---------- */
+
+  function postWebhook(data) {
+    if (!CONFIG.webhookUrl) { return Promise.resolve('skipped'); }
+
+    var timeout = new Promise(function (resolve) {
+      setTimeout(function () { resolve('timeout'); }, CONFIG.webhookTimeoutMs);
+    });
+
+    var send = fetch(CONFIG.webhookUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+      keepalive: true            // survives the redirect to checkout
+    }).then(function () { return 'sent'; })
+      .catch(function () { return 'failed'; });
+
+    return Promise.race([send, timeout]);
+  }
+
+  /* ---------- checkout redirect ---------- */
+
+  function buildCheckoutUrl(base, data) {
+    var url;
+    try { url = new URL(base, window.location.href); }
+    catch (e) { return null; }
+
+    var q = {
+      first_name: data.first_name,
+      last_name: data.last_name,
+      name: data.full_name,
+      full_name: data.full_name,
+      email: data.email,
+      phone: data.phone,
+      company_name: data.business_name,
+      business_name: data.business_name,
+      event: data.event_id,
+      event_name: data.event_name
+    };
+
+    Object.keys(q).forEach(function (k) {
+      if (q[k]) { url.searchParams.set(k, q[k]); }
+    });
+    Object.keys(tracking).forEach(function (k) {
+      url.searchParams.set(k, tracking[k]);
+    });
+
+    return url.toString();
+  }
+
+  /* ---------- submit ---------- */
+
+  var submitting = false;
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (submitting) { return; }
+    if (!validate()) { return; }
+
+    submitting = true;
+    submitBtn.disabled = true;
+    submitBtn.classList.add('is-busy');
+
+    var data = collect();
+    var link = CONFIG.paymentLinks[data.event_id] || '';
+
+    firePixel(data);
+
+    postWebhook(data).then(function (status) {
+      var target = link ? buildCheckoutUrl(link, data) : null;
+
+      if (target) {
+        window.location.href = target;
+        return;
+      }
+
+      /* No payment link configured yet — confirm on-page instead of
+         dumping the buyer somewhere broken. */
+      formWrap.style.display = 'none';
+      doneBox.classList.add('show');
+      document.getElementById('done-msg').textContent =
+        'Thanks, ' + data.first_name + '. Your details were captured' +
+        (status === 'sent' ? ' and sent to GoHighLevel.' : '.') +
+        ' Add a payment link in the CONFIG block to send buyers straight to checkout.';
+      document.getElementById('done-data').textContent =
+        'Webhook: ' + (CONFIG.webhookUrl || '(not set)') + '  →  ' + status + '\n' +
+        'Pixel:   ' + (typeof window.fbq === 'function' ? CONFIG.fbEvent + ' fired' : '(pixel not installed)') + '\n' +
+        'Payment: (not set for "' + data.event_id + '")\n\n' +
+        JSON.stringify(data, null, 2);
+
+      submitting = false;
+      submitBtn.disabled = false;
+      submitBtn.classList.remove('is-busy');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

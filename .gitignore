@@ -1,0 +1,17 @@
+# macOS
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Scratch / tooling output
+.firecrawl/
+.shots/
+probe*.html
+harness.html
+h390.html
