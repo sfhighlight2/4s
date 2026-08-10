@@ -698,7 +698,21 @@ p{margin:0;}
     background-size:auto, cover;
   }
   .hero-inner{min-height:0;padding:40px 20px 52px;max-height:none;}
-  .hero-col{max-width:none;}
+
+  /* Mobile hero: centre the brand mark, eyebrow and CTA, and lift the CTA above
+     the bullet list so it lands above the fold. Visual order only — the DOM is
+     unchanged, so desktop is untouched and the tab order still runs
+     logo → eyebrow → headline → intro → CTA → bullets, which matches the new
+     visual order anyway. Headline, intro and bullets stay left-aligned. */
+  .hero-col{max-width:none;display:flex;flex-direction:column;}
+  .hero-logo{order:1;align-self:center;}
+  /* text-align too: the label wraps to two lines at phone widths, so left-aligned
+     text inside a centred pill would read off-balance */
+  .hero .eyebrow-pill{order:2;align-self:center;text-align:center;}
+  .hero .display{order:3;}
+  .hero-quote{order:4;}
+  .hero .cta-block{order:5;align-items:center;text-align:center;}
+  .checklist{order:6;margin-top:30px;}
   .pain-card{grid-template-columns:1fr;gap:26px;}
   .tf-grid{grid-template-columns:1fr;}
   .proof-grid{grid-template-columns:1fr;gap:22px;}
