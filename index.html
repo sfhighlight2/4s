@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>4S Summit — Steal The Secrets of The Top 1% Medical Aestetic Practices</title>
-<meta name="description" content="At the 4S Summit on September 25-27, 2026 in Kansas City, MO AND on December 4-6, 2026 in Miami, FL. Get a clear blueprint for success in your exact niche.">
+<title>4S Summit 2026 | The Business School Medical Aesthetics Never Had</title>
+<meta name="description" content="2½ days where aesthetic practice owners rebuild pricing, consultations, KPIs and forecasting using their own numbers. Kansas City Sept 25–27. Miami Dec 4–6. 120 seats.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
@@ -200,7 +200,9 @@ p{margin:0;}
 }
 .btn.btn-sm{min-width:0;width:100%;max-width:396px;padding:14px 26px;}
 .btn.btn-sm .btn-main{font-size:22px;}
-.btn.btn-sm .btn-sub{font-size:15px;}
+/* 14px so the longer sub-text sits on one line in the narrower card buttons
+   instead of orphaning "checkout" onto a second row. */
+.btn.btn-sm .btn-sub{font-size:14px;}
 
 .cta-dates{
   font-size:16px;
@@ -232,8 +234,10 @@ p{margin:0;}
   max-width:1206px;
   margin:0 auto;
   padding:52px 20px 60px;
-  min-height:57.5vw;
-  max-height:900px;
+  /* Caps the *minimum* height so the hero never letterboxes on wide screens,
+     while still growing if the copy is taller than the cap. A hard max-height
+     here clips the logo once the headline runs to four lines. */
+  min-height:min(57.5vw,900px);
   display:flex;
   flex-direction:column;
   justify-content:center;
@@ -365,6 +369,22 @@ p{margin:0;}
   font-weight:400;
 }
 .t-quote b{font-weight:800;}
+
+/* testimonial attribution — muted caption treatment */
+.t-attrib{
+  display:block;
+  margin-top:12px;
+  font-size:14px;
+  font-weight:700;
+  line-height:1.35;
+  color:#8a7663;
+}
+.t-attrib span{
+  display:block;
+  font-weight:500;
+  color:#7a6f68;
+  margin-top:1px;
+}
 
 /* ============================================================
    5. PARTNERS
@@ -617,6 +637,8 @@ p{margin:0;}
 @media (max-width:1100px){
   .t-grid{grid-template-columns:repeat(2,1fr);}
   .btn{min-width:0;width:100%;max-width:432px;}
+  /* buttons narrow to 432px here — drop the sub-text a step so it stays on one line */
+  .btn .btn-sub{font-size:15px;}
   .cta-block{display:flex;flex-direction:column;align-items:center;text-align:center;}
   .hero .cta-block{align-items:flex-start;text-align:left;}
 }
@@ -683,28 +705,28 @@ p{margin:0;}
     <div class="hero-col">
       <img class="hero-logo" src="assets/6a74098effc85279f489dfa5.png" alt="4S Summit" width="2186" height="725" data-reveal="left">
 
-      <span class="eyebrow-pill" data-reveal="left">Steal The Secrets of</span>
+      <span class="eyebrow-pill" data-reveal="left">For Aesthetic Practice Owners And Their Teams</span>
 
       <h1 class="display" data-reveal="left">
-        The Top 1% <span class="grad">Medical<br>Aestetic Practices</span>
+        You Were Trained To Treat Patients. <span class="grad">Nobody Trained You To Run The Business.</span>
       </h1>
 
       <p class="hero-quote" data-reveal="left">
-        At the 4S Summit on September 25–27, 2026 in Kansas City, MO AND on December 4–6, 2026 in Miami, FL.
+        The 4S Summit is 2½ days where you rebuild your own practice, live, using your own numbers, with three people who have already built theirs. Kansas City, September 25–27. Miami, December 4–6.
       </p>
 
       <ul class="checklist" data-reveal="left">
-        <li>Get a <b>CLEAR BLUEPRINT</b> for success in your exact niche and learn the tried and true strategies for maximizing conversions, revenue, retention, client LTV, and profitability.</li>
-        <li>Skip the guesswork by getting <b>DIRECT ANSWERS</b> to your most burning business questions.</li>
-        <li>And <b>FINALLY</b> solve your biggest growing pains so that you can smash the goals even you thought were <b>IMPOSSIBLE.</b></li>
+        <li><b>Bring your real P&amp;L.</b> Leave with corrected pricing, your KPIs, and a 12-month forecast you can run on Monday. Not a binder of notes.</li>
+        <li><b>Ask what you can't ask a competitor.</b> Direct answers from Terri Ross, Dr. Renato Saltz and Izhak Musli, in a room capped at 120 people.</li>
+        <li><b>Bring your team.</b> Owners break out into financials and strategy. Your coordinators break out into consultations, phone skills and closing.</li>
       </ul>
 
       <div class="cta-block" data-reveal="left">
         <a class="btn" href="tickets.html">
-          <span class="btn-main">YES! GET TICKET(S)</span>
-          <span class="btn-sub">Exclusive Discount On The Next Page</span>
+          <span class="btn-main">Claim My Seat</span>
+          <span class="btn-sub">Takes 30 seconds &middot; Early rate applied at checkout</span>
         </a>
-        <p class="cta-dates"><b>September 25–27, 2026</b>, in Kansas City, MO …AND <b>December 4–6, 2026</b>, in Miami, FL.</p>
+        <p class="cta-dates">Kansas City &middot; Sept 25&ndash;27, 2026 &middot; 120 seats &middot; Miami follows Dec 4&ndash;6</p>
       </div>
     </div>
   </div>
@@ -725,17 +747,26 @@ p{margin:0;}
     </div>
 
     <p class="body-copy" data-reveal>
-      The 4S Summit stands at the forefront of the aesthetics industry, offering an unparalleled opportunity to
-      delve into the core pillars of business success: Strategy, Systems, Sales, and Skills. This summit is not just an event;
-      it's a 2 1/2 day transformative journey for aesthetic professionals eager to elevate their practice to new heights.
+      Every other aesthetics conference teaches you how to treat. This one teaches you the business behind it:
+      <b>Strategy, Systems, Sales and Skills.</b>
+    </p>
+
+    <p class="body-copy" style="margin-top:18px" data-reveal>
+      It wasn't assembled by a conference company that rented some speakers. It was built by the three people who teach it &mdash;
+      a sales leader who helped bring Restylane, Dysport and CoolSculpting to market in North America, a growth strategist who
+      rebuilds P&amp;Ls for a living, and a board-certified plastic surgeon who has run the exact practice you're running.
+    </p>
+
+    <p class="body-copy" style="margin-top:18px" data-reveal>
+      Two minutes will tell you whether this is your room.
     </p>
 
     <div class="cta-block is-center" data-reveal>
       <a class="btn" href="tickets.html">
-        <span class="btn-main">YES! GET TICKET(S)</span>
-        <span class="btn-sub">Exclusive Discount On The Next Page</span>
+        <span class="btn-main">Claim My Seat</span>
+        <span class="btn-sub">Takes 30 seconds &middot; Early rate applied at checkout</span>
       </a>
-      <p class="cta-dates center"><b>September 25–27, 2026</b>, in Kansas City, MO<br>…AND <b>December 4–6, 2026</b>, in Miami, FL.</p>
+      <p class="cta-dates center">You'll see the full agenda before you're asked to pay.</p>
     </div>
   </div>
 </section>
@@ -746,10 +777,11 @@ p{margin:0;}
 <section class="section s-countdown">
   <div class="bg" role="presentation"></div>
   <div class="wrap center">
-    <h2 class="display on-dark" data-reveal>When Is The <span class="grad">Next 4S Summit?</span></h2>
+    <h2 class="display on-dark" data-reveal>The Early Rate Ends <span class="grad">Before The Seats Do.</span></h2>
 
     <p class="lede on-dark" style="margin-top:18px" data-reveal>
-      <b>September 25–27, 2026</b>, in Kansas City, MO …AND <b>December 4–6, 2026</b>, in Miami, FL.
+      Kansas City runs <b>September 25&ndash;27</b> and the room is capped at 120 by design &mdash; small enough that you get
+      answered, not just talked at. When this timer hits zero the price goes up. Miami follows <b>December 4&ndash;6</b>.
     </p>
 
     <div class="countdown" data-reveal aria-live="off">
@@ -761,9 +793,10 @@ p{margin:0;}
 
     <div class="cta-block is-center" data-reveal>
       <a class="btn" href="tickets.html">
-        <span class="btn-main">YES! GET TICKET(S)</span>
-        <span class="btn-sub">Exclusive Discount On The Next Page</span>
+        <span class="btn-main">Claim My Seat</span>
+        <span class="btn-sub">Takes 30 seconds &middot; Early rate applied at checkout</span>
       </a>
+      <p class="cta-dates on-dark center">The early rate ends when this timer hits zero.</p>
     </div>
   </div>
 </section>
@@ -776,8 +809,8 @@ p{margin:0;}
   <div class="wrap center">
     <img class="brand-mark" src="assets/6a742310a177d5c2b9379e88.png" alt="4S Summit" data-reveal>
 
-    <h2 class="display" data-reveal>Hear From Other <span class="grad">Owners Like You</span></h2>
-    <p class="lede" style="margin-top:14px" data-reveal>Isn't It Time You Learn The Shortcuts of Your Industry's Top 1%?</p>
+    <h2 class="display" data-reveal>&ldquo;I Wish I Had <span class="grad">Come Sooner.&rdquo;</span></h2>
+    <p class="lede" style="margin-top:14px" data-reveal>It's the most common thing owners say to us on Sunday afternoon. Here are six of them, unscripted.</p>
 
     <div class="t-grid">
       <figure class="t-card" data-reveal style="margin:0">
@@ -785,7 +818,8 @@ p{margin:0;}
           <video controls muted playsinline preload="metadata"
             src="https://assets.cdn.filesafe.space/jlHkSuyCxK6xIj7cYbeY/media/6a7429fea177d5c2b9464418.mp4"></video>
         </div>
-        <figcaption class="t-quote">"I've been in the aesthetic industry for over 40 years… No matter <b>HOW MANY</b> times I hear Terri speak, I always learn something new."</figcaption>
+        <!-- VERIFY: name-to-video mapping unconfirmed — matched by quote text, not against the video file -->
+        <figcaption class="t-quote">"I've been in the aesthetic industry for over 40 years… No matter <b>how many</b> times I hear Terri speak, I always learn something new."<span class="t-attrib">Marisa Faircloth<span>Restoration MedSpa</span></span></figcaption>
       </figure>
 
       <figure class="t-card" data-reveal style="margin:0">
@@ -793,7 +827,8 @@ p{margin:0;}
           <video controls muted playsinline preload="metadata"
             src="https://assets.cdn.filesafe.space/jlHkSuyCxK6xIj7cYbeY/media/6a74282a47e61ee43a617c89.mp4"></video>
         </div>
-        <figcaption class="t-quote">"Having the ability to understand how to get the most out of the first interaction with the patient is what I find <b>MOST VALUABLE</b>!"</figcaption>
+        <!-- VERIFY: name-to-video mapping unconfirmed — matched by quote text, not against the video file -->
+        <figcaption class="t-quote">"Having the ability to understand how to get the most out of the first interaction with the patient is what I find <b>most valuable</b>!"<span class="t-attrib">Manny Rodriguez<span>Allura MD Aesthetics</span></span></figcaption>
       </figure>
 
       <figure class="t-card" data-reveal style="margin:0">
@@ -801,7 +836,8 @@ p{margin:0;}
           <video controls muted playsinline preload="metadata"
             src="https://assets.cdn.filesafe.space/jlHkSuyCxK6xIj7cYbeY/media/6a7429fef4dee0f60f6f0585.mp4"></video>
         </div>
-        <figcaption class="t-quote">"The information that I've gotten so far has been <b>INVALUABLE</b>… It was so much information in such a short amount of time! "</figcaption>
+        <!-- VERIFY: name-to-video mapping unconfirmed — matched by quote text, not against the video file -->
+        <figcaption class="t-quote">"The information that I've gotten so far has been <b>invaluable</b>… It was so much information in such a short amount of time! "<span class="t-attrib">Lori Carter<span>St. Johns Aesthetics</span></span></figcaption>
       </figure>
 
       <figure class="t-card" data-reveal style="margin:0">
@@ -809,7 +845,8 @@ p{margin:0;}
           <video controls muted playsinline preload="metadata"
             src="https://assets.cdn.filesafe.space/jlHkSuyCxK6xIj7cYbeY/media/6a74282aa177d5c2b93fa660.mp4"></video>
         </div>
-        <figcaption class="t-quote">"It's a great open floor where fellow colleagues can share their thoughts and opinions and get <b>GREAT</b> feedback, so I'm going back to the practice with <b>EVEN MORE</b> than I expected.</figcaption>
+        <!-- VERIFY: name-to-video mapping unconfirmed — matched by quote text, not against the video file -->
+        <figcaption class="t-quote">"It's a great open floor where fellow colleagues can share their thoughts and opinions and get <b>great</b> feedback, so I'm going back to the practice with <b>even more</b> than I expected.<span class="t-attrib">Katherine Cullinane<span>Palm Beach Facial Plastic Surgery</span></span></figcaption>
       </figure>
 
       <figure class="t-card" data-reveal style="margin:0">
@@ -817,7 +854,8 @@ p{margin:0;}
           <video controls muted playsinline preload="metadata"
             src="https://assets.cdn.filesafe.space/jlHkSuyCxK6xIj7cYbeY/media/6a74282aac7d7ffc64511319.mp4"></video>
         </div>
-        <figcaption class="t-quote">"Terri and her team. They've seen it, they've heard it, and the best part is, they know how to solve it…<br>This is the only summit that <b>EXISTS</b> for people like me."</figcaption>
+        <!-- VERIFY: name-to-video mapping unconfirmed — matched by quote text, not against the video file -->
+        <figcaption class="t-quote">"Terri and her team. They've seen it, they've heard it, and the best part is, they know how to solve it…<br>This is the only summit that <b>exists</b> for people like me."<span class="t-attrib">R.G. Kahoe<span>Dr. John Laura</span></span></figcaption>
       </figure>
 
       <figure class="t-card" data-reveal style="margin:0">
@@ -825,7 +863,8 @@ p{margin:0;}
           <video controls muted playsinline preload="metadata"
             src="https://assets.cdn.filesafe.space/jlHkSuyCxK6xIj7cYbeY/media/6a74282a47e61ee43a617c96.mp4"></video>
         </div>
-        <figcaption class="t-quote">"I have invested in other trainings, and <b>NOTHING</b> compares to the 4S Summit because they teach you the numbers IN your aesthetics business."</figcaption>
+        <!-- VERIFY: name-to-video mapping unconfirmed — matched by quote text, not against the video file -->
+        <figcaption class="t-quote">"I have invested in other trainings, and <b>nothing</b> compares to the 4S Summit because they teach you the numbers IN your aesthetics business."<span class="t-attrib">Ericka Lamourt<span>Founder, Joia Skin</span></span></figcaption>
       </figure>
     </div>
   </div>
@@ -837,38 +876,41 @@ p{margin:0;}
 <section class="section s-partners">
   <div class="bg" role="presentation"></div>
   <div class="wrap center">
-    <h2 class="display" data-reveal>Our Partners</h2>
+    <h2 class="display" data-reveal>The Brands That Build This Industry <span class="grad">Are In The Room With You</span></h2>
 
     <div class="marquee" data-reveal>
       <div class="marquee-track" id="marquee-track">
-        <img src="assets/6a742f6ec863244457aa0f8b.png" alt="Partner logo">
-        <img src="assets/6a742f6eac7d7ffc646399a6.png" alt="Partner logo">
-        <img src="assets/6a742f6ef4dee0f60f7e7e3c.png" alt="Partner logo">
-        <img src="assets/6a742f6ec863244457aa0f94.png" alt="Partner logo">
-        <img src="assets/6a742f6ea177d5c2b9554d41.png" alt="Partner logo">
-        <img src="assets/6a742f6eac7d7ffc646399af.png" alt="Partner logo">
-        <img src="assets/6a742f72c863244457aa0fd7.png" alt="Partner logo">
-        <img src="assets/6a742f72f4dee0f60f7e909c.png" alt="Partner logo">
-        <img src="assets/6a742f72a177d5c2b9555d88.png" alt="Partner logo">
-        <img src="assets/6a742f72a177d5c2b9555dad.png" alt="Partner logo">
-        <img src="assets/6a742f73f4dee0f60f7e926a.png" alt="Partner logo">
-        <img src="assets/6a742f73c863244457aa0ff8.png" alt="Partner logo">
-        <img src="assets/6a742f76ac7d7ffc6463a8e0.png" alt="Partner logo">
-        <img src="assets/6a742f7647e61ee43a709d43.png" alt="Partner logo">
-        <img src="assets/6a742f76ac7d7ffc6463a8c0.png" alt="Partner logo">
-        <img src="assets/6a742f77c863244457aa1056.png" alt="Partner logo">
-        <img src="assets/6a742f76c863244457aa1048.png" alt="Partner logo">
+        <img src="assets/6a742f6ec863244457aa0f8b.png" alt="Galderma">
+        <img src="assets/6a742f6eac7d7ffc646399a6.png" alt="Huron">
+        <img src="assets/6a742f6ef4dee0f60f7e7e3c.png" alt="Partner logo"><!-- UNRESOLVED: monogram, brand not identifiable from artwork -->
+        <img src="assets/6a742f6ec863244457aa0f94.png" alt="get kudos">
+        <img src="assets/6a742f6ea177d5c2b9554d41.png" alt="skinbetter science">
+        <img src="assets/6a742f6eac7d7ffc646399af.png" alt="The Aesthetic Society">
+        <img src="assets/6a742f72c863244457aa0fd7.png" alt="Sofwave">
+        <img src="assets/6a742f72f4dee0f60f7e909c.png" alt="Podium">
+        <img src="assets/6a742f72a177d5c2b9555d88.png" alt="MedShift">
+        <img src="assets/6a742f72a177d5c2b9555dad.png" alt="Partner logo"><!-- UNRESOLVED: monogram, brand not identifiable from artwork -->
+        <img src="assets/6a742f73f4dee0f60f7e926a.png" alt="Skytale">
+        <img src="assets/6a742f73c863244457aa0ff8.png" alt="ShapeScale">
+        <img src="assets/6a742f76ac7d7ffc6463a8e0.png" alt="Pinpoint Creative">
+        <img src="assets/6a742f7647e61ee43a709d43.png" alt="Nextech">
+        <img src="assets/6a742f76ac7d7ffc6463a8c0.png" alt="Healthcare Compliance Pros">
+        <img src="assets/6a742f77c863244457aa1056.png" alt="Influx">
+        <img src="assets/6a742f76c863244457aa1048.png" alt="Fotona">
       </div>
     </div>
 
-    <p class="partners-note" data-reveal>And countless others…</p>
+    <!-- ROSTER NEEDS SIGN-OFF: brand names below are read off the logo files in this
+         marquee. The copy deck listed Merz, Symplast, Phorest, Boulevard, GlossGenius,
+         Dermapen and MyAdvice, none of which appear on this page. Confirm with SDE before launch. -->
+    <p class="partners-note" data-reveal>Galderma. Sofwave. skinbetter science. Fotona. Nextech. Podium. MedShift. Influx. Skytale. Huron. The Aesthetic Society. Not logos on a banner &mdash; their teams are on the floor for two and a half days, and you can ask them the questions you'd never get answered on a sales call.</p>
 
     <div class="cta-block is-center" data-reveal>
       <a class="btn" href="tickets.html">
-        <span class="btn-main">YES! GET TICKET(S)</span>
-        <span class="btn-sub">Exclusive Discount On The Next Page</span>
+        <span class="btn-main">Claim My Seat</span>
+        <span class="btn-sub">Takes 30 seconds &middot; Early rate applied at checkout</span>
       </a>
-      <p class="cta-dates center"><b>September 25–27, 2026</b>, in Kansas City, MO<br>…AND <b>December 4–6, 2026</b>, in Miami, FL.</p>
+      <p class="cta-dates center">Bringing your team? Group rates are available at checkout.</p>
     </div>
   </div>
 </section>
@@ -879,9 +921,11 @@ p{margin:0;}
 <section class="section s-pain">
   <div class="bg" role="presentation"></div>
   <div class="wrap center">
-    <span class="eyebrow-pill on-dark" data-reveal>Overcome The Biggest Headaches In</span>
-    <h2 class="display" data-reveal><span class="grad">Your Medical Aestetics Practice</span></h2>
-    <p class="pain-sub" data-reveal>And Finally Expand Beyond Your Wildest Dreams</p>
+    <span class="eyebrow-pill on-dark" data-reveal>What You Actually Walk Out With</span>
+    <!-- on-dark: this section has a dark background. The old headline was entirely
+         inside .grad so the base colour never showed; the split version needs it. -->
+    <h2 class="display on-dark" data-reveal>Six Things That Change <span class="grad">By Monday Morning</span></h2>
+    <p class="pain-sub" data-reveal>Not inspiration. Deliverables you build in the room, using your own numbers.</p>
 
     <div class="pain-list">
 
@@ -890,16 +934,16 @@ p{margin:0;}
         <div style="text-align:left">
           <div class="pain-head">
             <img class="pain-num" src="assets/6a744b369a9c7792ea5fa338.png" alt="01" loading="lazy">
-            <h3 class="pain-title">Turbocharge Your Business Growth</h3>
+            <h3 class="pain-title">Find The Revenue Already Sitting In Your Practice</h3>
           </div>
           <div class="pain-rule"></div>
-          <p class="body-copy on-dark">By unlocking 50–150% top-line growth in just 12 months by optimizing key processes in addition to learning what reports to run and how to interpret them as you may be missing out on opportunities right in front of you.</p>
+          <p class="body-copy on-dark">Most practices are leaving money in three predictable places: treatments priced below market, consults that never convert, and patients who never come back. You'll run the reports that expose all three in your own numbers, and know exactly what to change before you fly home.</p>
           <div class="cta-block">
             <a class="btn btn-sm" href="tickets.html">
-              <span class="btn-main">YES! GET TICKET(S)</span>
-              <span class="btn-sub">Exclusive Discount On The Next Page</span>
+              <span class="btn-main">Claim My Seat</span>
+              <span class="btn-sub">Takes 30 seconds &middot; Early rate applied at checkout</span>
             </a>
-            <p class="cta-dates on-dark"><b>September 25–27, 2026</b>, in Kansas City, MO<br>…AND <b>December 4–6, 2026</b>, in Miami, FL.</p>
+            <p class="cta-dates on-dark">You'll work on your own P&amp;L, not a case study.</p>
           </div>
         </div>
       </article>
@@ -909,16 +953,16 @@ p{margin:0;}
         <div style="text-align:left">
           <div class="pain-head">
             <img class="pain-num" src="assets/6a74508d8880872019109d47.png" alt="02" loading="lazy">
-            <h3 class="pain-title">Mastering The Art of Selling</h3>
+            <h3 class="pain-title">Turn Consultations Into Treatment Plans</h3>
           </div>
           <div class="pain-rule"></div>
-          <p class="body-copy on-dark">Learning how to master the art of consultation and how to ask the key questions that will appeal to the customer's emotions will increase your patient conversion rates and your revenue per hour. Learn how to be intentional vs. transactional.</p>
+          <p class="body-copy on-dark">Your coordinator is having the most important conversation in your business, and most likely improvising it. In the sales track your team learns the consultation framework, the questions that surface what a patient actually wants, objection handling and phone skills &mdash; then role-plays all of it out loud before it ever touches a real patient again.</p>
           <div class="cta-block">
             <a class="btn btn-sm" href="tickets.html">
-              <span class="btn-main">YES! GET TICKET(S)</span>
-              <span class="btn-sub">Exclusive Discount On The Next Page</span>
+              <span class="btn-main">Claim My Seat</span>
+              <span class="btn-sub">Takes 30 seconds &middot; Early rate applied at checkout</span>
             </a>
-            <p class="cta-dates on-dark"><b>September 25–27, 2026</b>, in Kansas City, MO<br>…AND <b>December 4–6, 2026</b>, in Miami, FL.</p>
+            <p class="cta-dates on-dark">Your coordinators and front desk attend the sales track.</p>
           </div>
         </div>
       </article>
@@ -928,16 +972,16 @@ p{margin:0;}
         <div style="text-align:left">
           <div class="pain-head">
             <img class="pain-num" src="assets/6a74508d9a9c7792ea69aa16.png" alt="03" loading="lazy">
-            <h3 class="pain-title">Gain A Competitive Edge</h3>
+            <h3 class="pain-title">Say Why You, In One Sentence</h3>
           </div>
           <div class="pain-rule"></div>
-          <p class="body-copy on-dark">By developing your "UVP" Unique Value Proposition which is "WHY' clients choose you. How to build a comprehensive marketing strategy that targets your ideal audience, builds brand awareness, and generates endless leads for your business.</p>
+          <p class="body-copy on-dark">There are four other injectors within ten minutes of your front door and your patient cannot tell you apart. You'll build the one-sentence answer to why you, then the marketing structure that carries it: who you target, what you say, and where the leads actually come from.</p>
           <div class="cta-block">
             <a class="btn btn-sm" href="tickets.html">
-              <span class="btn-main">YES! GET TICKET(S)</span>
-              <span class="btn-sub">Exclusive Discount On The Next Page</span>
+              <span class="btn-main">Claim My Seat</span>
+              <span class="btn-sub">Takes 30 seconds &middot; Early rate applied at checkout</span>
             </a>
-            <p class="cta-dates on-dark"><b>September 25–27, 2026</b>, in Kansas City, MO<br>…AND <b>December 4–6, 2026</b>, in Miami, FL.</p>
+            <p class="cta-dates on-dark">One clinic day out. Fly Friday, home Sunday, open Monday.</p>
           </div>
         </div>
       </article>
@@ -947,16 +991,16 @@ p{margin:0;}
         <div style="text-align:left">
           <div class="pain-head">
             <img class="pain-num" src="assets/6a74508df4dee0f60fc7f859.png" alt="04" loading="lazy">
-            <h3 class="pain-title">Master Your Finances</h3>
+            <h3 class="pain-title">Read Your Own P&amp;L Without Flinching</h3>
           </div>
           <div class="pain-rule"></div>
-          <p class="body-copy on-dark">You will learn the most critical KPIs and industry benchmarks that will provide insights so you can make informed decisions and create a resilient business that is both flexible and adaptive.</p>
+          <p class="body-copy on-dark">Revenue per hour. Revenue per room. Cost of goods. Retention. Consult-to-treatment conversion. You'll learn the numbers that decide what a practice is actually worth, compare yours against national benchmarks, and leave knowing exactly where you rank instead of assuming.</p>
           <div class="cta-block">
             <a class="btn btn-sm" href="tickets.html">
-              <span class="btn-main">YES! GET TICKET(S)</span>
-              <span class="btn-sub">Exclusive Discount On The Next Page</span>
+              <span class="btn-main">Claim My Seat</span>
+              <span class="btn-sub">Takes 30 seconds &middot; Early rate applied at checkout</span>
             </a>
-            <p class="cta-dates on-dark"><b>September 25–27, 2026</b>, in Kansas City, MO<br>…AND <b>December 4–6, 2026</b>, in Miami, FL.</p>
+            <p class="cta-dates on-dark">Includes the KPI benchmarks and the reports to run them.</p>
           </div>
         </div>
       </article>
@@ -966,16 +1010,16 @@ p{margin:0;}
         <div style="text-align:left">
           <div class="pain-head">
             <img class="pain-num" src="assets/6a74508d605a078260b8fee9.png" alt="05" loading="lazy">
-            <h3 class="pain-title">Stay Ahead of the Competition</h3>
+            <h3 class="pain-title">Fix The Team Problem Before It Costs You Again</h3>
           </div>
           <div class="pain-rule"></div>
-          <p class="body-copy on-dark">By developing a strong brand, differentiating yourself in the market, and adapting to changing trends and technologies.</p>
+          <p class="body-copy on-dark">Wrong hires, wrong pay plans and comp structures that quietly reward the wrong behavior drain more profit than any marketing budget can replace. You'll rebuild the compensation model, the accountability structure and the data culture that lets a team run well when you're not in the room.</p>
           <div class="cta-block">
             <a class="btn btn-sm" href="tickets.html">
-              <span class="btn-main">YES! GET TICKET(S)</span>
-              <span class="btn-sub">Exclusive Discount On The Next Page</span>
+              <span class="btn-main">Claim My Seat</span>
+              <span class="btn-sub">Takes 30 seconds &middot; Early rate applied at checkout</span>
             </a>
-            <p class="cta-dates on-dark"><b>September 25–27, 2026</b>, in Kansas City, MO<br>…AND <b>December 4–6, 2026</b>, in Miami, FL.</p>
+            <p class="cta-dates on-dark">Capped at 120 seats, so you actually get answers.</p>
           </div>
         </div>
       </article>
@@ -985,30 +1029,30 @@ p{margin:0;}
         <div style="text-align:left">
           <div class="pain-head">
             <img class="pain-num" src="assets/6a74508d605a078260b8fffb.png" alt="06" loading="lazy">
-            <h3 class="pain-title">Create Goals and a Forecast</h3>
+            <h3 class="pain-title">Leave With A 12-Month Plan, Not A Notebook</h3>
           </div>
           <div class="pain-rule"></div>
-          <p class="body-copy on-dark">With a flexible, results-driven guide that will help you understand what treatments and services yield the highest ROI, what your rooms should make per hour, and what the most critical KPIs are that will help you achieve your goals faster</p>
+          <p class="body-copy on-dark">By Sunday at noon you'll have goals, a forecast, and the accountability structure to hit them: which services to push, what each room should produce per hour, and the handful of numbers to check every Monday morning. That's the deliverable. You take it home and run it.</p>
           <div class="cta-block">
             <a class="btn btn-sm" href="tickets.html">
-              <span class="btn-main">YES! GET TICKET(S)</span>
-              <span class="btn-sub">Exclusive Discount On The Next Page</span>
+              <span class="btn-main">Claim My Seat</span>
+              <span class="btn-sub">Takes 30 seconds &middot; Early rate applied at checkout</span>
             </a>
-            <p class="cta-dates on-dark"><b>September 25–27, 2026</b>, in Kansas City, MO<br>…AND <b>December 4–6, 2026</b>, in Miami, FL.</p>
+            <p class="cta-dates on-dark">Leave Sunday with a 12-month forecast built for your practice.</p>
           </div>
         </div>
       </article>
 
     </div>
 
-    <p class="pain-closer" data-reveal>Isn't time you get your team trained in business growth?</p>
+    <p class="pain-closer" data-reveal>Your team is already having these conversations with your patients. The only question is whether anyone trained them for it.</p>
 
     <div class="cta-block is-center" data-reveal>
       <a class="btn" href="tickets.html">
-        <span class="btn-main">YES! GET TICKET(S)</span>
-        <span class="btn-sub">Exclusive Discount On The Next Page</span>
+        <span class="btn-main">Claim My Seat</span>
+        <span class="btn-sub">Takes 30 seconds &middot; Early rate applied at checkout</span>
       </a>
-      <p class="cta-dates on-dark center"><b>September 25–27, 2026</b>, in Kansas City, MO<br>…AND <b>December 4–6, 2026</b>, in Miami, FL.</p>
+      <p class="cta-dates on-dark center">Another year of guessing costs more than the ticket.</p>
     </div>
   </div>
 </section>
@@ -1019,35 +1063,37 @@ p{margin:0;}
 <section class="section s-transform">
   <div class="bg" role="presentation"></div>
   <div class="wrap center">
-    <h2 class="display" data-reveal>How You Will <span class="grad">Transform</span></h2>
+    <h2 class="display" data-reveal>Two Ways To Spend <span class="grad">The Next Twelve Months</span></h2>
 
     <div class="tf-grid">
       <div class="tf-card" data-reveal="left" style="text-align:left">
-        <h3 class="tf-title bad">"Figuring It Out" On Your Own</h3>
+        <h3 class="tf-title bad">Another Year Of Figuring It Out</h3>
         <ul class="tf-list bad">
-          <li>Keep guessing what might work and depend on trial and error</li>
-          <li>Get LOST on the internet, searching for solutions that are commonly GATEKEPT by the top players in the industry</li>
-          <li>Keep the same momentum you have now and hope that things will change.</li>
+          <li>Test pricing, comp plans and marketing on live patients, and find out what broke a quarter later</li>
+          <li>Search for answers the owners actually running $5M practices have no reason to post publicly</li>
+          <li>Run the same systems for another twelve months and expect a different number at the end of them</li>
+          <li>Pay for it quietly, in unrealized revenue, wrong hires and margin you never see</li>
         </ul>
         <div class="cta-block">
           <a class="btn btn-sm" href="tickets.html">
-            <span class="btn-main">YES! GET TICKET(S)</span>
-            <span class="btn-sub">Exclusive Discount On The Next Page</span>
+            <span class="btn-main">Claim My Seat</span>
+            <span class="btn-sub">Takes 30 seconds &middot; Early rate applied at checkout</span>
           </a>
         </div>
       </div>
 
       <div class="tf-card" data-reveal="right" style="text-align:left">
-        <h3 class="tf-title good">Attending The 4S Summit 2.5–Day Event</h3>
+        <h3 class="tf-title good">One Weekend At The 4S Summit</h3>
         <ul class="tf-list good">
-          <li>Skip the guess work and get DIRECT ADVICE that is UNIQUE to your business</li>
-          <li>Find the EXACT SOLUTIONS to your biggest problems that are commonly GATEKEPT by the top players in the industry</li>
-          <li>Fast track your team toward smashing your 2025 goals</li>
+          <li>Get direct answers about <b>your</b> practice, from three people who have already solved it</li>
+          <li>Benchmark your real numbers against national data instead of guessing where you stand</li>
+          <li>Send your team home with a consultation framework they've already role-played out loud</li>
+          <li>Walk in Friday with questions and walk out Sunday with a written 12-month plan</li>
         </ul>
         <div class="cta-block">
           <a class="btn btn-sm" href="tickets.html">
-            <span class="btn-main">YES! GET TICKET(S)</span>
-            <span class="btn-sub">Exclusive Discount On The Next Page</span>
+            <span class="btn-main">Claim My Seat</span>
+            <span class="btn-sub">Takes 30 seconds &middot; Early rate applied at checkout</span>
           </a>
         </div>
       </div>
@@ -1061,8 +1107,11 @@ p{margin:0;}
 <section class="section s-proof">
   <div class="bg" role="presentation"></div>
   <div class="wrap center">
-    <h2 class="display" data-reveal>Still Reading? Okay. <span class="grad">Here's More Proof.</span></h2>
+    <h2 class="display" data-reveal>Still Deciding? <span class="grad">Watch Four More.</span></h2>
+    <p class="lede" style="margin-top:14px" data-reveal>Four more owners, in their own words.</p>
 
+    <!-- PENDING: attribution for these four videos — deck supplies names for the six
+         testimonials above but not for these. Awaiting names from SDE. -->
     <div class="proof-grid">
       <div class="proof-video" data-reveal>
         <video controls muted playsinline preload="metadata"
@@ -1084,10 +1133,10 @@ p{margin:0;}
 
     <div class="cta-block is-center" data-reveal>
       <a class="btn" href="tickets.html">
-        <span class="btn-main">YES! GET TICKET(S)</span>
-        <span class="btn-sub">Exclusive Discount On The Next Page</span>
+        <span class="btn-main">Claim My Seat</span>
+        <span class="btn-sub">Takes 30 seconds &middot; Early rate applied at checkout</span>
       </a>
-      <p class="cta-dates center"><b>September 25–27, 2026</b>, in Kansas City, MO<br>…AND <b>December 4–6, 2026</b>, in Miami, FL.</p>
+      <p class="cta-dates center">Kansas City is next. Miami is December. Both cap at 120.</p>
     </div>
   </div>
 </section>
@@ -1116,8 +1165,14 @@ p{margin:0;}
 (function () {
   'use strict';
 
-  /* ---------- countdown to the next 4S Summit ---------- */
-  var TARGET = new Date(2026, 8, 25, 0, 0, 0).getTime(); // Sept 25, 2026, local time
+  /* ---------- countdown to the early-rate deadline ----------
+     The section copy states "the early rate ends when this timer hits zero",
+     so this MUST point at the price-increase date, not the event date.
+
+     {{CONFIRM}} — awaiting the real early-rate expiry from the client.
+     Placeholder below is two weeks before Kansas City. DO NOT SHIP AS-IS. */
+  var EARLY_RATE_DEADLINE = new Date(2026, 8, 11, 23, 59, 59); // {{CONFIRM}} Sept 11, 2026 — placeholder
+  var TARGET = EARLY_RATE_DEADLINE.getTime();
 
   var els = {
     days: document.getElementById('cd-days'),
