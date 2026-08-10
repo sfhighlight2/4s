@@ -225,7 +225,10 @@ p{margin:0;}
 .hero .bg{
   background-image:url('assets/6a7466f28684435c587c2798.jpg');
   background-position:center center;
-  background-size:100% 100%;
+  /* cover, never "100% 100%" — the hero's height is driven by the copy, so a
+     stretched background distorts the subject as the viewport ratio moves away
+     from the image's own 2880x1572 (1.83). */
+  background-size:cover;
 }
 .hero-inner{
   position:relative;
@@ -660,6 +663,31 @@ p{margin:0;}
   .hero .display{font-size:clamp(38px,4.9vw,54px);}
   .hero-quote{font-size:18px;}
   .checklist li{font-size:16px;}
+}
+
+/* Wide desktop: the hero box is far wider than the photo's 1.83, so the photo
+   has to be cropped rather than stretched. Anchor right so the subject and the
+   4$ seal (90–97% across the image) stay in frame below ~1990px, and top so her
+   head survives the vertical crop above it. The plate keeps the copy legible
+   now that her figure sits further left. */
+@media (min-width:1201px){
+  .hero .bg{
+    /* Stops are calc(50% ± px), not percentages, because the copy column is a
+       fixed 600px inside a fixed 1206px container — so its right edge always
+       lands at 50% + 17px regardless of viewport. Percentage stops would drift
+       and leave the headline sitting on her hair at 1280 while over-washing the
+       photo at 2560. These hold the plate at ~85% opacity behind the text at
+       every width, then clear it well before her face. */
+    background-image:linear-gradient(to right,
+                       rgba(250,247,244,.96) 0,
+                       rgba(250,247,244,.96) calc(50% - 60px),
+                       rgba(250,247,244,.82) calc(50% + 40px),
+                       rgba(250,247,244,.30) calc(50% + 160px),
+                       rgba(250,247,244,0)   calc(50% + 340px)),
+                     url('assets/6a7466f28684435c587c2798.jpg');
+    background-position:center center, right top;
+    background-size:auto, cover;
+  }
 }
 
 @media (max-width:900px){
