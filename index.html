@@ -692,7 +692,15 @@ p{margin:0;}
 
 @media (max-width:900px){
   .hero .bg{
-    background-image:linear-gradient(180deg,rgba(250,247,244,.95) 0%,rgba(250,247,244,.88) 55%,rgba(250,247,244,.62) 100%),
+    /* The plate has to stay strong all the way down, not just at the top: the
+       lower half of the hero sits over her jacket and hair, which measured as
+       low as 0.66 luminance behind the bullet copy. Holding ~0.9 opacity to the
+       bottom keeps the whole column on even ground. */
+    background-image:linear-gradient(180deg,
+                       rgba(250,247,244,.97) 0%,
+                       rgba(250,247,244,.95) 40%,
+                       rgba(250,247,244,.92) 72%,
+                       rgba(250,247,244,.88) 100%),
                      url('assets/6a7466f28684435c587c2798.jpg');
     background-position:center right;
     background-size:auto, cover;
