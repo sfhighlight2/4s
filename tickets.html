@@ -410,6 +410,12 @@ p{margin:0;}
   .cols{grid-template-columns:1fr;gap:20px;}
   .page{padding:26px 0 54px;}
 
+  /* Fade the backdrop on phones. The frame graphic is built for a wide canvas,
+     so at narrow widths its bronze arcs compress into the side margins and read
+     much darker than intended (down to 0.33 luminance). Dropping it to 45% lets
+     it blend into the page colour behind it. */
+  .page-bg{opacity:.45;}
+
   /* Stacked: lead with the form, event summary underneath.
      Only the visual order changes — the summary holds no focusable
      elements, so tab order is unaffected. */
