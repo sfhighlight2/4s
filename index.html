@@ -297,6 +297,102 @@ p{margin:0;}
 .video-frame iframe,
 .video-frame video{width:100%;height:100%;display:block;border:0;object-fit:cover;}
 
+/* ---------- YouTube facade: local thumbnail + branded play button ----------
+   The iframe is not created until the visitor clicks, so nothing from
+   youtube.com loads up front. Click swaps the facade for the real player
+   with autoplay, handled in the script at the bottom of the page. */
+
+.yt-lite{
+  position:relative;
+  display:block;
+  width:100%;
+  height:100%;
+  padding:0;
+  border:0;
+  cursor:pointer;
+  background:#000;
+  overflow:hidden;
+}
+.yt-lite img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .5s ease;
+}
+/* soft vignette so the play button reads on any footage */
+.yt-lite::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(ellipse at center, rgba(0,0,0,.05) 35%, rgba(0,0,0,.40) 100%);
+  transition:opacity .3s ease;
+}
+.yt-lite:hover img{transform:scale(1.04);}
+
+.yt-play{
+  position:absolute;
+  top:50%;left:50%;
+  z-index:2;
+  width:78px;height:78px;
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--tan-light),var(--tan) 60%,var(--tan-deep));
+  box-shadow:0 12px 32px rgba(0,0,0,.40), inset 0 1px 0 rgba(255,255,255,.35);
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+/* frosted halo ring around the disc */
+.yt-play::before{
+  content:"";
+  position:absolute;
+  inset:-9px;
+  border-radius:50%;
+  border:1.5px solid rgba(255,255,255,.55);
+  background:rgba(255,255,255,.14);
+  backdrop-filter:blur(2px);
+  z-index:-1;
+}
+/* the triangle, nudged right of centre so it looks optically centred */
+.yt-play::after{
+  content:"";
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-40%,-50%);
+  border-style:solid;
+  border-width:12px 0 12px 20px;
+  border-color:transparent transparent transparent #fff;
+  filter:drop-shadow(0 1px 2px rgba(0,0,0,.25));
+}
+.yt-lite:hover .yt-play,
+.yt-lite:focus-visible .yt-play{
+  transform:translate(-50%,-50%) scale(1.09);
+  box-shadow:0 16px 40px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.35);
+}
+.yt-lite:focus-visible{outline:3px solid var(--tan);outline-offset:3px;}
+
+.yt-chip{
+  position:absolute;
+  left:14px;bottom:12px;
+  z-index:2;
+  font-family:var(--body);
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:.2px;
+  color:#fff;
+  background:rgba(0,0,0,.55);
+  border:1px solid rgba(255,255,255,.25);
+  padding:6px 12px;
+  border-radius:999px;
+  backdrop-filter:blur(3px);
+}
+
+@media (max-width:640px){
+  .yt-play{width:62px;height:62px;}
+  .yt-play::after{border-width:10px 0 10px 16px;}
+  .yt-chip{font-size:12px;padding:5px 10px;}
+}
+
+
 .s-video .body-copy{max-width:930px;margin:0 auto;}
 
 /* give the intro video more presence on desktop */
@@ -626,6 +722,8 @@ p{margin:0;}
 }
 
 @media (prefers-reduced-motion:reduce){
+  .yt-lite img{transition:none;}
+  .yt-lite:hover img{transform:none;}
   [data-reveal]{opacity:1!important;transform:none!important;}
   .grad{animation:none;}
   .btn::after{animation:none;}
@@ -792,11 +890,13 @@ p{margin:0;}
   <div class="bg" role="presentation"></div>
   <div class="wrap center">
     <div class="video-frame" data-reveal>
-      <iframe
-        src="https://www.youtube.com/embed/X6PBi4oqPgY?rel=0"
-        title="Terri Ross invites you to the 4S Summit"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen loading="lazy"></iframe>
+      <button class="yt-lite" type="button" data-yt="X6PBi4oqPgY"
+        data-title="Terri Ross invites you to the 4S Summit"
+        aria-label="Play video: Terri Ross invites you to the 4S Summit">
+        <img src="assets/yt-X6PBi4oqPgY.jpg" alt="" loading="lazy">
+        <span class="yt-chip">Watch &middot; 1:13</span>
+        <span class="yt-play" aria-hidden="true"></span>
+      </button>
     </div>
 
     <p class="body-copy" data-reveal>
@@ -1317,6 +1417,21 @@ p{margin:0;}
       videos.forEach(function (other) {
         if (other !== v) { other.pause(); }
       });
+    });
+  });
+
+  /* ---------- YouTube facades: build the player only on click ---------- */
+  document.querySelectorAll('.yt-lite').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var f = document.createElement('iframe');
+      f.src = 'https://www.youtube.com/embed/' + b.dataset.yt + '?autoplay=1&rel=0';
+      f.title = b.dataset.title || 'YouTube video';
+      f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      f.allowFullscreen = true;
+      f.style.cssText = 'width:100%;height:100%;display:block;border:0;';
+      videos.forEach(function (v) { v.pause(); });   // silence the CDN players
+      b.replaceWith(f);
+      f.focus();
     });
   });
 })();
