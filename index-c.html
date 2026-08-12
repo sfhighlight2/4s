@@ -239,19 +239,31 @@ p{margin:0;}
   background:#0b0806 center/cover no-repeat;
 }
 
-/* Ambient grade only — NOT relied on for text contrast. The footage is bright,
-   well-lit conference-room video (a projector slide and light clothing spike
-   close to pure white at points in the loop), so no gradient wash can
-   guarantee legibility against it at every frame. Contrast is instead
-   guaranteed by the solid panel behind .hero-col, below; this just keeps the
-   rest of the frame from looking washed-out and gives it a cinematic grade. */
+/* Dark tint over the video itself — no boxed panel behind the text. The
+   footage is bright, well-lit conference-room video (a projector slide and
+   light clothing spike to luminance ~1.0 at points in the loop), so the tint
+   has to hold real opacity across the text column, not just suggest a
+   gradient. Stops are calc(50% + 17px), not percentages, for the same reason
+   as the photo hero elsewhere on this page: .hero-col is a fixed 600px
+   inside a fixed 1206px container, so its right edge always lands at
+   50% + 17px regardless of viewport — a percentage stop would drift and
+   under-cover the column at some widths. Full-strength darkness runs the
+   entire column height (a horizontal gradient, so it doesn't matter whether
+   text sits near the top or bottom of the block), then eases out over ~380px
+   so the edge reads as a soft vignette rather than a hard box line. */
 .hero-video-scrim{
   position:absolute;
   inset:0;
   z-index:1;
   background:
-    linear-gradient(0deg, rgba(6,4,3,.35) 0%, rgba(6,4,3,0) 42%),
-    rgba(0,0,0,.20);
+    linear-gradient(to right,
+      rgba(6,4,3,.90) 0,
+      rgba(6,4,3,.90) calc(50% + 17px),
+      rgba(6,4,3,.55) calc(50% + 220px),
+      rgba(6,4,3,.12) calc(50% + 400px),
+      rgba(6,4,3,0)   calc(50% + 620px)),
+    linear-gradient(0deg, rgba(6,4,3,.30) 0%, rgba(6,4,3,0) 50%),
+    rgba(0,0,0,.16);
 }
 
 .hero-inner{
@@ -267,21 +279,7 @@ p{margin:0;}
   /* Bottom-anchored text block, matching the reference. */
   justify-content:flex-end;
 }
-/* This panel is what actually guarantees legibility, not the scrim above —
-   measured against the video mid-playback, patches of the raw footage hit
-   luminance 1.0 (the projector slide, bright shirts). At .90 opacity, even a
-   pure-white pixel behind the panel composites down to ~0.10 — comfortably
-   readable for white text at any point in the loop. */
-.hero-col{
-  max-width:620px;
-  padding:34px 38px;
-  border-radius:18px;
-  background:rgba(8,6,4,.90);
-  backdrop-filter:blur(14px);
-  -webkit-backdrop-filter:blur(14px);
-  border:1px solid rgba(255,255,255,.09);
-  box-shadow:0 26px 60px rgba(0,0,0,.4);
-}
+.hero-col{max-width:600px;}
 
 .hero-logo{width:200px;margin-bottom:36px;}
 /* There's no light-coloured variant of the wordmark, so force it to pure
@@ -299,6 +297,7 @@ p{margin:0;}
   line-height:1.5;
   color:rgba(255,255,255,.94);
   max-width:560px;
+  text-shadow:0 1px 16px rgba(0,0,0,.5);
 }
 
 .hero-video-dates{
@@ -307,10 +306,15 @@ p{margin:0;}
   font-weight:700;
   color:#fff;
   letter-spacing:.2px;
+  text-shadow:0 1px 16px rgba(0,0,0,.55);
 }
 .hero-video-dates b{font-weight:800;color:var(--tan-light);}
 
 .hero .cta-block{margin-top:2px;}
+
+/* Text sits directly on tinted video now, not a solid panel — a soft shadow
+   is enough here because the tint above already carries most of the load. */
+.hero h1.display{text-shadow:0 2px 24px rgba(0,0,0,.5);}
 
 /* ============================================================
    2. INTRO VIDEO
@@ -790,10 +794,22 @@ p{margin:0;}
 
 
 @media (max-width:900px){
-  /* No plate/reorder gymnastics needed here: the scrim already carries full
-     contrast at every width, and with no eyebrow pill or bullet list to shuffle,
-     the natural DOM order — logo, headline, subhead, dates, CTA — is already
-     the ideal mobile reading order. Just tighten the spacing. */
+  /* The desktop scrim's calc(50% + 17px) stop assumes room to the right of the
+     text column for the video to fade back in. On mobile the column IS
+     basically the viewport (e.g. ~350px of a 390px screen), so that boundary
+     sits well inside where wrapped text actually reaches — the right portion
+     of the column would land in the fade-out zone. Swap to a flat, strong,
+     uniform tint instead: nothing to under-cover, since there's no meaningful
+     "past the column" area left for the video to breathe in anyway.
+
+     Also: no plate/reorder gymnastics needed here — with no eyebrow pill or
+     bullet list to shuffle, the natural DOM order (logo, headline, subhead,
+     dates, CTA) is already the ideal mobile reading order. */
+  .hero-video-scrim{
+    background:
+      linear-gradient(0deg, rgba(6,4,3,.35) 0%, rgba(6,4,3,.22) 55%),
+      rgba(6,4,3,.85);
+  }
   .hero-inner{min-height:0;padding:36px 20px 44px;justify-content:flex-end;}
   .hero-logo{margin-bottom:26px;}
   .hero-video-sub{margin:16px 0 14px;}
