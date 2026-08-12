@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4S Summit 2026 | The Business School Medical Aesthetics Never Had</title>
+<meta name="description" content="2½ days where aesthetic practice owners rebuild pricing, consultations, KPIs and forecasting using their own numbers. Kansas City Sept 25–27. Miami Dec 4–6. 120 seats.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   4S SUMMIT — OPT-IN PAGE
+   ============================================================ */
+
+@font-face {
+  font-family: 'Seasons';
+  src: url('assets/69bccb4e3147fd9845717e95.ttf') format('truetype');
+  font-display: swap;
+}
+
+:root{
+  --headline: 'Seasons', 'Playfair Display', Georgia, serif;
+  --body: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --black:#000000;
+  --white:#ffffff;
+  --tan:#b89c87;
+  --tan-light:#c8b1a5;
+  --tan-deep:#a3846c;
+  --cream:#fffbf2;
+  --gold:#daa520;
+  --olive:#36301b;
+  --charcoal:#303030;
+  --red:#e93d3d;
+  --green:#2e7d32;
+
+  --wrap:1140px;
+  --wrap-narrow:940px;
+
+  --radius:5px;
+  --radius-card:12px;
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;}
+
+body{
+  margin:0;
+  font-family:var(--body);
+  font-size:16px;
+  line-height:1.45;
+  color:var(--black);
+  background:var(--white);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+img{max-width:100%;height:auto;display:block;border:0;}
+
+p{margin:0;}
+
+/* ---------- layout helpers ---------- */
+
+.section{position:relative;padding:40px 0;overflow:hidden;}
+.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 20px;position:relative;z-index:2;}
+.wrap-narrow{max-width:var(--wrap-narrow);}
+.center{text-align:center;}
+
+/* Full-bleed background image layer */
+.bg{
+  position:absolute;
+  inset:0;
+  background-repeat:no-repeat;
+  background-position:center center;
+  background-size:cover;
+  z-index:0;
+  pointer-events:none;
+}
+
+/* ---------- typography ---------- */
+
+.display{
+  font-family:var(--headline);
+  font-weight:400;
+  font-size:clamp(34px,4.1vw,59px);
+  line-height:1.08;
+  letter-spacing:.5px;
+  margin:0;
+  color:var(--black);
+}
+.display.on-dark{color:var(--white);}
+
+/* animated tan gradient used on the second half of every headline */
+.grad{
+  background:linear-gradient(150deg,
+    #c8b1a5 0%, #b89c87 25%, #c8b1a5 50%, #b89c87 75%, #c8b1a5 100%);
+  background-size:300% 300%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  color:transparent;
+  animation:gradientMove 6s ease infinite;
+}
+@keyframes gradientMove{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+.eyebrow-pill{
+  display:inline-block;
+  font-size:18px;
+  font-weight:500;
+  line-height:1.2;
+  padding:12px 26px;
+  border:1px solid rgba(184,156,135,.75);
+  border-radius:999px;
+  background:rgba(184,156,135,.06);
+  margin-bottom:18px;
+}
+.eyebrow-pill.on-dark{
+  color:var(--white);
+  border-color:rgba(255,255,255,.35);
+  background:rgba(255,255,255,.06);
+}
+
+.lede{
+  font-size:18px;
+  font-weight:500;
+  line-height:1.5;
+}
+.lede.on-dark{color:var(--white);}
+
+.body-copy{font-size:18px;font-weight:400;line-height:1.55;}
+.body-copy.on-dark{color:rgba(255,255,255,.92);}
+
+/* ---------- CTA button ---------- */
+
+.cta-block{margin:26px 0 0;}
+.cta-block.is-center{display:flex;flex-direction:column;align-items:center;}
+
+.btn{
+  position:relative;
+  display:inline-block;
+  border:0;
+  cursor:pointer;
+  text-decoration:none;
+  padding:16px 32px;
+  min-width:432px;
+  border-radius:var(--radius);
+  color:var(--white);
+  text-align:center;
+  overflow:hidden;
+  background:linear-gradient(135deg,var(--tan-light),var(--tan),var(--tan-light));
+  background-size:200% 200%;
+  box-shadow:0 6px 20px rgba(184,156,135,.28);
+  transition:transform .25s ease, box-shadow .25s ease, background-position .6s ease;
+  font-family:var(--body);
+}
+.btn:hover{
+  transform:translateY(-2px);
+  background-position:100% 50%;
+  box-shadow:0 12px 30px rgba(184,156,135,.42);
+}
+.btn:active{transform:translateY(0);}
+
+/* shine sweep */
+.btn::after{
+  content:"";
+  position:absolute;
+  top:0;left:-120%;
+  width:70%;height:100%;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,.45),transparent);
+  transform:skewX(-20deg);
+  animation:btnShine 3.6s ease-in-out infinite;
+  pointer-events:none;
+}
+@keyframes btnShine{
+  0%{left:-120%;}
+  55%{left:130%;}
+  100%{left:130%;}
+}
+
+.btn .btn-main{
+  display:block;
+  font-size:26px;
+  font-weight:800;
+  line-height:1.2;
+  letter-spacing:.2px;
+}
+.btn .btn-sub{
+  display:block;
+  font-size:17px;
+  font-weight:400;
+  line-height:normal;
+  opacity:.8;
+  margin-top:2px;
+}
+.btn.btn-sm{min-width:0;width:100%;max-width:396px;padding:14px 26px;}
+.btn.btn-sm .btn-main{font-size:22px;}
+/* 14px so the longer sub-text sits on one line in the narrower card buttons
+   instead of orphaning "checkout" onto a second row. */
+.btn.btn-sm .btn-sub{font-size:14px;}
+
+.cta-dates{
+  font-size:16px;
+  font-weight:400;
+  line-height:1.45;
+  margin-top:12px;
+}
+.cta-dates b{font-weight:700;}
+.cta-dates.on-dark{color:var(--white);}
+
+/* ============================================================
+   1. HERO
+   ============================================================ */
+
+.hero{
+  position:relative;
+  padding:0;
+  /* Dark fallback so there's no cream flash before the video paints, and so a
+     no-JS visitor (who never gets a video src assigned) still sees a moody
+     backdrop behind the poster frame rather than the site's light base tone. */
+  background:#0b0806;
+  overflow:hidden;
+}
+
+/* Full-bleed background video. object-fit:cover behaves like background-size:
+   cover — the footage crops rather than distorts at any aspect ratio. */
+.hero-video-bg{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  background:#0b0806 center/cover no-repeat;
+}
+
+/* Ambient grade only — NOT relied on for text contrast. The footage is bright,
+   well-lit conference-room video (a projector slide and light clothing spike
+   close to pure white at points in the loop), so no gradient wash can
+   guarantee legibility against it at every frame. Contrast is instead
+   guaranteed by the solid panel behind .hero-col, below; this just keeps the
+   rest of the frame from looking washed-out and gives it a cinematic grade. */
+.hero-video-scrim{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background:
+    linear-gradient(0deg, rgba(6,4,3,.35) 0%, rgba(6,4,3,0) 42%),
+    rgba(0,0,0,.20);
+}
+
+.hero-inner{
+  position:relative;
+  z-index:2;
+  width:100%;
+  max-width:1206px;
+  margin:0 auto;
+  padding:52px 20px 64px;
+  min-height:min(57.5vw,900px);
+  display:flex;
+  flex-direction:column;
+  /* Bottom-anchored text block, matching the reference. */
+  justify-content:flex-end;
+}
+/* This panel is what actually guarantees legibility, not the scrim above —
+   measured against the video mid-playback, patches of the raw footage hit
+   luminance 1.0 (the projector slide, bright shirts). At .90 opacity, even a
+   pure-white pixel behind the panel composites down to ~0.10 — comfortably
+   readable for white text at any point in the loop. */
+.hero-col{
+  max-width:620px;
+  padding:34px 38px;
+  border-radius:18px;
+  background:rgba(8,6,4,.90);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,.09);
+  box-shadow:0 26px 60px rgba(0,0,0,.4);
+}
+
+.hero-logo{width:200px;margin-bottom:36px;}
+/* There's no light-coloured variant of the wordmark, so force it to pure
+   white — brightness(0) flattens it to black, invert(1) flips that to white —
+   with a soft drop-shadow so it still separates from pale sky or highlights
+   in the footage. */
+.hero-logo--onvideo{
+  filter:brightness(0) invert(1) drop-shadow(0 2px 10px rgba(0,0,0,.45));
+}
+
+.hero-video-sub{
+  margin:20px 0 18px;
+  font-size:19px;
+  font-weight:500;
+  line-height:1.5;
+  color:rgba(255,255,255,.94);
+  max-width:560px;
+}
+
+.hero-video-dates{
+  margin:0 0 28px;
+  font-size:17px;
+  font-weight:700;
+  color:#fff;
+  letter-spacing:.2px;
+}
+.hero-video-dates b{font-weight:800;color:var(--tan-light);}
+
+.hero .cta-block{margin-top:2px;}
+
+/* ============================================================
+   2. INTRO VIDEO
+   ============================================================ */
+
+.s-video{padding:56px 0 64px;background:#faf8f6;}
+.s-video .bg{background-image:url('assets/6a7435f5f4dee0f60f940432.jpg');background-size:100% 100%;}
+
+.video-frame{
+  width:100%;
+  max-width:580px;
+  margin:0 auto 26px;
+  aspect-ratio:16/9;
+  background:#000;
+  overflow:hidden;
+  box-shadow:0 18px 46px rgba(54,48,27,.18);
+}
+.video-frame iframe,
+.video-frame video{width:100%;height:100%;display:block;border:0;object-fit:cover;}
+
+/* ---------- YouTube facade: local thumbnail + branded play button ----------
+   The iframe is not created until the visitor clicks, so nothing from
+   youtube.com loads up front. Click swaps the facade for the real player
+   with autoplay, handled in the script at the bottom of the page. */
+
+.yt-lite{
+  position:relative;
+  display:block;
+  width:100%;
+  height:100%;
+  padding:0;
+  border:0;
+  cursor:pointer;
+  background:#000;
+  overflow:hidden;
+}
+.yt-lite img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .5s ease;
+}
+/* soft vignette so the play button reads on any footage */
+.yt-lite::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:radial-gradient(ellipse at center, rgba(0,0,0,.05) 35%, rgba(0,0,0,.40) 100%);
+  transition:opacity .3s ease;
+}
+.yt-lite:hover img{transform:scale(1.04);}
+
+.yt-play{
+  position:absolute;
+  top:50%;left:50%;
+  z-index:2;
+  width:78px;height:78px;
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--tan-light),var(--tan) 60%,var(--tan-deep));
+  box-shadow:0 12px 32px rgba(0,0,0,.40), inset 0 1px 0 rgba(255,255,255,.35);
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+/* frosted halo ring around the disc */
+.yt-play::before{
+  content:"";
+  position:absolute;
+  inset:-9px;
+  border-radius:50%;
+  border:1.5px solid rgba(255,255,255,.55);
+  background:rgba(255,255,255,.14);
+  backdrop-filter:blur(2px);
+  z-index:-1;
+}
+/* the triangle, nudged right of centre so it looks optically centred */
+.yt-play::after{
+  content:"";
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-40%,-50%);
+  border-style:solid;
+  border-width:12px 0 12px 20px;
+  border-color:transparent transparent transparent #fff;
+  filter:drop-shadow(0 1px 2px rgba(0,0,0,.25));
+}
+.yt-lite:hover .yt-play,
+.yt-lite:focus-visible .yt-play{
+  transform:translate(-50%,-50%) scale(1.09);
+  box-shadow:0 16px 40px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.35);
+}
+.yt-lite:focus-visible{outline:3px solid var(--tan);outline-offset:3px;}
+
+.yt-chip{
+  position:absolute;
+  left:14px;bottom:12px;
+  z-index:2;
+  font-family:var(--body);
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:.2px;
+  color:#fff;
+  background:rgba(0,0,0,.55);
+  border:1px solid rgba(255,255,255,.25);
+  padding:6px 12px;
+  border-radius:999px;
+  backdrop-filter:blur(3px);
+}
+
+@media (max-width:640px){
+  .yt-play{width:62px;height:62px;}
+  .yt-play::after{border-width:10px 0 10px 16px;}
+  .yt-chip{font-size:12px;padding:5px 10px;}
+}
+
+
+.s-video .body-copy{max-width:930px;margin:0 auto;}
+
+/* give the intro video more presence on desktop */
+@media (min-width:901px){
+  .video-frame{max-width:720px;}
+}
+
+/* ============================================================
+   3. COUNTDOWN
+   ============================================================ */
+
+.s-countdown{padding:64px 0 70px;background:#100c08;}
+.s-countdown .bg{background-image:url('assets/6a746bdb95133c52552c0a5c.jpg');}
+
+.countdown{
+  display:flex;
+  justify-content:center;
+  gap:clamp(18px,4vw,52px);
+  margin:34px 0 30px;
+}
+.cd-unit{min-width:74px;text-align:center;}
+.cd-num{
+  font-size:clamp(38px,4.2vw,54px);
+  font-weight:700;
+  line-height:1;
+  color:var(--white);
+  font-variant-numeric:tabular-nums;
+}
+.cd-label{
+  font-size:16px;
+  font-weight:400;
+  color:rgba(255,255,255,.85);
+  margin-top:8px;
+}
+
+/* ============================================================
+   4. TESTIMONIALS
+   ============================================================ */
+
+.s-testimonials{padding:60px 0 40px;background:#f8f6f4;}
+.s-testimonials .bg{background-image:url('assets/6a7435deac7d7ffc646a8ed5.jpg');background-size:100% 100%;}
+
+.brand-mark{width:200px;margin:0 auto 26px;}
+
+.t-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+  margin-top:42px;
+}
+.t-card{
+  background:rgba(240,232,225,.72);
+  border:1px solid rgba(184,156,135,.35);
+  border-radius:8px;
+  padding:26px 24px 28px;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  backdrop-filter:blur(2px);
+}
+.t-video{
+  width:100%;
+  aspect-ratio:16/9;
+  background:#000;
+  border-radius:2px;
+  overflow:hidden;
+}
+.t-video video{width:100%;height:100%;display:block;object-fit:cover;background:#000;}
+.t-quote{
+  font-size:17px;
+  line-height:1.5;
+  text-align:center;
+  font-weight:400;
+}
+.t-quote b{font-weight:800;}
+
+/* testimonial attribution — muted caption treatment */
+.t-attrib{
+  display:block;
+  margin-top:12px;
+  font-size:14px;
+  font-weight:700;
+  line-height:1.35;
+  color:#8a7663;
+}
+.t-attrib span{
+  display:block;
+  font-weight:500;
+  color:#7a6f68;
+  margin-top:1px;
+}
+
+/* ============================================================
+   5. PARTNERS
+   ============================================================ */
+
+.s-partners{padding:20px 0 56px;background:#f8f6f4;}
+.s-partners .bg{background-image:url('assets/6a7435deac7d7ffc646a8ed5.jpg');background-size:100% 100%;}
+
+.marquee{
+  position:relative;
+  overflow:hidden;
+  /* full-bleed without a transform, so the reveal animation can't cancel it */
+  width:100vw;
+  margin:26px 0 18px calc(50% - 50vw);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+}
+.marquee-track{
+  display:flex;
+  align-items:center;
+  gap:64px;
+  width:max-content;
+  animation:marquee 46s linear infinite;
+}
+.marquee:hover .marquee-track{animation-play-state:paused;}
+.marquee-track img{
+  height:44px;
+  width:150px;
+  object-fit:contain;
+  object-position:center;
+  flex:0 0 auto;
+  opacity:.9;
+}
+@keyframes marquee{
+  from{transform:translateX(0);}
+  to{transform:translateX(-50%);}
+}
+
+.partners-note{font-size:18px;font-weight:400;margin-top:10px;}
+
+/* ============================================================
+   6. HEADACHES (dark)
+   ============================================================ */
+
+.s-pain{padding:64px 0 70px;background:#0b0806;}
+.s-pain .bg{
+  background-image:url('assets/6a746bc1a36de46d6a5a9fe4.jpg');
+  background-size:100% 100%;
+}
+.s-pain .wrap{max-width:1115px;}
+
+.pain-sub{
+  font-size:clamp(20px,2.1vw,29px);
+  font-weight:500;
+  color:var(--white);
+  margin-top:14px;
+}
+
+.pain-list{display:grid;gap:32px;margin-top:44px;}
+
+.pain-card{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:44px;
+  align-items:start;
+  padding:26px;
+  border:1px solid rgba(184,156,135,.30);
+  border-radius:var(--radius-card);
+  background:linear-gradient(180deg,rgba(24,18,13,.72),rgba(10,8,6,.80));
+  box-shadow:0 20px 50px rgba(0,0,0,.35);
+}
+.pain-photo{
+  width:100%;
+  aspect-ratio:4/3;
+  object-fit:cover;
+  border-radius:6px;
+  border:1px solid rgba(184,156,135,.25);
+}
+.pain-head{display:flex;align-items:center;gap:16px;}
+.pain-num{width:48px;height:48px;border-radius:8px;flex:0 0 auto;}
+.pain-title{
+  font-size:clamp(20px,2vw,25px);
+  font-weight:600;
+  color:var(--white);
+  line-height:1.2;
+  margin:0;
+}
+.pain-rule{
+  height:1px;
+  background:rgba(184,156,135,.32);
+  margin:22px 0 20px;
+}
+.pain-card .body-copy{font-size:17px;}
+.pain-card .cta-block{margin-top:22px;}
+
+.pain-closer{
+  font-size:clamp(22px,2.4vw,31px);
+  font-weight:600;
+  color:var(--white);
+  margin-top:52px;
+}
+
+/* ============================================================
+   7. TRANSFORM
+   ============================================================ */
+
+.s-transform{padding:64px 0 70px;background:var(--cream);}
+.s-transform .bg{background-image:url('assets/6a746860568ec7352487e3a3.jpg');background-size:100% 100%;}
+.s-transform .wrap{max-width:990px;}
+
+.tf-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+  margin-top:40px;
+}
+.tf-card{
+  background:linear-gradient(180deg,rgba(255,255,255,.9),rgba(252,247,240,.86));
+  border:1px solid rgba(184,156,135,.35);
+  border-radius:var(--radius-card);
+  padding:28px 26px 30px;
+  display:flex;
+  flex-direction:column;
+  box-shadow:0 14px 34px rgba(54,48,27,.08);
+}
+.tf-title{
+  font-size:21px;
+  font-weight:700;
+  line-height:1.25;
+  margin:0 0 20px;
+}
+.tf-title.bad{color:var(--tan-deep);}
+.tf-title.good{color:var(--green);}
+
+.tf-list{list-style:none;margin:0 0 26px;padding:0;display:grid;gap:14px;}
+.tf-list li{position:relative;padding-left:28px;font-size:17px;line-height:1.45;}
+.tf-list li::before{
+  position:absolute;left:0;top:0;
+  font-weight:800;
+  font-size:17px;
+}
+.tf-list.bad li::before{content:"\2715";color:var(--red);}
+.tf-list.good li::before{content:"\2713";color:#22a04a;}
+
+.tf-card .cta-block{margin-top:auto;display:flex;justify-content:center;}
+
+/* ============================================================
+   8. MORE PROOF
+   ============================================================ */
+
+.s-proof{padding:64px 0 72px;background:#f7f5f3;}
+.s-proof .bg{background-image:url('assets/6a746cb29a9c7792eaf877ac.jpg');background-size:100% 100%;}
+.s-proof .wrap{max-width:1075px;}
+
+.proof-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+  margin:40px 0 44px;
+}
+.proof-video{
+  width:100%;
+  aspect-ratio:16/9;
+  background:#000;
+  overflow:hidden;
+  box-shadow:0 14px 34px rgba(54,48,27,.14);
+}
+.proof-video video{width:100%;height:100%;display:block;object-fit:cover;background:#000;}
+
+/* ---------- "Enable sound" pill overlay on every player ---------- */
+
+.has-sound-pill{position:relative;}
+
+.sound-pill{
+  position:absolute;
+  top:12px;
+  left:12px;
+  z-index:3;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 14px 8px 11px;
+  border:0;
+  border-radius:999px;
+  background:rgba(0,0,0,.72);
+  color:#fff;
+  font-family:var(--body);
+  font-size:15px;
+  font-weight:500;
+  line-height:1;
+  cursor:pointer;
+  transition:background .2s ease, opacity .2s ease;
+}
+.sound-pill:hover{background:rgba(0,0,0,.88);}
+.sound-pill svg{width:17px;height:17px;flex:0 0 auto;}
+.sound-on .sound-pill{opacity:0;pointer-events:none;}
+
+/* ============================================================
+   9. FOOTER
+   ============================================================ */
+
+.footer{
+  background:linear-gradient(141deg,var(--black) 0%,var(--charcoal) 52%,var(--black) 100%);
+  padding:52px 0 46px;
+  text-align:center;
+  color:var(--white);
+}
+.footer-logo{width:180px;margin:0 auto 22px;}
+.footer-copy{font-size:19px;font-weight:700;margin-bottom:18px;}
+.footer-disclaimer{
+  font-size:16px;
+  font-weight:400;
+  line-height:1.5;
+  color:rgba(255,255,255,.9);
+  max-width:1010px;
+  margin:0 auto 20px;
+}
+.footer-links{font-size:17px;font-weight:700;margin-bottom:12px;}
+.footer-links a{color:var(--white);text-decoration:none;}
+.footer-links a:hover{text-decoration:underline;}
+.footer-credit{font-size:16px;color:rgba(255,255,255,.9);}
+.footer-credit a{color:var(--tan);font-weight:700;text-decoration:none;}
+.footer-credit a:hover{text-decoration:underline;}
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+
+[data-reveal]{opacity:0;transform:translateY(28px);}
+[data-reveal="left"]{transform:translateX(-38px);}
+[data-reveal="right"]{transform:translateX(38px);}
+[data-reveal].in{
+  opacity:1;
+  transform:none;
+  transition:opacity 1s linear, transform 1s linear;
+}
+
+@media (prefers-reduced-motion:reduce){
+  .yt-lite img{transition:none;}
+  .yt-lite:hover img{transform:none;}
+  [data-reveal]{opacity:1!important;transform:none!important;}
+  .grad{animation:none;}
+  .btn::after{animation:none;}
+  .marquee-track{animation:none;}
+  html{scroll-behavior:auto;}
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width:1100px){
+  .t-grid{grid-template-columns:repeat(2,1fr);}
+  .btn{min-width:0;width:100%;max-width:432px;}
+  /* buttons narrow to 432px here — drop the sub-text a step so it stays on one line */
+  .btn .btn-sub{font-size:15px;}
+  .cta-block{display:flex;flex-direction:column;align-items:center;text-align:center;}
+  .hero .cta-block{align-items:flex-start;text-align:left;}
+}
+
+/* Mid range: nothing to fade here — a full-bleed video with a scrim (unlike
+   the photo hero) already holds contrast at any width, so this block only
+   needs the same spacing/type tightening the photo hero used. */
+@media (min-width:901px) and (max-width:1200px){
+  .hero-inner{padding-left:34px;padding-right:34px;}
+  .hero-col{max-width:min(58vw,560px);}
+  .hero .display{font-size:clamp(38px,4.9vw,54px);}
+  .hero-video-sub{font-size:18px;}
+}
+
+
+@media (max-width:900px){
+  /* No plate/reorder gymnastics needed here: the scrim already carries full
+     contrast at every width, and with no eyebrow pill or bullet list to shuffle,
+     the natural DOM order — logo, headline, subhead, dates, CTA — is already
+     the ideal mobile reading order. Just tighten the spacing. */
+  .hero-inner{min-height:0;padding:36px 20px 44px;justify-content:flex-end;}
+  .hero-logo{margin-bottom:26px;}
+  .hero-video-sub{margin:16px 0 14px;}
+  .hero-video-dates{margin-bottom:22px;}
+  .pain-card{grid-template-columns:1fr;gap:26px;}
+  .tf-grid{grid-template-columns:1fr;}
+  .proof-grid{grid-template-columns:1fr;gap:22px;}
+  .marquee-track{gap:44px;}
+  .marquee-track img{height:36px;}
+}
+
+@media (max-width:640px){
+  .t-grid{grid-template-columns:1fr;}
+  .section{padding:44px 0;}
+  .hero-logo{width:160px;margin-bottom:30px;}
+  .btn .btn-main{font-size:21px;}
+  .btn .btn-sub{font-size:14px;}
+  .btn.btn-sm .btn-main{font-size:19px;}
+  .btn.btn-sm .btn-sub{font-size:13px;}
+  .eyebrow-pill{font-size:16px;padding:10px 20px;}
+  .countdown{gap:14px;}
+  .cd-unit{min-width:60px;}
+  .pain-card{padding:20px;}
+  .footer-copy{font-size:17px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ========================================================
+     1. HERO
+     ======================================================== -->
+<header class="hero">
+  <video class="hero-video-bg" poster="assets/hero-bg-poster.jpg"
+    muted loop playsinline tabindex="-1" aria-hidden="true"
+    data-src-desktop="assets/hero-bg.mp4" data-src-mobile="assets/hero-bg-mobile.mp4"></video>
+  <div class="hero-video-scrim" role="presentation"></div>
+  <div class="hero-inner">
+    <div class="hero-col">
+      <img class="hero-logo hero-logo--onvideo" src="assets/6a74098effc85279f489dfa5.png" alt="4S Summit" width="2186" height="725" data-reveal="left">
+
+      <h1 class="display on-dark" data-reveal="left">
+        You Were Trained To Treat Patients. <span class="grad">Nobody Trained You To Run The Business.</span>
+      </h1>
+
+      <p class="hero-video-sub" data-reveal="left">
+        Join industry icons Terri Ross, Dr. Renato Saltz and Izhak Musli for the 4S Summit, a weekend workshop unlike any other conference. No theory, no boring presentations…just 2½ days of hands-on learning from the experts.
+      </p>
+
+      <p class="hero-video-dates" data-reveal="left"><b>September 25&ndash;27, 2026</b> &middot; Kansas City, MO &middot; 120 seats &middot; Miami follows Dec 4&ndash;6</p>
+
+      <div class="cta-block" data-reveal="left">
+        <a class="btn" href="tickets.html">
+          <span class="btn-main">Claim My Seat</span>
+          <span class="btn-sub">Takes 30 seconds &middot; Early rate applied at checkout</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ========================================================
+     2. INTRO VIDEO
+     ======================================================== -->
+<section class="section s-video">
+  <div class="bg" role="presentation"></div>
+  <div class="wrap center">
+    <div class="video-frame" data-reveal>
+      <button class="yt-lite" type="button" data-yt="X6PBi4oqPgY"
+        data-title="Terri Ross invites you to the 4S Summit"
+        aria-label="Play video: Terri Ross invites you to the 4S Summit">
+        <img src="assets/yt-X6PBi4oqPgY.jpg" alt="" loading="lazy">
+        <span class="yt-chip">Watch &middot; 1:13</span>
+        <span class="yt-play" aria-hidden="true"></span>
+      </button>
+    </div>
+
+    <p class="body-copy" data-reveal>
+      Every other aesthetics conference teaches you how to treat. This one teaches you the business behind it:
+      <b>Strategy, Systems, Sales and Skills.</b>
+    </p>
+
+    <p class="body-copy" style="margin-top:18px" data-reveal>
+      It wasn't assembled by a conference company that rented some speakers. It was built by the three people who teach it &mdash;
+      a sales leader who helped bring Restylane, Dysport and CoolSculpting to market in North America, a growth strategist who
+      rebuilds P&amp;Ls for a living, and a board-certified plastic surgeon who has run the exact practice you're running.
+    </p>
+
+    <p class="body-copy" style="margin-top:18px" data-reveal>
+      Two minutes will tell you whether this is your room.
+    </p>
+
+    <div class="cta-block is-center" data-reveal>
+      <a class="btn" href="tickets.html">
+        <span class="btn-main">Claim My Seat</span>
+        <span class="btn-sub">Takes 30 seconds &middot; Early rate applied at checkout</span>
+      </a>
+      <p class="cta-dates center">You'll see the full agenda before you're asked to pay.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================
+     3. COUNTDOWN
+     ======================================================== -->
+<section class="section s-countdown">
+  <div class="bg" role="presentation"></div>
+  <div class="wrap center">
+    <h2 class="display on-dark" data-reveal>The Early Rate Ends <span class="grad">Before The Seats Do.</span></h2>
+
+    <p class="lede on-dark" style="margin-top:18px" data-reveal>
+      Kansas City runs <b>September 25&ndash;27</b> and the room is capped at 120 by design &mdash; small enough that you get
+      answered, not just talked at. When this timer hits zero the price goes up. Miami follows <b>December 4&ndash;6</b>.
+    </p>
+
+    <div class="countdown" data-reveal aria-live="off">
+      <div class="cd-unit"><div class="cd-num" id="cd-days">00</div><div class="cd-label">days</div></div>
+      <div class="cd-unit"><div class="cd-num" id="cd-hours">00</div><div class="cd-label">hours</div></div>
+      <div class="cd-unit"><div class="cd-num" id="cd-minutes">00</div><div class="cd-label">minutes</div></div>
+      <div class="cd-unit"><div class="cd-num" id="cd-seconds">00</div><div class="cd-label">seconds</div></div>
+    </div>
+
+    <div class="cta-block is-center" data-reveal>
+      <a class="btn" href="tickets.html">
+        <span class="btn-main">Claim My Seat</span>
+        <span class="btn-sub">Takes 30 seconds &middot; Early rate applied at checkout</span>
+      </a>
+      <p class="cta-dates on-dark center">The early rate ends when this timer hits zero.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================
+     4. TESTIMONIALS
+     ======================================================== -->
+<section class="section s-testimonials">
+  <div class="bg" role="presentation"></div>
+  <div class="wrap center">
+    <img class="brand-mark" src="assets/6a742310a177d5c2b9379e88.png" alt="4S Summit" data-reveal>
+
+    <h2 class="display" data-reveal>&ldquo;I Wish I Had <span class="grad">Come Sooner.&rdquo;</span></h2>
+    <p class="lede" style="margin-top:14px" data-reveal>It's the most common thing owners say to us on Sunday afternoon. Here are six of them, unscripted.</p>
+
+    <div class="t-grid">
+      <figure class="t-card" data-reveal style="margin:0">
+        <div class="t-video">
+          <video controls muted playsinline preload="metadata"
+            src="https://assets.cdn.filesafe.space/jlHkSuyCxK6xIj7cYbeY/media/6a7429fea177d5c2b9464418.mp4"></video>
+        </div>
+        <!-- VERIFY: name-to-video mapping unconfirmed — matched by quote text, not against the video file -->
+        <figcaption class="t-quote">"I've been in the aesthetic industry for over 40 years… No matter <b>how many</b> times I hear Terri speak, I always learn something new."<span class="t-attrib">Marisa Faircloth<span>Restoration MedSpa</span></span></figcaption>
+      </figure>
+
+      <figure class="t-card" data-reveal style="margin:0">
+        <div class="t-video">
+          <video controls muted playsinline preload="metadata"
+            src="https://assets.cdn.filesafe.space/jlHkSuyCxK6xIj7cYbeY/media/6a74282a47e61ee43a617c89.mp4"></video>
+        </div>
+        <!-- VERIFY: name-to-video mapping unconfirmed — matched by quote text, not against the video file -->
+        <figcaption class="t-quote">"Having the ability to understand how to get the most out of the first interaction with the patient is what I find <b>most valuable</b>!"<span class="t-attrib">Manny Rodriguez<span>Allura MD Aesthetics</span></span></figcaption>
+      </figure>
+
+      <figure class="t-card" data-reveal style="margin:0">
+        <div class="t-video">
+          <video controls muted playsinline preload="metadata"
+            src="https://assets.cdn.filesafe.space/jlHkSuyCxK6xIj7cYbeY/media/6a7429fef4dee0f60f6f0585.mp4"></video>
+        </div>
+        <!-- VERIFY: name-to-video mapping unconfirmed — matched by quote text, not against the video file -->
+        <figcaption class="t-quote">"The information that I've gotten so far has been <b>invaluable</b>… It was so much information in such a short amount of time! "<span class="t-attrib">Lori Carter<span>St. Johns Aesthetics</span></span></figcaption>
+      </figure>
+
+      <figure class="t-card" data-reveal style="margin:0">
+        <div class="t-video">
+          <video controls muted playsinline preload="metadata"
+            src="https://assets.cdn.filesafe.space/jlHkSuyCxK6xIj7cYbeY/media/6a74282aa177d5c2b93fa660.mp4"></video>
+        </div>
+        <!-- VERIFY: name-to-video mapping unconfirmed — matched by quote text, not against the video file -->
+        <figcaption class="t-quote">"It's a great open floor where fellow colleagues can share their thoughts and opinions and get <b>great</b> feedback, so I'm going back to the practice with <b>even more</b> than I expected.<span class="t-attrib">Katherine Cullinane<span>Palm Beach Facial Plastic Surgery</span></span></figcaption>
+      </figure>
+
+      <figure class="t-card" data-reveal style="margin:0">
+        <div class="t-video">
+          <video controls muted playsinline preload="metadata"
+            src="https://assets.cdn.filesafe.space/jlHkSuyCxK6xIj7cYbeY/media/6a74282aac7d7ffc64511319.mp4"></video>
+        </div>
+        <!-- VERIFY: name-to-video mapping unconfirmed — matched by quote text, not against the video file -->
+        <figcaption class="t-quote">"Terri and her team. They've seen it, they've heard it, and the best part is, they know how to solve it…<br>This is the only summit that <b>exists</b> for people like me."<span class="t-attrib">R.G. Kahoe<span>Dr. John Laura</span></span></figcaption>
+      </figure>
+
+      <figure class="t-card" data-reveal style="margin:0">
+        <div class="t-video">
+          <video controls muted playsinline preload="metadata"
+            src="https://assets.cdn.filesafe.space/jlHkSuyCxK6xIj7cYbeY/media/6a74282a47e61ee43a617c96.mp4"></video>
+        </div>
+        <!-- VERIFY: name-to-video mapping unconfirmed — matched by quote text, not against the video file -->
+        <figcaption class="t-quote">"I have invested in other trainings, and <b>nothing</b> compares to the 4S Summit because they teach you the numbers IN your aesthetics business."<span class="t-attrib">Ericka Lamourt<span>Founder, Joia Skin</span></span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================
+     5. PARTNERS
+     ======================================================== -->
+<section class="section s-partners">
+  <div class="bg" role="presentation"></div>
+  <div class="wrap center">
+    <h2 class="display" data-reveal>The Brands That Build This Industry <span class="grad">Are In The Room With You</span></h2>
+
+    <div class="marquee" data-reveal>
+      <div class="marquee-track" id="marquee-track">
+        <img src="assets/6a742f6ec863244457aa0f8b.png" alt="Galderma">
+        <img src="assets/6a742f6eac7d7ffc646399a6.png" alt="Huron">
+        <img src="assets/6a742f6ef4dee0f60f7e7e3c.png" alt="Partner logo"><!-- UNRESOLVED: monogram, brand not identifiable from artwork -->
+        <img src="assets/6a742f6ec863244457aa0f94.png" alt="get kudos">
+        <img src="assets/6a742f6ea177d5c2b9554d41.png" alt="skinbetter science">
+        <img src="assets/6a742f6eac7d7ffc646399af.png" alt="The Aesthetic Society">
+        <img src="assets/6a742f72c863244457aa0fd7.png" alt="Sofwave">
+        <img src="assets/6a742f72f4dee0f60f7e909c.png" alt="Podium">
+        <img src="assets/6a742f72a177d5c2b9555d88.png" alt="MedShift">
+        <img src="assets/6a742f72a177d5c2b9555dad.png" alt="Partner logo"><!-- UNRESOLVED: monogram, brand not identifiable from artwork -->
+        <img src="assets/6a742f73f4dee0f60f7e926a.png" alt="Skytale">
+        <img src="assets/6a742f73c863244457aa0ff8.png" alt="ShapeScale">
+        <img src="assets/6a742f76ac7d7ffc6463a8e0.png" alt="Pinpoint Creative">
+        <img src="assets/6a742f7647e61ee43a709d43.png" alt="Nextech">
+        <img src="assets/6a742f76ac7d7ffc6463a8c0.png" alt="Healthcare Compliance Pros">
+        <img src="assets/6a742f77c863244457aa1056.png" alt="Influx">
+        <img src="assets/6a742f76c863244457aa1048.png" alt="Fotona">
+      </div>
+    </div>
+
+    <!-- ROSTER NEEDS SIGN-OFF: brand names below are read off the logo files in this
+         marquee. The copy deck listed Merz, Symplast, Phorest, Boulevard, GlossGenius,
+         Dermapen and MyAdvice, none of which appear on this page. Confirm with SDE before launch. -->
+    <p class="partners-note" data-reveal>Galderma. Sofwave. skinbetter science. Fotona. Nextech. Podium. MedShift. Influx. Skytale. Huron. The Aesthetic Society. Not logos on a banner &mdash; their teams are on the floor for two and a half days, and you can ask them the questions you'd never get answered on a sales call.</p>
+
+    <div class="cta-block is-center" data-reveal>
+      <a class="btn" href="tickets.html">
+        <span class="btn-main">Claim My Seat</span>
+        <span class="btn-sub">Takes 30 seconds &middot; Early rate applied at checkout</span>
+      </a>
+      <p class="cta-dates center">Bringing your team? Group rates are available at checkout.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================
+     6. BIGGEST HEADACHES
+     ======================================================== -->
+<section class="section s-pain">
+  <div class="bg" role="presentation"></div>
+  <div class="wrap center">
+    <span class="eyebrow-pill on-dark" data-reveal>What You Actually Walk Out With</span>
+    <!-- on-dark: this section has a dark background. The old headline was entirely
+         inside .grad so the base colour never showed; the split version needs it. -->
+    <h2 class="display on-dark" data-reveal>Six Things That Change <span class="grad">By Monday Morning</span></h2>
+    <p class="pain-sub" data-reveal>Not inspiration. Deliverables you build in the room, using your own numbers.</p>
+
+    <div class="pain-list">
+
+      <article class="pain-card" data-reveal>
+        <img class="pain-photo" src="assets/6a745e0f791b229b3ca3d4e6.jpg" alt="4S Summit panel discussion on stage" loading="lazy">
+        <div style="text-align:left">
+          <div class="pain-head">
+            <img class="pain-num" src="assets/6a744b369a9c7792ea5fa338.png" alt="01" loading="lazy">
+            <h3 class="pain-title">Find The Revenue Already Sitting In Your Practice</h3>
+          </div>
+          <div class="pain-rule"></div>
+          <p class="body-copy on-dark">Most practices are leaving money in three predictable places: treatments priced below market, consults that never convert, and patients who never come back. You'll run the reports that expose all three in your own numbers, and know exactly what to change before you fly home.</p>
+          <div class="cta-block">
+            <a class="btn btn-sm" href="tickets.html">
+              <span class="btn-main">Claim My Seat</span>
+              <span class="btn-sub">Takes 30 seconds &middot; Early rate applied at checkout</span>
+            </a>
+            <p class="cta-dates on-dark">You'll work on your own P&amp;L, not a case study.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="pain-card" data-reveal>
+        <img class="pain-photo" src="assets/6a7473be8684435c58c11dd1.jpg" alt="Attendees networking at the 4S Summit" loading="lazy">
+        <div style="text-align:left">
+          <div class="pain-head">
+            <img class="pain-num" src="assets/6a74508d8880872019109d47.png" alt="02" loading="lazy">
+            <h3 class="pain-title">Turn Consultations Into Treatment Plans</h3>
+          </div>
+          <div class="pain-rule"></div>
+          <p class="body-copy on-dark">Your coordinator is having the most important conversation in your business, and most likely improvising it. In the sales track your team learns the consultation framework, the questions that surface what a patient actually wants, objection handling and phone skills &mdash; then role-plays all of it out loud before it ever touches a real patient again.</p>
+          <div class="cta-block">
+            <a class="btn btn-sm" href="tickets.html">
+              <span class="btn-main">Claim My Seat</span>
+              <span class="btn-sub">Takes 30 seconds &middot; Early rate applied at checkout</span>
+            </a>
+            <p class="cta-dates on-dark">Your coordinators and front desk attend the sales track.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="pain-card" data-reveal>
+        <img class="pain-photo" src="assets/6a745e0ff4dee0f60ffcf9eb.jpg" alt="Breakout session at the 4S Summit" loading="lazy">
+        <div style="text-align:left">
+          <div class="pain-head">
+            <img class="pain-num" src="assets/6a74508d9a9c7792ea69aa16.png" alt="03" loading="lazy">
+            <h3 class="pain-title">Say Why You, In One Sentence</h3>
+          </div>
+          <div class="pain-rule"></div>
+          <p class="body-copy on-dark">There are four other injectors within ten minutes of your front door and your patient cannot tell you apart. You'll build the one-sentence answer to why you, then the marketing structure that carries it: who you target, what you say, and where the leads actually come from.</p>
+          <div class="cta-block">
+            <a class="btn btn-sm" href="tickets.html">
+              <span class="btn-main">Claim My Seat</span>
+              <span class="btn-sub">Takes 30 seconds &middot; Early rate applied at checkout</span>
+            </a>
+            <p class="cta-dates on-dark">One clinic day out. Fly Friday, home Sunday, open Monday.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="pain-card" data-reveal>
+        <img class="pain-photo" src="assets/6a745e0f791b229b3ca3d4f4.jpg" alt="4S Summit attendees at a workshop table" loading="lazy">
+        <div style="text-align:left">
+          <div class="pain-head">
+            <img class="pain-num" src="assets/6a74508df4dee0f60fc7f859.png" alt="04" loading="lazy">
+            <h3 class="pain-title">Read Your Own P&amp;L Without Flinching</h3>
+          </div>
+          <div class="pain-rule"></div>
+          <p class="body-copy on-dark">Revenue per hour. Revenue per room. Cost of goods. Retention. Consult-to-treatment conversion. You'll learn the numbers that decide what a practice is actually worth, compare yours against national benchmarks, and leave knowing exactly where you rank instead of assuming.</p>
+          <div class="cta-block">
+            <a class="btn btn-sm" href="tickets.html">
+              <span class="btn-main">Claim My Seat</span>
+              <span class="btn-sub">Takes 30 seconds &middot; Early rate applied at checkout</span>
+            </a>
+            <p class="cta-dates on-dark">Includes the KPI benchmarks and the reports to run them.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="pain-card" data-reveal>
+        <img class="pain-photo" src="assets/6a745e0f568ec7352451d7e9.jpg" alt="Group photo of 4S Summit attendees" loading="lazy">
+        <div style="text-align:left">
+          <div class="pain-head">
+            <img class="pain-num" src="assets/6a74508d605a078260b8fee9.png" alt="05" loading="lazy">
+            <h3 class="pain-title">Fix The Team Problem Before It Costs You Again</h3>
+          </div>
+          <div class="pain-rule"></div>
+          <p class="body-copy on-dark">Wrong hires, wrong pay plans and comp structures that quietly reward the wrong behavior drain more profit than any marketing budget can replace. You'll rebuild the compensation model, the accountability structure and the data culture that lets a team run well when you're not in the room.</p>
+          <div class="cta-block">
+            <a class="btn btn-sm" href="tickets.html">
+              <span class="btn-main">Claim My Seat</span>
+              <span class="btn-sub">Takes 30 seconds &middot; Early rate applied at checkout</span>
+            </a>
+            <p class="cta-dates on-dark">Capped at 120 seats, so you actually get answers.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="pain-card" data-reveal>
+        <img class="pain-photo" src="assets/6a745e0f8684435c584a464b.jpg" alt="Speakers in conversation at the 4S Summit" loading="lazy">
+        <div style="text-align:left">
+          <div class="pain-head">
+            <img class="pain-num" src="assets/6a74508d605a078260b8fffb.png" alt="06" loading="lazy">
+            <h3 class="pain-title">Leave With A 12-Month Plan, Not A Notebook</h3>
+          </div>
+          <div class="pain-rule"></div>
+          <p class="body-copy on-dark">By Sunday at noon you'll have goals, a forecast, and the accountability structure to hit them: which services to push, what each room should produce per hour, and the handful of numbers to check every Monday morning. That's the deliverable. You take it home and run it.</p>
+          <div class="cta-block">
+            <a class="btn btn-sm" href="tickets.html">
+              <span class="btn-main">Claim My Seat</span>
+              <span class="btn-sub">Takes 30 seconds &middot; Early rate applied at checkout</span>
+            </a>
+            <p class="cta-dates on-dark">Leave Sunday with a 12-month forecast built for your practice.</p>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <p class="pain-closer" data-reveal>Your team is already having these conversations with your patients. The only question is whether anyone trained them for it.</p>
+
+    <div class="cta-block is-center" data-reveal>
+      <a class="btn" href="tickets.html">
+        <span class="btn-main">Claim My Seat</span>
+        <span class="btn-sub">Takes 30 seconds &middot; Early rate applied at checkout</span>
+      </a>
+      <p class="cta-dates on-dark center">Another year of guessing costs more than the ticket.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================
+     7. HOW YOU WILL TRANSFORM
+     ======================================================== -->
+<section class="section s-transform">
+  <div class="bg" role="presentation"></div>
+  <div class="wrap center">
+    <h2 class="display" data-reveal>Two Ways To Spend <span class="grad">The Next Twelve Months</span></h2>
+
+    <div class="tf-grid">
+      <div class="tf-card" data-reveal="left" style="text-align:left">
+        <h3 class="tf-title bad">Another Year Of Figuring It Out</h3>
+        <ul class="tf-list bad">
+          <li>Test pricing, comp plans and marketing on live patients, and find out what broke a quarter later</li>
+          <li>Search for answers the owners actually running $5M practices have no reason to post publicly</li>
+          <li>Run the same systems for another twelve months and expect a different number at the end of them</li>
+          <li>Pay for it quietly, in unrealized revenue, wrong hires and margin you never see</li>
+        </ul>
+        <div class="cta-block">
+          <a class="btn btn-sm" href="tickets.html">
+            <span class="btn-main">Claim My Seat</span>
+            <span class="btn-sub">Takes 30 seconds &middot; Early rate applied at checkout</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="tf-card" data-reveal="right" style="text-align:left">
+        <h3 class="tf-title good">One Weekend At The 4S Summit</h3>
+        <ul class="tf-list good">
+          <li>Get direct answers about <b>your</b> practice, from three people who have already solved it</li>
+          <li>Benchmark your real numbers against national data instead of guessing where you stand</li>
+          <li>Send your team home with a consultation framework they've already role-played out loud</li>
+          <li>Walk in Friday with questions and walk out Sunday with a written 12-month plan</li>
+        </ul>
+        <div class="cta-block">
+          <a class="btn btn-sm" href="tickets.html">
+            <span class="btn-main">Claim My Seat</span>
+            <span class="btn-sub">Takes 30 seconds &middot; Early rate applied at checkout</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================
+     8. STILL READING — MORE PROOF
+     ======================================================== -->
+<section class="section s-proof">
+  <div class="bg" role="presentation"></div>
+  <div class="wrap center">
+    <h2 class="display" data-reveal>Still Deciding? <span class="grad">Watch Four More.</span></h2>
+    <p class="lede" style="margin-top:14px" data-reveal>Four more owners, in their own words.</p>
+
+    <!-- PENDING: attribution for these four videos — deck supplies names for the six
+         testimonials above but not for these. Awaiting names from SDE. -->
+    <div class="proof-grid">
+      <div class="proof-video" data-reveal>
+        <video controls muted playsinline preload="metadata"
+          src="https://assets.cdn.filesafe.space/jlHkSuyCxK6xIj7cYbeY/media/6a7457218684435c58314116.mp4"></video>
+      </div>
+      <div class="proof-video" data-reveal>
+        <video controls muted playsinline preload="metadata"
+          src="https://assets.cdn.filesafe.space/jlHkSuyCxK6xIj7cYbeY/media/6a7457213ee92d7b63f6cba5.mp4"></video>
+      </div>
+      <div class="proof-video" data-reveal>
+        <video controls muted playsinline preload="metadata"
+          src="https://assets.cdn.filesafe.space/jlHkSuyCxK6xIj7cYbeY/media/6a74572188808720192e9002.mp4"></video>
+      </div>
+      <div class="proof-video" data-reveal>
+        <video controls muted playsinline preload="metadata"
+          src="https://assets.cdn.filesafe.space/jlHkSuyCxK6xIj7cYbeY/media/6a74282a47e61ee43a617c7c.mp4"></video>
+      </div>
+    </div>
+
+    <div class="cta-block is-center" data-reveal>
+      <a class="btn" href="tickets.html">
+        <span class="btn-main">Claim My Seat</span>
+        <span class="btn-sub">Takes 30 seconds &middot; Early rate applied at checkout</span>
+      </a>
+      <p class="cta-dates center">Kansas City is next. Miami is December. Both cap at 120.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================
+     9. FOOTER
+     ======================================================== -->
+<footer class="footer">
+  <div class="wrap">
+    <img class="footer-logo" src="assets/6a7471268684435c58b02b46.png" alt="4S Summit" loading="lazy">
+    <p class="footer-copy">© 2026 4S Summit. All Rights Reserved.</p>
+    <p class="footer-disclaimer">
+      The 4S Summit provides educational content, strategies, and resources designed to help aesthetic practice owners improve their
+      business knowledge and skills. Information shared during the event is for educational purposes only and does not guarantee specific
+      business results, revenue growth, or professional outcomes. Results may vary based on individual effort, implementation, market
+      conditions, and other factors.
+    </p>
+    <p class="footer-links">
+      <a href="#">Privacy Policy</a> | <a href="#">Terms &amp; Conditions</a> | Copyright 2026 – 4S Summit
+    </p>
+    <p class="footer-credit">Designed by <a href="https://livemediadigital.com" target="_blank" rel="noopener">Live Media Digital</a></p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ---------- countdown to the early-rate deadline ----------
+     The section copy states "the early rate ends when this timer hits zero",
+     so this MUST point at the price-increase date, not the event date.
+
+     {{CONFIRM}} — awaiting the real early-rate expiry from the client.
+     Placeholder below is two weeks before Kansas City. DO NOT SHIP AS-IS. */
+  var EARLY_RATE_DEADLINE = new Date(2026, 8, 11, 23, 59, 59); // {{CONFIRM}} Sept 11, 2026 — placeholder
+  var TARGET = EARLY_RATE_DEADLINE.getTime();
+
+  var els = {
+    days: document.getElementById('cd-days'),
+    hours: document.getElementById('cd-hours'),
+    minutes: document.getElementById('cd-minutes'),
+    seconds: document.getElementById('cd-seconds')
+  };
+
+  function tick() {
+    var diff = Math.max(0, TARGET - Date.now());
+    var s = Math.floor(diff / 1000);
+    var d = Math.floor(s / 86400);
+    var h = Math.floor((s % 86400) / 3600);
+    var m = Math.floor((s % 3600) / 60);
+    var sec = s % 60;
+
+    function pad(n) { return n < 10 ? '0' + n : String(n); }
+
+    els.days.textContent = d;
+    els.hours.textContent = pad(h);
+    els.minutes.textContent = pad(m);
+    els.seconds.textContent = pad(sec);
+  }
+
+  if (els.days) {
+    tick();
+    setInterval(tick, 1000);
+  }
+
+  /* ---------- scroll reveal ---------- */
+  var targets = document.querySelectorAll('[data-reveal]');
+
+  if (!('IntersectionObserver' in window)) {
+    targets.forEach(function (el) { el.classList.add('in'); });
+  } else {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+    targets.forEach(function (el) { io.observe(el); });
+  }
+
+  /* ---------- seamless partner marquee ---------- */
+  var track = document.getElementById('marquee-track');
+  if (track) {
+    track.innerHTML += track.innerHTML; // duplicate for a continuous -50% loop
+  }
+
+  /* ---------- video players: "Enable sound" pill + one at a time ---------- */
+  /* :not(.hero-video-bg) — the ambient hero background video has no audio
+     track and no controls; it must not get a sound pill or get paused
+     whenever a testimonial video starts playing. */
+  var videos = Array.prototype.slice.call(document.querySelectorAll('video:not(.hero-video-bg)'));
+
+  var MUTE_ICON =
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" ' +
+    'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+    '<path d="M11 5 6 9H2v6h4l5 4z"/><line x1="23" y1="9" x2="17" y2="15"/>' +
+    '<line x1="17" y1="9" x2="23" y2="15"/></svg>';
+
+  videos.forEach(function (v) {
+    var shell = v.parentNode;
+    if (!shell) { return; }
+    shell.classList.add('has-sound-pill');
+
+    var pill = document.createElement('button');
+    pill.type = 'button';
+    pill.className = 'sound-pill';
+    pill.innerHTML = MUTE_ICON + '<span>Enable sound</span>';
+
+    pill.addEventListener('click', function () {
+      v.muted = false;
+      v.volume = 1;
+      var p = v.play();
+      if (p && typeof p.catch === 'function') { p.catch(function () {}); }
+      shell.classList.add('sound-on');
+    });
+
+    v.addEventListener('volumechange', function () {
+      shell.classList.toggle('sound-on', !v.muted);
+    });
+
+    shell.appendChild(pill);
+
+    /* pause every other player when this one starts */
+    v.addEventListener('play', function () {
+      videos.forEach(function (other) {
+        if (other !== v) { other.pause(); }
+      });
+    });
+  });
+
+  /* ---------- YouTube facades: build the player only on click ---------- */
+  document.querySelectorAll('.yt-lite').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var f = document.createElement('iframe');
+      f.src = 'https://www.youtube.com/embed/' + b.dataset.yt + '?autoplay=1&rel=0';
+      f.title = b.dataset.title || 'YouTube video';
+      f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      f.allowFullscreen = true;
+      f.style.cssText = 'width:100%;height:100%;display:block;border:0;';
+      videos.forEach(function (v) { v.pause(); });   // silence the CDN players
+      b.replaceWith(f);
+      f.focus();
+    });
+  });
+  /* ---------- hero background video: pick a source, respect motion prefs ---------- */
+  var heroVideo = document.querySelector('.hero-video-bg');
+  if (heroVideo) {
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!reduceMotion) {
+      var isNarrow = window.matchMedia('(max-width: 640px)').matches;
+      heroVideo.src = isNarrow ? heroVideo.dataset.srcMobile : heroVideo.dataset.srcDesktop;
+      heroVideo.load();
+      var heroPlay = heroVideo.play();
+      if (heroPlay && typeof heroPlay.catch === 'function') { heroPlay.catch(function () {}); }
+    }
+    // else: no src is ever assigned, so the video element simply displays its
+    // poster attribute — a static image, honouring the user's motion preference.
+  }
+})();
+</script>
+
+</body>
+</html>
