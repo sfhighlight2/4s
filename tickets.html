@@ -586,11 +586,14 @@ p{margin:0;}
           trigger ("Inbound Webhook"). Leave "" to skip posting. */
     webhookUrl: 'https://services.leadconnectorhq.com/hooks/mUuWlz9QtzaZryBq8ha5/webhook-trigger/undefined',
 
-    /* 2. GHL payment / order form links, one per event.
+    /* 2. Stripe Payment Link checkout URLs, one per event.
           Leave "" and the page shows a confirmation panel instead
-          of redirecting, so you can test the form before go-live. */
+          of redirecting, so you can test the form before go-live.
+          Only one link has been provided so far, assigned to Kansas
+          City as the primary CTA target — Miami still falls back to
+          the on-page confirmation until its own link is set. */
     paymentLinks: {
-      'kansas-city': '',
+      'kansas-city': 'https://buy.stripe.com/7sY3cvbrue4i5Dm1JIbfP0R',
       'miami': ''
     },
 
@@ -795,29 +798,32 @@ p{margin:0;}
 
   /* ---------- checkout redirect ---------- */
 
+  /* Stripe Payment Links only honour a specific, documented set of URL
+     parameters — everything else (name, phone, business) is silently
+     ignored, since a Payment Link has no server-side integration to
+     receive it. https://docs.stripe.com/payment-links/customize and
+     https://docs.stripe.com/payment-links/url-parameters:
+
+       prefilled_email     — fills the email field (customer can edit it)
+       client_reference_id — alphanumeric/dash/underscore, <=200 chars;
+                              attached to the Checkout Session and echoed
+                              back in the checkout.session.completed
+                              webhook, so it's the reconciliation key back
+                              to this submission. Reuses fb_event_id,
+                              which is already exactly that charset.
+       utm_source / utm_medium / utm_campaign / utm_term / utm_content
+                            — Stripe's own built-in campaign attribution
+                              reporting for the payment link. */
   function buildCheckoutUrl(base, data) {
     var url;
     try { url = new URL(base, window.location.href); }
     catch (e) { return null; }
 
-    var q = {
-      first_name: data.first_name,
-      last_name: data.last_name,
-      name: data.full_name,
-      full_name: data.full_name,
-      email: data.email,
-      phone: data.phone,
-      company_name: data.business_name,
-      business_name: data.business_name,
-      event: data.event_id,
-      event_name: data.event_name
-    };
+    if (data.email) { url.searchParams.set('prefilled_email', data.email); }
+    if (data.fb_event_id) { url.searchParams.set('client_reference_id', data.fb_event_id); }
 
-    Object.keys(q).forEach(function (k) {
-      if (q[k]) { url.searchParams.set(k, q[k]); }
-    });
-    Object.keys(tracking).forEach(function (k) {
-      url.searchParams.set(k, tracking[k]);
+    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(function (k) {
+      if (tracking[k]) { url.searchParams.set(k, tracking[k]); }
     });
 
     return url.toString();
