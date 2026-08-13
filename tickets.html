@@ -706,7 +706,24 @@ p{margin:0;}
     });
   });
 
-  /* ---------- payload ---------- */
+  /* ---------- payload ----------
+     Shaped for GHL's Inbound Webhook workflow trigger:
+     https://help.gohighlevel.com/support/solutions/articles/155000003147-workflow-trigger-inbound-webhook
+
+     - GHL needs email or phone at the TOP LEVEL to find-or-create the
+       contact; buried inside a nested object, neither would be seen.
+     - Every value is a flat string — no nested objects, no arrays. GHL's
+       own docs only ever show a flat example, and confirm custom values
+       don't support arrays; nesting is unconfirmed either way, so flat
+       is the safe choice rather than the workflow silently failing to
+       find a field.
+     - GHL builds its list of mappable {{trigger.*}} fields from the
+       FIRST payload a workflow ever receives. If a key is only present
+       on some submissions (e.g. utm_source, only set when a visitor
+       arrived via a tagged link), it may not show up as mappable on a
+       submission that lacks it. So every key below is always present,
+       falling back to '' rather than being omitted, keeping the
+       payload's shape identical on every submission. */
 
   function collect() {
     var key = eventSel.value;
@@ -725,13 +742,19 @@ p{margin:0;}
       event_name: ev.name,
       event_city: ev.city,
       event_dates: ev.dates,
+      utm_source: tracking.utm_source || '',
+      utm_medium: tracking.utm_medium || '',
+      utm_campaign: tracking.utm_campaign || '',
+      utm_term: tracking.utm_term || '',
+      utm_content: tracking.utm_content || '',
+      fbclid: tracking.fbclid || '',
+      gclid: tracking.gclid || '',
       /* shared id so a future Conversions API call can dedupe
          against the browser pixel event */
       fb_event_id: 'ev-' + Date.now() + '-' + Math.random().toString(36).slice(2, 10),
       page_url: window.location.href,
       referrer: document.referrer || '',
-      submitted_at: new Date().toISOString(),
-      tracking: tracking
+      submitted_at: new Date().toISOString()
     };
   }
 
