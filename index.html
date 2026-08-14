@@ -1466,6 +1466,28 @@ p{margin:0;}
       f.focus();
     });
   });
+
+  /* ---------- forward UTM/click-id params to the ticket page ----------
+     A real visitor lands here with tracking params in the URL, then clicks
+     a CTA to the ticket form. Without this, those params never reach the
+     ticket page's own URL, so the GHL webhook payload sends utm_source,
+     utm_medium, etc. as empty strings even though the visitor genuinely
+     arrived via a tagged link. Runs synchronously at the bottom of body,
+     after the CTA anchors are already in the DOM, so every link is
+     rewritten before a visitor could possibly click one. */
+  (function () {
+    var TRACKING_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'fbclid', 'gclid'];
+    var srcParams = new URLSearchParams(window.location.search);
+    var qs = '';
+    TRACKING_KEYS.forEach(function (k) {
+      var v = srcParams.get(k);
+      if (v) { qs += (qs ? '&' : '') + k + '=' + encodeURIComponent(v); }
+    });
+    if (!qs) { return; }
+    document.querySelectorAll('a[href$="tickets.html"]').forEach(function (a) {
+      a.setAttribute('href', a.getAttribute('href') + '?' + qs);
+    });
+  })();
 })();
 </script>
 
