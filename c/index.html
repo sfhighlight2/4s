@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>4S Summit 2026 | The Business School Medical Aesthetics Never Had</title>
-<meta name="description" content="2½ days where aesthetic practice owners rebuild pricing, consultations, KPIs and forecasting using their own numbers. Kansas City Sept 25–27. Miami Dec 4–6. 120 seats.">
+<meta name="description" content="2½ days where aesthetic practice owners rebuild pricing, consultations, KPIs and forecasting using their own numbers. Miami Dec 4–6, 2026. 120 seats.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
@@ -867,6 +867,88 @@ p{margin:0;}
   .pain-card{padding:20px;}
   .footer-copy{font-size:17px;}
 }
+
+/* ============================================================
+   LOGO BAND — partner marquee directly under the hero
+   ============================================================ */
+
+.s-logos{padding:26px 0 30px;background:#fff;border-bottom:1px solid rgba(184,156,135,.25);}
+.s-logos .marquee{margin:0 0 0 calc(50% - 50vw);}
+.logos-label{
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:1.6px;
+  text-transform:uppercase;
+  color:var(--tan-deep);
+  margin-bottom:18px;
+}
+
+/* ============================================================
+   EXIT-INTENT POPUP
+   ============================================================ */
+
+.exit-pop{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:20px;}
+.exit-pop[hidden]{display:none;}
+.exit-pop-backdrop{position:absolute;inset:0;background:rgba(16,12,8,.72);backdrop-filter:blur(3px);}
+.exit-pop-card{
+  position:relative;
+  width:100%;
+  max-width:560px;
+  max-height:calc(100vh - 40px);
+  overflow:auto;
+  padding:44px 34px 34px;
+  text-align:center;
+  border-radius:var(--radius-card);
+  border:1px solid rgba(184,156,135,.45);
+  background:linear-gradient(180deg,#fffdf9,#f6efe8);
+  box-shadow:0 30px 80px rgba(0,0,0,.45);
+  animation:exitPopIn .35s ease;
+}
+@keyframes exitPopIn{from{opacity:0;transform:translateY(18px) scale(.97);}to{opacity:1;transform:none;}}
+.exit-pop-close{
+  position:absolute;
+  top:12px;right:12px;
+  width:40px;height:40px;
+  border:0;
+  border-radius:50%;
+  background:transparent;
+  color:#7a6f68;
+  font-size:28px;
+  line-height:1;
+  cursor:pointer;
+}
+.exit-pop-close:hover{background:rgba(184,156,135,.15);color:var(--black);}
+.exit-pop-eyebrow{
+  display:block;
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:1.6px;
+  text-transform:uppercase;
+  color:var(--tan-deep);
+  margin-bottom:12px;
+}
+.exit-pop .display{font-size:clamp(30px,5vw,42px);}
+.exit-pop-copy{font-size:17px;line-height:1.5;color:#4a4340;margin:16px auto 24px;max-width:440px;}
+.exit-pop .btn{min-width:0;width:100%;max-width:432px;}
+.exit-pop-alt{
+  display:inline-block;
+  margin-top:18px;
+  font-size:15.5px;
+  font-weight:600;
+  color:var(--tan-deep);
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+.exit-pop-alt:hover{color:var(--black);}
+.exit-pop-open{overflow:hidden;}
+
+@media (max-width:640px){
+  .s-logos{padding:20px 0 24px;}
+  .exit-pop-card{padding:40px 20px 26px;}
+}
+@media (prefers-reduced-motion:reduce){
+  .exit-pop-card{animation:none;}
+}
 </style>
 </head>
 <body>
@@ -891,7 +973,7 @@ p{margin:0;}
         Join industry icons Terri Ross, Dr. Renato Saltz and Izhak Musli for the 4S Summit, a weekend workshop unlike any other conference. No theory, no boring presentations…just 2½ days of hands-on learning from the experts.
       </p>
 
-      <p class="hero-video-dates" data-reveal="left"><b>September 25&ndash;27, 2026</b> &middot; Kansas City, MO &middot; 120 seats &middot; Miami follows Dec 4&ndash;6</p>
+      <p class="hero-video-dates" data-reveal="left"><b>December 4&ndash;6, 2026</b> &middot; Miami, FL &middot; Capped at 120 seats</p>
 
       <div class="cta-block" data-reveal="left">
         <a class="btn" href="/tickets.html">
@@ -902,6 +984,36 @@ p{margin:0;}
     </div>
   </div>
 </header>
+
+<!-- ========================================================
+     LOGO BAND — partner marquee under the hero
+     ======================================================== -->
+<section class="s-logos" aria-label="Industry partners">
+  <div class="wrap center">
+    <p class="logos-label">In The Room With You</p>
+    <div class="marquee">
+      <div class="marquee-track" id="marquee-track">
+        <img src="/assets/6a742f6ec863244457aa0f8b.png" alt="Galderma">
+        <img src="/assets/6a742f6eac7d7ffc646399a6.png" alt="Huron">
+        <img src="/assets/6a742f6ef4dee0f60f7e7e3c.png" alt="Partner logo"><!-- UNRESOLVED: monogram, brand not identifiable from artwork -->
+        <img src="/assets/6a742f6ec863244457aa0f94.png" alt="get kudos">
+        <img src="/assets/6a742f6ea177d5c2b9554d41.png" alt="skinbetter science">
+        <img src="/assets/6a742f6eac7d7ffc646399af.png" alt="The Aesthetic Society">
+        <img src="/assets/6a742f72c863244457aa0fd7.png" alt="Sofwave">
+        <img src="/assets/6a742f72f4dee0f60f7e909c.png" alt="Podium">
+        <img src="/assets/6a742f72a177d5c2b9555d88.png" alt="MedShift">
+        <img src="/assets/6a742f72a177d5c2b9555dad.png" alt="Partner logo"><!-- UNRESOLVED: monogram, brand not identifiable from artwork -->
+        <img src="/assets/6a742f73f4dee0f60f7e926a.png" alt="Skytale">
+        <img src="/assets/6a742f73c863244457aa0ff8.png" alt="ShapeScale">
+        <img src="/assets/6a742f76ac7d7ffc6463a8e0.png" alt="Pinpoint Creative">
+        <img src="/assets/6a742f7647e61ee43a709d43.png" alt="Nextech">
+        <img src="/assets/6a742f76ac7d7ffc6463a8c0.png" alt="Healthcare Compliance Pros">
+        <img src="/assets/6a742f77c863244457aa1056.png" alt="Influx">
+        <img src="/assets/6a742f76c863244457aa1048.png" alt="Fotona">
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ========================================================
      2. INTRO VIDEO
@@ -950,11 +1062,11 @@ p{margin:0;}
 <section class="section s-countdown">
   <div class="bg" role="presentation"></div>
   <div class="wrap center">
-    <h2 class="display on-dark" data-reveal>The Early Rate Ends <span class="grad">Before The Seats Do.</span></h2>
+    <h2 class="display on-dark" data-reveal>Miami Opens Its Doors <span class="grad">In&hellip;</span></h2>
 
     <p class="lede on-dark" style="margin-top:18px" data-reveal>
-      Kansas City runs <b>September 25&ndash;27</b> and the room is capped at 120 by design &mdash; small enough that you get
-      answered, not just talked at. When this timer hits zero the price goes up. Miami follows <b>December 4&ndash;6</b>.
+      Miami runs <b>December 4&ndash;6</b> and the room is capped at 120 by design &mdash; small enough that you get
+      answered, not just talked at. When this timer hits zero, we're in the room and the doors are closed.
     </p>
 
     <div class="countdown" data-reveal aria-live="off">
@@ -969,7 +1081,7 @@ p{margin:0;}
         <span class="btn-main">Claim My Seat</span>
         <span class="btn-sub">Takes 30 seconds &middot; Early rate applied at checkout</span>
       </a>
-      <p class="cta-dates on-dark center">The early rate ends when this timer hits zero.</p>
+      <p class="cta-dates on-dark center">Seats are first come, first served until the room is full.</p>
     </div>
   </div>
 </section>
@@ -1045,27 +1157,6 @@ p{margin:0;}
   <div class="wrap center">
     <h2 class="display" data-reveal>The Brands That Build This Industry <span class="grad">Are In The Room With You</span></h2>
 
-    <div class="marquee" data-reveal>
-      <div class="marquee-track" id="marquee-track">
-        <img src="/assets/6a742f6ec863244457aa0f8b.png" alt="Galderma">
-        <img src="/assets/6a742f6eac7d7ffc646399a6.png" alt="Huron">
-        <img src="/assets/6a742f6ef4dee0f60f7e7e3c.png" alt="Partner logo"><!-- UNRESOLVED: monogram, brand not identifiable from artwork -->
-        <img src="/assets/6a742f6ec863244457aa0f94.png" alt="get kudos">
-        <img src="/assets/6a742f6ea177d5c2b9554d41.png" alt="skinbetter science">
-        <img src="/assets/6a742f6eac7d7ffc646399af.png" alt="The Aesthetic Society">
-        <img src="/assets/6a742f72c863244457aa0fd7.png" alt="Sofwave">
-        <img src="/assets/6a742f72f4dee0f60f7e909c.png" alt="Podium">
-        <img src="/assets/6a742f72a177d5c2b9555d88.png" alt="MedShift">
-        <img src="/assets/6a742f72a177d5c2b9555dad.png" alt="Partner logo"><!-- UNRESOLVED: monogram, brand not identifiable from artwork -->
-        <img src="/assets/6a742f73f4dee0f60f7e926a.png" alt="Skytale">
-        <img src="/assets/6a742f73c863244457aa0ff8.png" alt="ShapeScale">
-        <img src="/assets/6a742f76ac7d7ffc6463a8e0.png" alt="Pinpoint Creative">
-        <img src="/assets/6a742f7647e61ee43a709d43.png" alt="Nextech">
-        <img src="/assets/6a742f76ac7d7ffc6463a8c0.png" alt="Healthcare Compliance Pros">
-        <img src="/assets/6a742f77c863244457aa1056.png" alt="Influx">
-        <img src="/assets/6a742f76c863244457aa1048.png" alt="Fotona">
-      </div>
-    </div>
 
     <!-- ROSTER NEEDS SIGN-OFF: brand names below are read off the logo files in this
          marquee. The copy deck listed Merz, Symplast, Phorest, Boulevard, GlossGenius,
@@ -1316,7 +1407,7 @@ p{margin:0;}
         <span class="btn-main">Claim My Seat</span>
         <span class="btn-sub">Takes 30 seconds &middot; Early rate applied at checkout</span>
       </a>
-      <p class="cta-dates center">Kansas City is next. Miami is December. Both cap at 120.</p>
+      <p class="cta-dates center">Miami, December 4&ndash;6. Capped at 120 seats.</p>
     </div>
   </div>
 </section>
@@ -1324,6 +1415,28 @@ p{margin:0;}
 <!-- ========================================================
      9. FOOTER
      ======================================================== -->
+<!-- ========================================================
+     EXIT-INTENT POPUP — shown once per session
+     ======================================================== -->
+<div class="exit-pop" id="exit-pop" role="dialog" aria-modal="true" aria-labelledby="exit-pop-title" hidden>
+  <div class="exit-pop-backdrop" data-exit-close></div>
+  <div class="exit-pop-card">
+    <button class="exit-pop-close" type="button" data-exit-close aria-label="Close">&times;</button>
+    <span class="exit-pop-eyebrow">Before You Go</span>
+    <h2 class="display" id="exit-pop-title">Miami Is Capped At <span class="grad">120 Seats.</span></h2>
+    <p class="exit-pop-copy">
+      December 4&ndash;6. Bring your real numbers, leave Sunday with a 12-month plan.
+      Once the room is full, it's full.
+    </p>
+    <a class="btn" href="/tickets.html">
+      <span class="btn-main">Claim My Seat</span>
+      <span class="btn-sub">Takes 30 seconds &middot; Early rate applied at checkout</span>
+    </a>
+    <br>
+    <a class="exit-pop-alt" href="/replays/">Can't make Miami? Watch the replays from past events &rarr;</a>
+  </div>
+</div>
+
 <footer class="footer">
   <div class="wrap">
     <img class="footer-logo" src="/assets/6a7471268684435c58b02b46.png" alt="4S Summit" loading="lazy">
@@ -1345,14 +1458,12 @@ p{margin:0;}
 (function () {
   'use strict';
 
-  /* ---------- countdown to the early-rate deadline ----------
-     The section copy states "the early rate ends when this timer hits zero",
-     so this MUST point at the price-increase date, not the event date.
-
-     {{CONFIRM}} — awaiting the real early-rate expiry from the client.
-     Placeholder below is two weeks before Kansas City. DO NOT SHIP AS-IS. */
-  var EARLY_RATE_DEADLINE = new Date(2026, 8, 11, 23, 59, 59); // {{CONFIRM}} Sept 11, 2026 — placeholder
-  var TARGET = EARLY_RATE_DEADLINE.getTime();
+  /* ---------- countdown to the Miami event ----------
+     Counts down to the start of Miami, Dec 4, 2026. Built as an explicit
+     Eastern-time instant (EST, UTC-5) so every visitor sees the same
+     deadline regardless of their own timezone. */
+  var EVENT_START = new Date('2026-12-04T08:00:00-05:00'); // {{CONFIRM}} 8:00 AM ET doors-open time
+  var TARGET = EVENT_START.getTime();
 
   var els = {
     days: document.getElementById('cd-days'),
@@ -1496,10 +1607,99 @@ p{margin:0;}
       if (v) { qs += (qs ? '&' : '') + k + '=' + encodeURIComponent(v); }
     });
     if (!qs) { return; }
-    document.querySelectorAll('a[href$="tickets.html"]').forEach(function (a) {
-      a.setAttribute('href', a.getAttribute('href') + '?' + qs);
+    /* Netlify's pretty URLs rewrite "tickets.html" to "/tickets" on the
+       live site, so match both spellings, and keep any existing query. */
+    document.querySelectorAll('a[href*="tickets"], a[href*="replays"]').forEach(function (a) {
+      var href = a.getAttribute('href');
+      if (/^(https?:)?\/\//.test(href) && href.indexOf(window.location.host) === -1) { return; }
+      a.setAttribute('href', href + (href.indexOf('?') === -1 ? '?' : '&') + qs);
     });
   })();
+})();
+</script>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ---------- exit-intent popup ----------
+     Desktop: fires when the cursor leaves through the top of the window
+     (heading for the tab bar or back button). Touch devices have no
+     cursor, so a fast upward scroll after reading a fair way down the
+     page stands in for it. Either way it waits a few seconds after load
+     and shows at most once per browser session. */
+
+  var pop = document.getElementById('exit-pop');
+  if (!pop) { return; }
+
+  var KEY = '4s_exit_pop_seen';
+  var MIN_DELAY_MS = 5000;
+  var loadedAt = Date.now();
+  var lastFocus = null;
+  var shown = false;
+
+  try { shown = sessionStorage.getItem(KEY) === '1'; } catch (e) {}
+
+  function open() {
+    if (shown || Date.now() - loadedAt < MIN_DELAY_MS) { return; }
+    shown = true;
+    try { sessionStorage.setItem(KEY, '1'); } catch (e) {}
+
+    lastFocus = document.activeElement;
+    pop.hidden = false;
+    document.documentElement.classList.add('exit-pop-open');
+    document.querySelectorAll('video').forEach(function (v) { v.pause(); });
+    pop.querySelector('.exit-pop-close').focus();
+
+    if (typeof window.fbq === 'function') {
+      try { window.fbq('trackCustom', 'ExitIntentShown'); } catch (e) {}
+    }
+  }
+
+  function close() {
+    pop.hidden = true;
+    document.documentElement.classList.remove('exit-pop-open');
+    if (lastFocus && lastFocus.focus) { lastFocus.focus(); }
+  }
+
+  pop.querySelectorAll('[data-exit-close]').forEach(function (el) {
+    el.addEventListener('click', close);
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (pop.hidden) { return; }
+    if (e.key === 'Escape') { close(); return; }
+    /* keep Tab inside the dialog */
+    if (e.key === 'Tab') {
+      var f = pop.querySelectorAll('button, a[href]');
+      var first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+
+  /* clicking any CTA means they're not leaving */
+  document.querySelectorAll('a[href*="tickets.html"]').forEach(function (a) {
+    a.addEventListener('click', function () { shown = true; });
+  });
+
+  /* desktop: cursor exits through the top edge */
+  document.addEventListener('mouseout', function (e) {
+    if (!e.relatedTarget && e.clientY <= 0) { open(); }
+  });
+
+  /* touch: quick scroll back up after reading at least 40% of the page */
+  if (window.matchMedia && window.matchMedia('(pointer:coarse)').matches) {
+    var maxY = 0, lastY = window.scrollY, lastT = Date.now();
+    window.addEventListener('scroll', function () {
+      var y = window.scrollY, t = Date.now();
+      maxY = Math.max(maxY, y);
+      var depth = maxY / Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+      var speed = (lastY - y) / Math.max(1, t - lastT);   // px per ms, positive = upward
+      if (depth > 0.4 && speed > 2.5 && y > 400) { open(); }
+      lastY = y; lastT = t;
+    }, { passive: true });
+  }
 })();
 </script>
 

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Reserve Your Seat — 4S Summit</title>
-<meta name="description" content="Reserve your seat at the 4S Summit — September 25-27, 2026 in Kansas City, MO or December 4-6, 2026 in Miami, FL.">
+<meta name="description" content="Reserve your seat at the 4S Summit — December 4-6, 2026 in Miami, FL.">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -295,6 +295,34 @@ p{margin:0;}
 }
 .field.invalid .err{display:block;}
 
+/* ---------- ticket tier picker ---------- */
+
+.tiers{border:0;margin:0 0 18px;padding:0;min-width:0;}
+.tiers legend{font-size:14px;font-weight:700;margin-bottom:9px;padding:0;}
+.tier{
+  display:grid;
+  grid-template-columns:20px minmax(0,1fr) auto;
+  gap:12px;
+  align-items:center;
+  padding:13px 14px;
+  margin-bottom:8px;
+  border:1px solid rgba(120,105,95,.32);
+  border-radius:7px;
+  background:#fff;
+  cursor:pointer;
+  transition:border-color .18s ease, box-shadow .18s ease;
+}
+.tier:has(input:checked){border-color:var(--tan);box-shadow:0 0 0 3px rgba(184,156,135,.22);}
+.tier input{width:18px;height:18px;margin:0;accent-color:var(--tan-deep);}
+.tier-name{font-size:15.5px;font-weight:700;line-height:1.3;}
+.tier-sub{display:block;font-size:13.5px;font-weight:500;color:var(--ink-soft);}
+.tier-price{font-size:17px;font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap;}
+
+.summary-price{display:flex;justify-content:space-between;align-items:baseline;gap:12px;}
+.summary-price .summary-tier{font-size:16px;font-weight:700;}
+.summary-price .summary-amount{font-family:var(--headline);font-size:30px;line-height:1;font-variant-numeric:tabular-nums;}
+.summary-seats{font-size:14px;color:var(--ink-soft);margin-top:4px;}
+
 /* ---------- submit ---------- */
 
 .btn{
@@ -390,6 +418,7 @@ p{margin:0;}
 }
 .done h2{font-family:var(--headline);font-size:31px;font-weight:400;margin:0 0 10px;}
 .done p{font-size:16px;color:var(--ink-soft);margin-bottom:16px;}
+.done-data:empty{display:none;}
 .done-data{
   text-align:left;
   background:#faf7f4;
@@ -481,8 +510,8 @@ p{margin:0;}
       <!-- ---------------- order summary ---------------- -->
       <aside class="card card--summary">
         <div class="summary-label">Your Event</div>
-        <div class="summary-event" id="summary-city">4S Summit — Kansas City, MO</div>
-        <div class="summary-dates" id="summary-dates">September 25–27, 2026</div>
+        <div class="summary-event" id="summary-city">4S Summit — Miami, FL</div>
+        <div class="summary-dates" id="summary-dates">December 4–6, 2026</div>
 
         <div class="summary-rule"></div>
 
@@ -495,8 +524,17 @@ p{margin:0;}
           <li>Networking with aesthetic practice owners at your level and above</li>
         </ul>
 
+        <div class="summary-rule"></div>
+
+        <div class="summary-label">Your Ticket</div>
+        <div class="summary-price">
+          <span class="summary-tier" id="summary-tier">The Seat</span>
+          <span class="summary-amount" id="summary-amount">$1,597</span>
+        </div>
+        <div class="summary-seats" id="summary-seats">1 seat</div>
+
         <div class="summary-note">
-          Your exclusive discount is applied on the checkout page after this step.
+          Hotel: The Sunny Miami, Curio by Hilton, Sunny Isles Beach. Use group code <b>SUM1</b> for the event rate.
         </div>
       </aside>
 
@@ -543,18 +581,32 @@ p{margin:0;}
               <div class="err">Please enter your practice or business name.</div>
             </div>
 
-            <div class="field" data-field="event">
-              <label for="event">Which Event? <span class="req">*</span></label>
-              <select id="event" name="event">
-                <option value="kansas-city" selected>Kansas City, MO — September 25–27, 2026</option>
-                <option value="miami">Miami, FL — December 4–6, 2026</option>
-              </select>
-              <div class="err">Please choose an event.</div>
-            </div>
+            <!-- Miami is the only live event on sale. Kansas City (Sept 25–27)
+                 has run; its replays are sold from replays/index.html. -->
+            <input type="hidden" id="event" name="event" value="miami">
+
+            <fieldset class="tiers">
+              <legend>Your Ticket <span class="req">*</span></legend>
+              <label class="tier" for="tier-single">
+                <input type="radio" id="tier-single" name="tier" value="single" checked>
+                <span class="tier-name">The Seat<span class="tier-sub">1 seat</span></span>
+                <span class="tier-price">$1,597</span>
+              </label>
+              <label class="tier" for="tier-pair">
+                <input type="radio" id="tier-pair" name="tier" value="pair">
+                <span class="tier-name">Owner &amp; Operator<span class="tier-sub">2 seats &middot; $1,497 each</span></span>
+                <span class="tier-price">$2,994</span>
+              </label>
+              <label class="tier" for="tier-pack">
+                <input type="radio" id="tier-pack" name="tier" value="pack">
+                <span class="tier-name">Practice Super Pack<span class="tier-sub">4 seats &middot; $1,400 each</span></span>
+                <span class="tier-price">$5,600</span>
+              </label>
+            </fieldset>
 
             <button class="btn" type="submit" id="submit-btn">
               <span class="btn-main">CONTINUE TO CHECKOUT</span>
-              <span class="btn-sub">Exclusive Discount Applied On The Next Page</span>
+              <span class="btn-sub">Secure checkout by Stripe</span>
               <span class="spinner" aria-hidden="true"></span>
             </button>
 
@@ -602,15 +654,25 @@ p{margin:0;}
           trigger ("Inbound Webhook"). Leave "" to skip posting. */
     webhookUrl: 'https://services.leadconnectorhq.com/hooks/mUuWlz9QtzaZryBq8ha5/webhook-trigger/7tgl6nRotv3HoIq1F4ND',
 
-    /* 2. Stripe Payment Link checkout URLs, one per event.
-          Leave "" and the page shows a confirmation panel instead
-          of redirecting, so you can test the form before go-live.
-          Only one link has been provided so far, assigned to Kansas
-          City as the primary CTA target — Miami still falls back to
-          the on-page confirmation until its own link is set. */
+    /* 2. Stripe Payment Link checkout URLs, one per event and tier.
+          These are the same Miami links used on 4ssummit.com/register-2026.
+          Leave a link "" and the page shows a confirmation panel instead
+          of redirecting. Kansas City (Sept 25–27) has run and its links
+          are no longer used here. */
     paymentLinks: {
-      'kansas-city': 'https://buy.stripe.com/7sY3cvbrue4i5Dm1JIbfP0R',
-      'miami': ''
+      'miami': {
+        single: 'https://buy.stripe.com/5kQaEXdzC2lA8PyagebfP0U',
+        pair:   'https://buy.stripe.com/cNi14n536bWa9TCfAybfP0V',
+        pack:   'https://buy.stripe.com/6oU7sL0MQ9O2d5O2NMbfP0W'
+      }
+    },
+
+    /* Ticket tiers. Prices must match what the Stripe links above
+       charge; they're shown on the page and sent as the pixel value. */
+    tiers: {
+      single: { name: 'The Seat',            seats: 1, price: 1597 },
+      pair:   { name: 'Owner & Operator',    seats: 2, price: 2994 },
+      pack:   { name: 'Practice Super Pack', seats: 4, price: 5600 }
     },
 
     /* 3. Meta (Facebook) pixel event fired on a successful submit.
@@ -618,9 +680,7 @@ p{margin:0;}
           you'd rather optimise toward the checkout step. */
     fbEvent: 'Lead',
 
-    /* Value/currency reported with the pixel event. Set value to a
-       number (e.g. 997) once ticket pricing is locked, or leave null. */
-    fbValue: null,
+    /* The pixel value is the chosen tier's price (see tiers above). */
     fbCurrency: 'USD',
 
     /* How long to wait for the webhook before continuing to checkout.
@@ -628,13 +688,8 @@ p{margin:0;}
     webhookTimeoutMs: 3500
   };
 
-  /* Event metadata — keep in sync with the <select> options. */
+  /* Event metadata — keep in sync with the hidden #event input. */
   var EVENTS = {
-    'kansas-city': {
-      name: '4S Summit — Kansas City, MO',
-      city: 'Kansas City, MO',
-      dates: 'September 25–27, 2026'
-    },
     'miami': {
       name: '4S Summit — Miami, FL',
       city: 'Miami, FL',
@@ -653,18 +708,31 @@ p{margin:0;}
   var eventSel  = document.getElementById('event');
   var doneBox   = document.getElementById('done');
 
-  /* ---------- preselect the event from ?event= (defaults to Kansas City) ---------- */
-
   var params = new URLSearchParams(window.location.search);
-  var requested = (params.get('event') || '').toLowerCase();
-  if (EVENTS[requested]) { eventSel.value = requested; }
+
+  /* ---------- ticket tier: preselect from ?tier=, keep summary in sync ---------- */
+
+  function money(n) { return '$' + n.toLocaleString('en-US'); }
+
+  function selectedTier() {
+    var checked = form.querySelector('input[name="tier"]:checked');
+    return (checked && CONFIG.tiers[checked.value]) ? checked.value : 'single';
+  }
 
   function syncSummary() {
-    var ev = EVENTS[eventSel.value] || EVENTS['kansas-city'];
-    document.getElementById('summary-city').textContent = ev.name;
-    document.getElementById('summary-dates').textContent = ev.dates;
+    var t = CONFIG.tiers[selectedTier()];
+    document.getElementById('summary-tier').textContent = t.name;
+    document.getElementById('summary-amount').textContent = money(t.price);
+    document.getElementById('summary-seats').textContent = t.seats + (t.seats === 1 ? ' seat' : ' seats');
   }
-  eventSel.addEventListener('change', syncSummary);
+
+  var requestedTier = (params.get('tier') || '').toLowerCase();
+  if (CONFIG.tiers[requestedTier]) {
+    document.getElementById('tier-' + requestedTier).checked = true;
+  }
+  form.querySelectorAll('input[name="tier"]').forEach(function (r) {
+    r.addEventListener('change', syncSummary);
+  });
   syncSummary();
 
   /* ---------- capture ad-tracking params so they reach GHL ---------- */
@@ -683,8 +751,7 @@ p{margin:0;}
     lastName:  function (v) { return v.length >= 2; },
     email:     function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v); },
     phone:     function (v) { return v.replace(/[^\d]/g, '').length >= 10; },
-    business:  function (v) { return v.length >= 2; },
-    event:     function (v) { return !!EVENTS[v]; }
+    business:  function (v) { return v.length >= 2; }
   };
 
   function fieldBox(name) {
@@ -746,7 +813,9 @@ p{margin:0;}
 
   function collect() {
     var key = eventSel.value;
-    var ev  = EVENTS[key] || EVENTS['kansas-city'];
+    var ev  = EVENTS[key] || EVENTS['miami'];
+    var tierKey = selectedTier();
+    var tier  = CONFIG.tiers[tierKey];
     var first = document.getElementById('firstName').value.trim();
     var last  = document.getElementById('lastName').value.trim();
 
@@ -761,6 +830,10 @@ p{margin:0;}
       event_name: ev.name,
       event_city: ev.city,
       event_dates: ev.dates,
+      ticket_tier: tierKey,
+      ticket_name: tier.name,
+      ticket_seats: tier.seats,
+      ticket_value: tier.price,
       utm_source: tracking.utm_source || '',
       utm_medium: tracking.utm_medium || '',
       utm_campaign: tracking.utm_campaign || '',
@@ -779,16 +852,19 @@ p{margin:0;}
 
   /* ---------- Meta pixel ---------- */
 
-  function firePixel(data) {
+  /* Lead keeps the live campaigns' optimisation event unchanged.
+     InitiateCheckout fires only when the buyer is actually sent to Stripe,
+     so retargeting and value-based bidding can use it. */
+  function firePixel(eventName, data) {
     if (typeof window.fbq !== 'function') { return; }   // no-op until the pixel is installed
     try {
-      var props = {
-        content_name: data.event_name,
+      window.fbq('track', eventName, {
+        content_name: data.event_name + ' — ' + data.ticket_name,
         content_category: 'Ticket Registration',
+        num_items: data.ticket_seats,
+        value: data.ticket_value,
         currency: CONFIG.fbCurrency
-      };
-      if (CONFIG.fbValue !== null) { props.value = CONFIG.fbValue; }
-      window.fbq('track', CONFIG.fbEvent, props, { eventID: data.fb_event_id });
+      }, { eventID: eventName === CONFIG.fbEvent ? data.fb_event_id : data.fb_event_id + '-ic' });
     } catch (e) { /* tracking must never block checkout */ }
   }
 
@@ -859,31 +935,28 @@ p{margin:0;}
     submitBtn.classList.add('is-busy');
 
     var data = collect();
-    var link = CONFIG.paymentLinks[data.event_id] || '';
+    var links = CONFIG.paymentLinks[data.event_id] || {};
+    var link = links[data.ticket_tier] || '';
 
-    firePixel(data);
+    firePixel(CONFIG.fbEvent, data);
 
     postWebhook(data).then(function (status) {
       var target = link ? buildCheckoutUrl(link, data) : null;
 
       if (target) {
+        firePixel('InitiateCheckout', data);
         window.location.href = target;
         return;
       }
 
-      /* No payment link configured yet — confirm on-page instead of
-         dumping the buyer somewhere broken. */
+      /* No payment link for this tier — confirm on-page so the buyer
+         isn't sent somewhere broken. The team follows up from GHL. */
       formWrap.style.display = 'none';
       doneBox.classList.add('show');
       document.getElementById('done-msg').textContent =
-        'Thanks, ' + data.first_name + '. Your details were captured' +
-        (status === 'sent' ? ' and sent to GoHighLevel.' : '.') +
-        ' Add a payment link in the CONFIG block to send buyers straight to checkout.';
-      document.getElementById('done-data').textContent =
-        'Webhook: ' + (CONFIG.webhookUrl || '(not set)') + '  →  ' + status + '\n' +
-        'Pixel:   ' + (typeof window.fbq === 'function' ? CONFIG.fbEvent + ' fired' : '(pixel not installed)') + '\n' +
-        'Payment: (not set for "' + data.event_id + '")\n\n' +
-        JSON.stringify(data, null, 2);
+        'Thanks, ' + data.first_name + '. We have your details for ' + data.ticket_name +
+        ' at the Miami 4S Summit. Our team will contact you shortly to complete your registration.';
+      document.getElementById('done-data').textContent = '';
 
       submitting = false;
       submitBtn.disabled = false;
