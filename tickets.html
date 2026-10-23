@@ -295,6 +295,8 @@ p{margin:0;}
 }
 .field.invalid .err{display:block;}
 
+[hidden]{display:none!important;}
+
 /* ---------- ticket tier picker ---------- */
 
 .tiers{border:0;margin:0 0 18px;padding:0;min-width:0;}
@@ -524,14 +526,17 @@ p{margin:0;}
           <li>Networking with aesthetic practice owners at your level and above</li>
         </ul>
 
-        <div class="summary-rule"></div>
+        <!-- Pricing hidden for now — remove the hidden attribute to show it again. -->
+        <div class="summary-pricing" hidden>
+          <div class="summary-rule"></div>
 
-        <div class="summary-label">Your Ticket</div>
-        <div class="summary-price">
-          <span class="summary-tier" id="summary-tier">The Seat</span>
-          <span class="summary-amount" id="summary-amount">$1,597</span>
+          <div class="summary-label">Your Ticket</div>
+          <div class="summary-price">
+            <span class="summary-tier" id="summary-tier">The Seat</span>
+            <span class="summary-amount" id="summary-amount">$1,597</span>
+          </div>
+          <div class="summary-seats" id="summary-seats">1 seat</div>
         </div>
-        <div class="summary-seats" id="summary-seats">1 seat</div>
 
         <div class="summary-note">
           Hotel: The Sunny Miami, Curio by Hilton, Sunny Isles Beach. Use group code <b>SUM1</b> for the event rate.
@@ -585,7 +590,9 @@ p{margin:0;}
                  has run; its replays are sold from replays/index.html. -->
             <input type="hidden" id="event" name="event" value="miami">
 
-            <fieldset class="tiers">
+            <!-- Tier picker hidden for now — remove the hidden attribute to show it again.
+                 While hidden, checkout uses "The Seat" (single) unless the URL has ?tier=pair or ?tier=pack. -->
+            <fieldset class="tiers" hidden>
               <legend>Your Ticket <span class="req">*</span></legend>
               <label class="tier" for="tier-single">
                 <input type="radio" id="tier-single" name="tier" value="single" checked>
