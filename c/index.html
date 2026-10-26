@@ -949,6 +949,128 @@ p{margin:0;}
 @media (prefers-reduced-motion:reduce){
   .exit-pop-card{animation:none;}
 }
+
+/* ============================================================
+   2b. REELS — three vertical clips fanned out side by side
+   Muted loops play while the section is on screen; tapping a
+   reel turns its sound on (and mutes the other two).
+   ============================================================ */
+
+.reels{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:clamp(10px,2.6vw,34px);
+  margin:6px auto 38px;
+  padding:10px 0 26px;
+}
+.reel{
+  position:relative;
+  flex:0 0 auto;
+  width:clamp(96px,21vw,228px);
+  aspect-ratio:9/16;
+  margin:0;
+  border-radius:clamp(14px,2vw,22px);
+  overflow:hidden;
+  background:#000;
+  border:1px solid rgba(184,156,135,.55);
+  box-shadow:0 22px 48px rgba(54,48,27,.24);
+  transition:transform .45s ease, box-shadow .45s ease;
+}
+.reel--l{transform:rotate(-5deg) translateY(26px);}
+.reel--r{transform:rotate(5deg) translateY(26px);}
+.reel--main{
+  width:clamp(150px,27vw,292px);
+  z-index:2;
+  box-shadow:0 0 0 6px rgba(255,255,255,.75), 0 0 0 7px rgba(184,156,135,.6), 0 30px 64px rgba(54,48,27,.32);
+}
+.reel:hover{transform:translateY(-6px);}
+.reel--l:hover{transform:rotate(-2deg) translateY(16px);}
+.reel--r:hover{transform:rotate(2deg) translateY(16px);}
+
+.reel video{width:100%;height:100%;display:block;object-fit:cover;background:#000;}
+
+/* soft top/bottom shading so the chips read on any frame */
+.reel::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,.28) 0%,rgba(0,0,0,0) 22%,rgba(0,0,0,0) 70%,rgba(0,0,0,.55) 100%);
+  pointer-events:none;
+}
+
+.reel-hit{
+  position:absolute;
+  inset:0;
+  z-index:3;
+  width:100%;
+  height:100%;
+  padding:0;
+  border:0;
+  background:transparent;
+  cursor:pointer;
+}
+.reel-hit:focus-visible{outline:3px solid var(--tan);outline-offset:-3px;border-radius:inherit;}
+
+.reel-chip{
+  position:absolute;
+  left:50%;bottom:12px;
+  z-index:2;
+  transform:translateX(-50%);
+  max-width:calc(100% - 16px);
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  font-family:var(--body);
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:.2px;
+  color:#fff;
+  background:rgba(0,0,0,.5);
+  border:1px solid rgba(255,255,255,.28);
+  padding:6px 12px;
+  border-radius:999px;
+  backdrop-filter:blur(3px);
+  pointer-events:none;
+}
+.reel--main .reel-chip{background:linear-gradient(135deg,var(--tan-light),var(--tan) 60%,var(--tan-deep));border-color:rgba(255,255,255,.4);}
+
+.reel-sound{
+  position:absolute;
+  top:10px;right:10px;
+  z-index:2;
+  width:34px;height:34px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  background:rgba(0,0,0,.55);
+  border:1px solid rgba(255,255,255,.3);
+  pointer-events:none;
+}
+.reel-sound svg{width:17px;height:17px;}
+.reel-sound .on{display:none;}
+.reel.is-live .reel-sound{background:var(--tan);}
+.reel.is-live .reel-sound .on{display:block;}
+.reel.is-live .reel-sound .off{display:none;}
+
+.reels-hint{font-size:15px;color:#6f645d;margin:-14px 0 26px;}
+
+@media (max-width:640px){
+  .reels{gap:8px;margin-bottom:30px;}
+  .reel{width:27vw;}
+  .reel--main{width:40vw;box-shadow:0 0 0 4px rgba(255,255,255,.75), 0 0 0 5px rgba(184,156,135,.6), 0 22px 44px rgba(54,48,27,.3);}
+  .reel--l{transform:rotate(-4deg) translateY(18px);}
+  .reel--r{transform:rotate(4deg) translateY(18px);}
+  .reel-chip{font-size:11px;padding:4px 9px;bottom:8px;}
+  .reel--l .reel-chip,.reel--r .reel-chip{display:none;}
+  .reel-sound{width:28px;height:28px;top:7px;right:7px;}
+  .reel-sound svg{width:14px;height:14px;}
+}
+@media (prefers-reduced-motion:reduce){
+  .reel{transition:none;}
+}
 </style>
 </head>
 <body>
@@ -1021,15 +1143,30 @@ p{margin:0;}
 <section class="section s-video">
   <div class="bg" role="presentation"></div>
   <div class="wrap center">
-    <div class="video-frame" data-reveal>
-      <button class="yt-lite" type="button" data-yt="X6PBi4oqPgY"
-        data-title="Terri Ross invites you to the 4S Summit"
-        aria-label="Play video: Terri Ross invites you to the 4S Summit">
-        <img src="/assets/yt-X6PBi4oqPgY.jpg" alt="" loading="lazy">
-        <span class="yt-chip">Watch &middot; 1:13</span>
-        <span class="yt-play" aria-hidden="true"></span>
-      </button>
+    <div class="reels" data-reveal>
+      <figure class="reel reel--l">
+        <video data-reel muted loop playsinline preload="metadata"
+          poster="/assets/reel-room.jpg" src="/assets/reel-room.mp4"></video>
+        <span class="reel-sound" aria-hidden="true"><svg class="off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg><svg class="on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a10 10 0 0 1 0 14"/></svg></span>
+        <span class="reel-chip">The Room</span>
+        <button class="reel-hit" type="button" aria-label="Play with sound: the room at the 4S Summit"></button>
+      </figure>
+      <figure class="reel reel--main">
+        <video data-reel muted loop playsinline preload="metadata"
+          poster="/assets/reel-kc-recap.jpg" src="/assets/reel-kc-recap.mp4"></video>
+        <span class="reel-sound" aria-hidden="true"><svg class="off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg><svg class="on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a10 10 0 0 1 0 14"/></svg></span>
+        <span class="reel-chip">Owners Recap &middot; 1:39</span>
+        <button class="reel-hit" type="button" aria-label="Play with sound: owners on the Kansas City summit"></button>
+      </figure>
+      <figure class="reel reel--r">
+        <video data-reel muted loop playsinline preload="metadata"
+          poster="/assets/reel-stage.jpg" src="/assets/reel-stage.mp4"></video>
+        <span class="reel-sound" aria-hidden="true"><svg class="off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg><svg class="on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a10 10 0 0 1 0 14"/></svg></span>
+        <span class="reel-chip">On Stage</span>
+        <button class="reel-hit" type="button" aria-label="Play with sound: on stage at the 4S Summit"></button>
+      </figure>
     </div>
+    <p class="reels-hint" data-reveal>Tap any video for sound.</p>
 
     <p class="body-copy" data-reveal>
       Every other aesthetics conference teaches you how to treat. This one teaches you the business behind it:
@@ -1521,7 +1658,7 @@ p{margin:0;}
   /* :not(.hero-video-bg) — the ambient hero background video has no audio
      track and no controls; it must not get a sound pill or get paused
      whenever a testimonial video starts playing. */
-  var videos = Array.prototype.slice.call(document.querySelectorAll('video:not(.hero-video-bg)'));
+  var videos = Array.prototype.slice.call(document.querySelectorAll('video:not(.hero-video-bg):not([data-reel])'));
 
   var MUTE_ICON =
     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" ' +
@@ -1700,6 +1837,69 @@ p{margin:0;}
       lastY = y; lastT = t;
     }, { passive: true });
   }
+})();
+</script>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ---------- section 2 reels ----------
+     All three loop muted while the row is on screen and pause when it
+     scrolls away. Tapping a reel restarts it with sound and mutes the
+     other two; tapping the live one mutes it again. Any other player
+     on the page starting up mutes the reels so audio never overlaps. */
+
+  var reels = Array.prototype.slice.call(document.querySelectorAll('.reel'));
+  if (!reels.length) { return; }
+  var vids = reels.map(function (r) { return r.querySelector('video'); });
+
+  function playAll() {
+    vids.forEach(function (v) {
+      var p = v.play();
+      if (p && typeof p.catch === 'function') { p.catch(function () {}); }
+    });
+  }
+  function muteAll() {
+    reels.forEach(function (r, i) { vids[i].muted = true; r.classList.remove('is-live'); });
+  }
+
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { playAll(); }
+        else { vids.forEach(function (v) { v.pause(); }); }
+      });
+    }, { threshold: 0.25 }).observe(document.querySelector('.reels'));
+  } else {
+    playAll();
+  }
+
+  reels.forEach(function (r, i) {
+    var v = vids[i];
+    r.querySelector('.reel-hit').addEventListener('click', function () {
+      if (!v.muted) { muteAll(); return; }
+      muteAll();
+      document.querySelectorAll('video:not([data-reel])').forEach(function (o) { o.pause(); });
+      v.currentTime = 0;
+      v.muted = false;
+      v.volume = 1;
+      r.classList.add('is-live');
+      var p = v.play();
+      if (p && typeof p.catch === 'function') { p.catch(function () {}); }
+    });
+  });
+
+  /* another player started — silence the reels */
+  ['play', 'volumechange'].forEach(function (type) {
+    document.addEventListener(type, function (e) {
+      var t = e.target;
+      if (t.tagName === 'VIDEO' && !t.hasAttribute('data-reel') && !t.muted && !t.paused) { muteAll(); }
+    }, true);
+  });
+  document.querySelectorAll('.yt-lite').forEach(function (b) {
+    b.addEventListener('click', muteAll);
+  });
 })();
 </script>
 

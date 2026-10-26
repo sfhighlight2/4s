@@ -586,6 +586,20 @@ p{margin:0;}
               <div class="err">Please enter your practice or business name.</div>
             </div>
 
+            <div class="field" data-field="revenue">
+              <label for="revenue">Practice's Annual Revenue <span class="req">*</span></label>
+              <select id="revenue" name="revenue">
+                <option value="" selected disabled>Select a range</option>
+                <option value="pre-launch">Not open yet</option>
+                <option value="under-500k">Under $500K</option>
+                <option value="500k-1m">$500K – $1M</option>
+                <option value="1m-3m">$1M – $3M</option>
+                <option value="3m-5m">$3M – $5M</option>
+                <option value="5m-plus">$5M+</option>
+              </select>
+              <div class="err">Please choose a revenue range.</div>
+            </div>
+
             <!-- Miami is the only live event on sale. Kansas City (Sept 25–27)
                  has run; its replays are sold from replays/index.html. -->
             <input type="hidden" id="event" name="event" value="miami">
@@ -758,7 +772,8 @@ p{margin:0;}
     lastName:  function (v) { return v.length >= 2; },
     email:     function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v); },
     phone:     function (v) { return v.replace(/[^\d]/g, '').length >= 10; },
-    business:  function (v) { return v.length >= 2; }
+    business:  function (v) { return v.length >= 2; },
+    revenue:   function (v) { return v !== ''; }
   };
 
   function fieldBox(name) {
@@ -833,6 +848,7 @@ p{margin:0;}
       email: document.getElementById('email').value.trim(),
       phone: document.getElementById('phone').value.trim(),
       business_name: document.getElementById('business').value.trim(),
+      annual_revenue: (function (sel) { return sel.value ? sel.options[sel.selectedIndex].text : ''; })(document.getElementById('revenue')),
       event_id: key,
       event_name: ev.name,
       event_city: ev.city,

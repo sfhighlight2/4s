@@ -15,3 +15,6 @@
 probe*.html
 harness.html
 h390.html
+
+# Raw source footage (web-encoded copies live in assets/)
+vid/
