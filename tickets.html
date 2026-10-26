@@ -675,14 +675,17 @@ p{margin:0;}
           trigger ("Inbound Webhook"). Leave "" to skip posting. */
     webhookUrl: 'https://services.leadconnectorhq.com/hooks/mUuWlz9QtzaZryBq8ha5/webhook-trigger/7tgl6nRotv3HoIq1F4ND',
 
-    /* 2. Stripe Payment Link checkout URLs, one per event and tier.
-          These are the same Miami links used on 4ssummit.com/register-2026.
+    /* 2. Checkout links, one per event and tier.
+          single = the GHL payment link, so the payment lands on the
+          contact in GHL; GHL's redirect URL is set to /thank-you.html.
+          pair / pack = Stripe Payment Links (also used on
+          4ssummit.com/register-2026). Old single-seat Stripe link, kept
+          as a fallback: https://buy.stripe.com/5kQaEXdzC2lA8PyagebfP0U
           Leave a link "" and the page shows a confirmation panel instead
-          of redirecting. Kansas City (Sept 25–27) has run and its links
-          are no longer used here. */
+          of redirecting. */
     paymentLinks: {
       'miami': {
-        single: 'https://buy.stripe.com/5kQaEXdzC2lA8PyagebfP0U',
+        single: 'https://link.fastpaydirect.com/payment-link/6a74d9552babfe9e5008b544',
         pair:   'https://buy.stripe.com/cNi14n536bWa9TCfAybfP0V',
         pack:   'https://buy.stripe.com/6oU7sL0MQ9O2d5O2NMbfP0W'
       }
@@ -929,19 +932,47 @@ p{margin:0;}
        utm_source / utm_medium / utm_campaign / utm_term / utm_content
                             — Stripe's own built-in campaign attribution
                               reporting for the payment link. */
+  /* GHL payment links (link.fastpaydirect.com) prefill their own form
+     from firstName / lastName / email / phone — checked against the live
+     Miami link, Oct 2026; first_name / last_name are ignored. */
   function buildCheckoutUrl(base, data) {
     var url;
     try { url = new URL(base, window.location.href); }
     catch (e) { return null; }
 
-    if (data.email) { url.searchParams.set('prefilled_email', data.email); }
-    if (data.fb_event_id) { url.searchParams.set('client_reference_id', data.fb_event_id); }
+    if (url.hostname === 'buy.stripe.com') {
+      if (data.email) { url.searchParams.set('prefilled_email', data.email); }
+      if (data.fb_event_id) { url.searchParams.set('client_reference_id', data.fb_event_id); }
+    } else {
+      if (data.first_name) { url.searchParams.set('firstName', data.first_name); }
+      if (data.last_name) { url.searchParams.set('lastName', data.last_name); }
+      if (data.email) { url.searchParams.set('email', data.email); }
+      if (data.phone) { url.searchParams.set('phone', data.phone); }
+    }
 
     ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(function (k) {
       if (tracking[k]) { url.searchParams.set(k, tracking[k]); }
     });
 
     return url.toString();
+  }
+
+  /* ---------- hand-off to thank-you.html ----------
+     The checkout pages can't tell this site a payment happened, so the
+     thank-you page (GHL's post-payment redirect) fires the Purchase pixel
+     from what was chosen here. Kept 24h; thank-you.html clears it after
+     firing once, so a refresh or a stray visit doesn't count a sale. */
+  function rememberCheckout(data) {
+    try {
+      localStorage.setItem('4s_checkout', JSON.stringify({
+        event_name: data.event_name,
+        ticket_name: data.ticket_name,
+        ticket_seats: data.ticket_seats,
+        ticket_value: data.ticket_value,
+        fb_event_id: data.fb_event_id,
+        at: Date.now()
+      }));
+    } catch (e) { /* storage blocked — thank-you page just skips Purchase */ }
   }
 
   /* ---------- submit ---------- */
@@ -968,6 +999,7 @@ p{margin:0;}
 
       if (target) {
         firePixel('InitiateCheckout', data);
+        rememberCheckout(data);
         window.location.href = target;
         return;
       }
