@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Replay Purchased — 4S Summit</title>
+<meta name="description" content="Your 4S Summit Kansas City replay purchase is confirmed.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1681436602268738');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1681436602268738&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+<!-- Hotjar Tracking Code for  4S Summit -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:6762287,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+
+<style>
+/* ============================================================
+   4S SUMMIT — REPLAY THANK-YOU PAGE
+   GHL's post-payment redirect for the Kansas City replay. Confirms
+   the purchase, sets expectations for access, fires Purchase.
+   ============================================================ */
+
+@font-face{
+  font-family:'Seasons';
+  src:url('/assets/69bccb4e3147fd9845717e95.ttf') format('truetype');
+  font-display:swap;
+}
+
+:root{
+  --headline:'Seasons','Playfair Display',Georgia,serif;
+  --body:'Plus Jakarta Sans',ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+
+  --black:#000000;
+  --white:#ffffff;
+  --tan:#b89c87;
+  --tan-light:#c8b1a5;
+  --tan-deep:#a3846c;
+  --charcoal:#303030;
+
+  --ink-soft:#4a4340;
+  --line:rgba(184,156,135,.35);
+
+  --radius:5px;
+  --radius-card:12px;
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+
+body{
+  margin:0;
+  font-family:var(--body);
+  font-size:16px;
+  line-height:1.45;
+  color:var(--black);
+  background:#f7f5f3;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+img{max-width:100%;height:auto;display:block;border:0;}
+p{margin:0;}
+
+.wrap{width:100%;max-width:1100px;margin:0 auto;padding:0 20px;position:relative;z-index:2;}
+
+/* ---------- page shell ---------- */
+
+.page{position:relative;min-height:100vh;padding:34px 0 70px;overflow:hidden;}
+.page-bg{
+  position:absolute;
+  inset:0;
+  background:url('/assets/6a746cb29a9c7792eaf877ac.jpg') center/100% 100% no-repeat;
+  z-index:0;
+  pointer-events:none;
+}
+
+.topbar{display:flex;align-items:center;justify-content:center;margin-bottom:40px;}
+.topbar img{width:150px;}
+
+/* ---------- headline ---------- */
+
+.head{text-align:center;margin-bottom:40px;}
+.done-mark{
+  width:64px;height:64px;
+  margin:0 auto 22px;
+  border-radius:50%;
+  background:var(--tan) url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/32px 32px no-repeat;
+  box-shadow:0 0 0 8px rgba(184,156,135,.18);
+}
+.display{
+  font-family:var(--headline);
+  font-weight:400;
+  font-size:clamp(34px,4.4vw,58px);
+  line-height:1.08;
+  letter-spacing:.5px;
+  margin:0;
+}
+.grad{
+  background:linear-gradient(150deg,#c8b1a5 0%,#b89c87 25%,#c8b1a5 50%,#b89c87 75%,#c8b1a5 100%);
+  background-size:300% 300%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  color:transparent;
+  animation:gradientMove 6s ease infinite;
+}
+@keyframes gradientMove{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+.head-dates{font-size:18px;font-weight:700;margin-top:16px;}
+.head p.sub{font-size:17px;font-weight:500;margin-top:8px;color:var(--ink-soft);}
+
+/* ---------- next steps ---------- */
+
+.steps-label{
+  text-align:center;
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:1.6px;
+  text-transform:uppercase;
+  color:var(--tan-deep);
+  margin-bottom:16px;
+}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;}
+.card{
+  background:linear-gradient(180deg,rgba(255,255,255,.96),rgba(252,248,244,.94));
+  border:1px solid var(--line);
+  border-radius:var(--radius-card);
+  box-shadow:0 18px 44px rgba(54,48,27,.10);
+  padding:28px 24px;
+  display:flex;
+  flex-direction:column;
+}
+.step-num{
+  width:34px;height:34px;
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;
+  font-size:15px;
+  color:#fff;
+  background:linear-gradient(135deg,var(--tan-light),var(--tan) 60%,var(--tan-deep));
+  margin-bottom:16px;
+}
+.card h2{font-family:var(--headline);font-weight:400;font-size:26px;line-height:1.15;margin:0 0 10px;}
+.card p{font-size:15.5px;line-height:1.55;color:var(--ink-soft);}
+.card p + p{margin-top:10px;}
+.card .actions{margin-top:auto;padding-top:20px;display:flex;flex-wrap:wrap;gap:10px;}
+
+.code{
+  display:inline-block;
+  font-weight:800;
+  letter-spacing:1px;
+  color:var(--black);
+  background:rgba(184,156,135,.16);
+  border:1px dashed var(--tan);
+  border-radius:6px;
+  padding:2px 9px;
+}
+
+.pill-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  font-family:var(--body);
+  font-size:14.5px;
+  font-weight:700;
+  color:var(--black);
+  text-decoration:none;
+  padding:10px 16px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:#fff;
+  cursor:pointer;
+  transition:background .2s ease,border-color .2s ease;
+}
+.pill-btn:hover{background:#faf6f2;border-color:var(--tan);}
+.pill-btn svg{width:16px;height:16px;flex:0 0 auto;}
+
+/* ---------- team upsell ---------- */
+
+.team{
+  margin-top:28px;
+  display:grid;
+  grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);
+  gap:28px;
+  align-items:center;
+  padding:30px 32px;
+  border-radius:var(--radius-card);
+  background:linear-gradient(141deg,#120d09 0%,#2a221c 55%,#120d09 100%);
+  color:#fff;
+  box-shadow:0 20px 50px rgba(0,0,0,.25);
+}
+.team h2{font-family:var(--headline);font-weight:400;font-size:clamp(26px,2.6vw,34px);line-height:1.12;margin:0 0 10px;}
+.team p{font-size:16px;line-height:1.55;color:rgba(255,255,255,.88);}
+.team .cta{display:flex;flex-direction:column;align-items:stretch;}
+
+.btn{
+  position:relative;
+  display:block;
+  border:0;
+  cursor:pointer;
+  text-decoration:none;
+  padding:16px 26px;
+  border-radius:var(--radius);
+  color:var(--white);
+  text-align:center;
+  overflow:hidden;
+  font-family:var(--body);
+  background:linear-gradient(135deg,var(--tan-light),var(--tan),var(--tan-light));
+  background-size:200% 200%;
+  box-shadow:0 6px 20px rgba(184,156,135,.28);
+  transition:transform .25s ease, box-shadow .25s ease, background-position .6s ease;
+}
+.btn:hover{transform:translateY(-2px);background-position:100% 50%;box-shadow:0 12px 30px rgba(184,156,135,.42);}
+.btn-main{display:block;font-size:21px;font-weight:800;line-height:1.2;}
+.btn-sub{display:block;font-size:14px;font-weight:400;opacity:.85;margin-top:2px;}
+.team .note{font-size:13.5px;color:rgba(255,255,255,.7);margin-top:10px;text-align:center;}
+
+/* ---------- footer ---------- */
+
+.footer{
+  background:linear-gradient(141deg,var(--black) 0%,var(--charcoal) 52%,var(--black) 100%);
+  padding:42px 0 38px;
+  text-align:center;
+  color:var(--white);
+}
+.footer-logo{width:160px;margin:0 auto 18px;}
+.footer-copy{font-size:17px;font-weight:700;margin-bottom:14px;}
+.footer-links{font-size:16px;font-weight:700;margin-bottom:11px;}
+.footer-links a{color:var(--white);text-decoration:none;}
+.footer-links a:hover{text-decoration:underline;}
+.footer-credit{font-size:15px;color:rgba(255,255,255,.9);}
+.footer-credit a{color:var(--tan);font-weight:700;text-decoration:none;}
+.footer-credit a:hover{text-decoration:underline;}
+
+/* ---------- responsive ---------- */
+
+@media (max-width:900px){
+  .steps{grid-template-columns:1fr;}
+  .team{grid-template-columns:1fr;padding:26px 22px;}
+  .page-bg{opacity:.22;}
+}
+@media (max-width:600px){
+  .page{padding:26px 0 54px;}
+  .topbar img{width:128px;}
+  .card{padding:24px 20px;}
+  .btn-main{font-size:19px;}
+}
+@media (prefers-reduced-motion:reduce){
+  .grad{animation:none;}
+}
+</style>
+</head>
+<body>
+
+<main class="page">
+  <div class="page-bg" role="presentation"></div>
+
+  <div class="wrap">
+
+    <div class="topbar">
+      <a href="/" aria-label="4S Summit home">
+        <img src="/assets/6a74098effc85279f489dfa5.png" alt="4S Summit">
+      </a>
+    </div>
+
+    <div class="head">
+      <div class="done-mark" aria-hidden="true"></div>
+      <h1 class="display">Your Replay <span class="grad">Is On Its Way.</span></h1>
+      <p class="head-dates">4S Summit &middot; Kansas City &middot; Recorded September 25&ndash;27, 2026</p>
+      <p class="sub">Your receipt is on its way to your inbox. Here is what happens next.</p>
+    </div>
+
+    <div class="steps-label">What Happens Next</div>
+
+    <div class="steps">
+      <section class="card">
+        <div class="step-num">1</div>
+        <h2>Watch Your Inbox</h2>
+        <p>Our team will email your replay access details to the address you used at checkout.</p>
+        <p>Nothing yet? Check your spam folder, or contact <a href="mailto:info@theaestheticsuccess.com" style="color:var(--tan-deep)">info@theaestheticsuccess.com</a>.</p>
+      </section>
+
+      <section class="card">
+        <div class="step-num">2</div>
+        <h2>Block The Time</h2>
+        <p>Treat it like the event. Put two or three working sessions in your calendar now, away from the clinic floor.</p>
+        <p>Have your last 12 months of P&amp;L and your service menu with prices open while you watch.</p>
+      </section>
+
+      <section class="card">
+        <div class="step-num">3</div>
+        <h2>Bring Your Team</h2>
+        <p>The sales sessions are built for coordinators and front desk. Watch them together and role-play the consultation framework out loud.</p>
+      </section>
+    </div>
+
+    <section class="team">
+      <div>
+        <h2>Want To Be In The Room?</h2>
+        <p>The replay shows you the material. Miami, December 4&ndash;6, gets your own numbers and questions in front of Terri Ross, Dr. Renato Saltz and Izhak Musli, in a room capped at 120.</p>
+      </div>
+      <div class="cta">
+        <a class="btn" href="/tickets.html">
+          <span class="btn-main">Claim My Miami Seat</span>
+          <span class="btn-sub">Takes 30 seconds</span>
+        </a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <img class="footer-logo" src="/assets/6a7471268684435c58b02b46.png" alt="4S Summit" loading="lazy">
+    <p class="footer-copy">© 2026 4S Summit. All Rights Reserved.</p>
+    <p class="footer-links">
+      <a href="/privacy.html">Privacy Policy</a> | <a href="/terms.html">Terms &amp; Conditions</a> | Copyright 2026 – 4S Summit
+    </p>
+    <p class="footer-credit">Designed by <a href="https://livemediadigital.com" target="_blank" rel="noopener">Live Media Digital</a></p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ---------- Purchase pixel ----------
+     The checkout can't tell this site a payment happened, so
+     replays/index.html saves the order (localStorage "4s_checkout")
+     just before redirecting to checkout, and this page — GHL's
+     post-payment redirect — fires Purchase from it once, then clears
+     it. No record, or one older than 24h, means no Purchase: a direct
+     visit or a refresh never counts as a sale. GHL remains the source
+     of truth for who actually paid. */
+
+  var KEY = '4s_checkout';
+  var MAX_AGE_MS = 24 * 60 * 60 * 1000;
+  var order = null;
+
+  try {
+    order = JSON.parse(localStorage.getItem(KEY) || 'null');
+    localStorage.removeItem(KEY);
+  } catch (e) { order = null; }
+
+  if (order && Date.now() - order.at < MAX_AGE_MS && typeof window.fbq === 'function') {
+    try {
+      window.fbq('track', 'Purchase', {
+        content_name: order.event_name + ' — ' + order.ticket_name,
+        content_category: 'Replay Purchase',
+        num_items: order.ticket_seats,
+        value: order.ticket_value,
+        currency: 'USD'
+      }, { eventID: order.fb_event_id + '-p' });
+    } catch (e) { /* tracking must never break the page */ }
+  }
+
+})();
+</script>
+
+</body>
+</html>

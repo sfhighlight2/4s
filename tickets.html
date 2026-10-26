@@ -655,7 +655,7 @@ p{margin:0;}
     <img class="footer-logo" src="assets/6a7471268684435c58b02b46.png" alt="4S Summit" loading="lazy">
     <p class="footer-copy">© 2026 4S Summit. All Rights Reserved.</p>
     <p class="footer-links">
-      <a href="#">Privacy Policy</a> | <a href="#">Terms &amp; Conditions</a> | Copyright 2026 – 4S Summit
+      <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms &amp; Conditions</a> | Copyright 2026 – 4S Summit
     </p>
     <p class="footer-credit">Designed by <a href="https://livemediadigital.com" target="_blank" rel="noopener">Live Media Digital</a></p>
   </div>
@@ -675,23 +675,24 @@ p{margin:0;}
           trigger ("Inbound Webhook"). Leave "" to skip posting. */
     webhookUrl: 'https://services.leadconnectorhq.com/hooks/mUuWlz9QtzaZryBq8ha5/webhook-trigger/7tgl6nRotv3HoIq1F4ND',
 
-    /* 2. Checkout links, one per event and tier.
-          single = the GHL payment link, so the payment lands on the
-          contact in GHL; GHL's redirect URL is set to /thank-you.html.
-          pair / pack = Stripe Payment Links (also used on
-          4ssummit.com/register-2026). Old single-seat Stripe link, kept
-          as a fallback: https://buy.stripe.com/5kQaEXdzC2lA8PyagebfP0U
+    /* 2. Checkout links, one per event and tier — all GHL payment
+          links, so every payment lands on the contact in GHL and starts
+          the purchase workflow. Each link redirects to /thank-you.html.
+          Previous Stripe links, kept as fallbacks:
+            single https://buy.stripe.com/5kQaEXdzC2lA8PyagebfP0U
+            pair   https://buy.stripe.com/cNi14n536bWa9TCfAybfP0V
+            pack   https://buy.stripe.com/6oU7sL0MQ9O2d5O2NMbfP0W
           Leave a link "" and the page shows a confirmation panel instead
           of redirecting. */
     paymentLinks: {
       'miami': {
         single: 'https://link.fastpaydirect.com/payment-link/6a74d9552babfe9e5008b544',
-        pair:   'https://buy.stripe.com/cNi14n536bWa9TCfAybfP0V',
-        pack:   'https://buy.stripe.com/6oU7sL0MQ9O2d5O2NMbfP0W'
+        pair:   'https://link.fastpaydirect.com/payment-link/6adebb2f00921ddbe8edf26d',
+        pack:   'https://link.fastpaydirect.com/payment-link/6adebb5c5b49394de8f56ec3'
       }
     },
 
-    /* Ticket tiers. Prices must match what the Stripe links above
+    /* Ticket tiers. Prices must match what the checkout links above
        charge; they're shown on the page and sent as the pixel value. */
     tiers: {
       single: { name: 'The Seat',            seats: 1, price: 1597 },

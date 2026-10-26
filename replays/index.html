@@ -440,6 +440,7 @@ p{margin:0;}
 }
 .summary-event{font-family:var(--headline);font-size:29px;line-height:1.15;margin-bottom:6px;}
 .summary-dates{font-size:17px;font-weight:700;}
+.summary-price{font-family:var(--headline);font-size:34px;line-height:1;margin-top:14px;}
 .summary-rule{height:1px;background:var(--line);margin:22px 0;}
 
 .incl{list-style:none;margin:0;padding:0;display:grid;gap:13px;}
@@ -668,7 +669,7 @@ p{margin:0;}
         <div class="cta-block">
           <a class="btn" href="#order">
             <span class="btn-main">Get The Replay</span>
-            <span class="btn-sub">Instant access after checkout</span>
+            <span class="btn-sub">$497 &middot; Access details sent by email</span>
           </a>
         </div>
       </div>
@@ -797,6 +798,7 @@ p{margin:0;}
         <div class="summary-label">Your Replay</div>
         <div class="summary-event" id="summary-name">4S Summit — Kansas City</div>
         <div class="summary-dates" id="summary-dates">Recorded September 25–27, 2026</div>
+        <div class="summary-price" id="summary-price">$497</div>
 
         <div class="summary-rule"></div>
 
@@ -810,7 +812,7 @@ p{margin:0;}
         </ul>
 
         <div class="summary-note">
-          Your access details are emailed as soon as checkout is complete.
+          Your access details are sent to your email after checkout.
         </div>
       </aside>
 
@@ -863,7 +865,7 @@ p{margin:0;}
 
             <button class="btn" type="submit" id="submit-btn">
               <span class="btn-main">CONTINUE TO CHECKOUT</span>
-              <span class="btn-sub">Instant access after payment</span>
+              <span class="btn-sub">Secure checkout &middot; $497</span>
               <span class="spinner" aria-hidden="true"></span>
             </button>
 
@@ -918,7 +920,7 @@ p{margin:0;}
       conditions, and other factors.
     </p>
     <p class="footer-links">
-      <a href="#">Privacy Policy</a> | <a href="#">Terms &amp; Conditions</a> | Copyright 2026 – 4S Summit
+      <a href="/privacy.html">Privacy Policy</a> | <a href="/terms.html">Terms &amp; Conditions</a> | Copyright 2026 – 4S Summit
     </p>
     <p class="footer-credit">Designed by <a href="https://livemediadigital.com" target="_blank" rel="noopener">Live Media Digital</a></p>
   </div>
@@ -948,17 +950,18 @@ p{margin:0;}
 
   /* Past events on sale as replays. Add a new entry here after each
      event; the "Which Replay?" chooser appears once there are two.
-     paymentLink: the Stripe Payment Link for that replay. Leave ""
-     and the form shows an on-page confirmation instead of redirecting.
-     price: number for the Meta pixel value, or null. */
+     paymentLink: the GHL payment link for that replay (it redirects
+     to /replays/thank-you.html). Leave "" and the form shows an
+     on-page confirmation instead of redirecting.
+     price: USD, shown in the order summary and sent as the pixel value. */
   var PRODUCTS = {
     'kansas-city-replay': {
       name: '4S Summit — Kansas City',
       label: 'Kansas City — September 25–27, 2026',
       city: 'Kansas City, MO',
       dates: 'September 25–27, 2026',
-      paymentLink: '',   // {{CONFIRM}} Stripe Payment Link for the KC replay
-      price: null        // {{CONFIRM}} replay price
+      paymentLink: 'https://link.fastpaydirect.com/payment-link/6adebb7b5b49394de8f56ec4',
+      price: 497
     }
   };
 
@@ -993,6 +996,7 @@ p{margin:0;}
     var p = PRODUCTS[productSel.value] || PRODUCTS[keys[0]];
     document.getElementById('summary-name').textContent = p.name;
     document.getElementById('summary-dates').textContent = 'Recorded ' + p.dates;
+    document.getElementById('summary-price').textContent = p.price ? '$' + p.price.toLocaleString('en-US') : '';
   }
   productSel.addEventListener('change', syncSummary);
   syncSummary();
@@ -1133,14 +1137,38 @@ p{margin:0;}
     try { url = new URL(base, window.location.href); }
     catch (e) { return null; }
 
-    if (data.email) { url.searchParams.set('prefilled_email', data.email); }
-    if (data.fb_event_id) { url.searchParams.set('client_reference_id', data.fb_event_id); }
+    if (url.hostname === 'buy.stripe.com') {
+      if (data.email) { url.searchParams.set('prefilled_email', data.email); }
+      if (data.fb_event_id) { url.searchParams.set('client_reference_id', data.fb_event_id); }
+    } else {
+      /* GHL payment links prefill from these names (see tickets.html) */
+      if (data.first_name) { url.searchParams.set('firstName', data.first_name); }
+      if (data.last_name) { url.searchParams.set('lastName', data.last_name); }
+      if (data.email) { url.searchParams.set('email', data.email); }
+      if (data.phone) { url.searchParams.set('phone', data.phone); }
+    }
 
     ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(function (k) {
       if (tracking[k]) { url.searchParams.set(k, tracking[k]); }
     });
 
     return url.toString();
+  }
+
+  /* ---------- hand-off to replays/thank-you.html (Purchase pixel) ---------- */
+
+  function rememberCheckout(data) {
+    var p = PRODUCTS[data.event_id] || {};
+    try {
+      localStorage.setItem('4s_checkout', JSON.stringify({
+        event_name: data.event_name,
+        ticket_name: 'Replay',
+        ticket_seats: 1,
+        ticket_value: p.price,
+        fb_event_id: data.fb_event_id,
+        at: Date.now()
+      }));
+    } catch (e) { /* storage blocked — thank-you page just skips Purchase */ }
   }
 
   /* ---------- submit ---------- */
@@ -1165,6 +1193,7 @@ p{margin:0;}
       var target = link ? buildCheckoutUrl(link, data) : null;
 
       if (target) {
+        rememberCheckout(data);
         window.location.href = target;
         return;
       }
