@@ -486,6 +486,66 @@ p{margin:0;}
   .grad{animation:none;}
   .btn::after{animation:none;}
 }
+
+/* ============================================================
+   EXIT-INTENT POPUP
+   ============================================================ */
+.exit-pop{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;padding:20px;}
+.exit-pop[hidden]{display:none;}
+.exit-pop-backdrop{position:absolute;inset:0;background:rgba(16,12,8,.72);backdrop-filter:blur(3px);}
+.exit-pop-card{
+  position:relative;
+  width:100%;
+  max-width:560px;
+  max-height:calc(100vh - 40px);
+  overflow:auto;
+  padding:44px 34px 34px;
+  text-align:center;
+  border-radius:var(--radius-card);
+  border:1px solid rgba(184,156,135,.45);
+  background:linear-gradient(180deg,#fffdf9,#f6efe8);
+  box-shadow:0 30px 80px rgba(0,0,0,.45);
+  animation:exitPopIn .35s ease;
+}
+@keyframes exitPopIn{from{opacity:0;transform:translateY(18px) scale(.97);}to{opacity:1;transform:none;}}
+.exit-pop-close{
+  position:absolute;
+  top:12px;right:12px;
+  width:40px;height:40px;
+  border:0;
+  border-radius:50%;
+  background:transparent;
+  color:#7a6f68;
+  font-size:28px;
+  line-height:1;
+  cursor:pointer;
+}
+.exit-pop-close:hover{background:rgba(184,156,135,.15);color:var(--black);}
+.exit-pop-eyebrow{
+  display:block;
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:1.6px;
+  text-transform:uppercase;
+  color:var(--tan-deep);
+  margin-bottom:12px;
+}
+.exit-pop .display{font-size:clamp(30px,5vw,42px);}
+.exit-pop-copy{font-size:17px;line-height:1.5;color:#4a4340;margin:16px auto 24px;max-width:440px;}
+.exit-pop .btn{min-width:0;width:100%;max-width:432px;margin:0 auto;}
+.exit-pop-alt{
+  display:inline-block;
+  margin-top:18px;
+  font-size:15.5px;
+  font-weight:600;
+  color:var(--tan-deep);
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+.exit-pop-alt:hover{color:var(--black);}
+.exit-pop-open{overflow:hidden;}
+@media (max-width:640px){.exit-pop-card{padding:40px 20px 26px;}}
+@media (prefers-reduced-motion:reduce){.exit-pop-card{animation:none;}}
 </style>
 </head>
 <body>
@@ -649,6 +709,28 @@ p{margin:0;}
     </div>
   </div>
 </main>
+
+<!-- ========================================================
+     EXIT-INTENT POPUP — shown once per session on this page
+     ======================================================== -->
+<div class="exit-pop" id="exit-pop" role="dialog" aria-modal="true" aria-labelledby="exit-pop-title" hidden>
+  <div class="exit-pop-backdrop" data-exit-close></div>
+  <div class="exit-pop-card">
+    <button class="exit-pop-close" type="button" data-exit-close aria-label="Close">&times;</button>
+    <span class="exit-pop-eyebrow">You're Almost In</span>
+    <h2 class="display" id="exit-pop-title">Don't Lose Your <span class="grad">Miami Seat.</span></h2>
+    <p class="exit-pop-copy">
+      December 4&ndash;6 is capped at 120 seats. Finishing your reservation takes
+      about 30 seconds, and your early rate is applied at checkout.
+    </p>
+    <button class="btn" type="button" data-exit-resume>
+      <span class="btn-main">Finish My Reservation</span>
+      <span class="btn-sub">Pick up right where you left off</span>
+    </button>
+    <br>
+    <a class="exit-pop-alt" href="replays/">Can't make Miami? Watch the replays from past events &rarr;</a>
+  </div>
+</div>
 
 <footer class="footer">
   <div class="wrap">
@@ -1020,6 +1102,97 @@ p{margin:0;}
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   });
+})();
+</script>
+
+<script>
+(function () {
+  'use strict';
+  /* Exit-intent popup, same triggers as the landing pages: cursor leaving
+     through the top on desktop, a fast scroll back up on touch. */
+  var pop = document.getElementById('exit-pop');
+  if (!pop) { return; }
+
+  var KEY = '4s_exit_pop_tickets_seen';
+  var MIN_DELAY_MS = 5000;
+  var loadedAt = Date.now();
+  var lastFocus = null;
+  var shown = false;
+
+  try { shown = sessionStorage.getItem(KEY) === '1'; } catch (e) {}
+
+  function open() {
+    if (shown || Date.now() - loadedAt < MIN_DELAY_MS) { return; }
+    shown = true;
+    try { sessionStorage.setItem(KEY, '1'); } catch (e) {}
+
+    lastFocus = document.activeElement;
+    pop.hidden = false;
+    document.documentElement.classList.add('exit-pop-open');
+    document.querySelectorAll('video').forEach(function (v) { v.pause(); });
+    pop.querySelector('.exit-pop-close').focus();
+
+    if (typeof window.fbq === 'function') {
+      try { window.fbq('trackCustom', 'ExitIntentShown'); } catch (e) {}
+    }
+  }
+
+  function close() {
+    pop.hidden = true;
+    document.documentElement.classList.remove('exit-pop-open');
+    if (lastFocus && lastFocus.focus) { lastFocus.focus(); }
+  }
+
+  pop.querySelectorAll('[data-exit-close]').forEach(function (el) {
+    el.addEventListener('click', close);
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (pop.hidden) { return; }
+    if (e.key === 'Escape') { close(); return; }
+    /* keep Tab inside the dialog */
+    if (e.key === 'Tab') {
+      var f = pop.querySelectorAll('button, a[href]');
+      var first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+
+  /* "Finish" closes the popup and puts them back on the first empty field */
+  pop.querySelector('[data-exit-resume]').addEventListener('click', function () {
+    close();
+    var form = document.getElementById('ticket-form');
+    if (!form) { return; }
+    var empty = Array.prototype.find.call(
+      form.querySelectorAll('input:not([type=hidden]), select'),
+      function (el) { return !el.hidden && !el.disabled && !el.value; }
+    );
+    form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (empty) { setTimeout(function () { empty.focus({ preventScroll: true }); }, 400); }
+  });
+
+  /* once they submit, they're not leaving */
+  var tf = document.getElementById('ticket-form');
+  if (tf) { tf.addEventListener('submit', function () { shown = true; }); }
+
+  /* desktop: cursor exits through the top edge */
+  document.addEventListener('mouseout', function (e) {
+    if (!e.relatedTarget && e.clientY <= 0) { open(); }
+  });
+
+  /* touch: quick scroll back up after reading at least 40% of the page */
+  if (window.matchMedia && window.matchMedia('(pointer:coarse)').matches) {
+    var maxY = 0, lastY = window.scrollY, lastT = Date.now();
+    window.addEventListener('scroll', function () {
+      var y = window.scrollY, t = Date.now();
+      maxY = Math.max(maxY, y);
+      var depth = maxY / Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+      var speed = (lastY - y) / Math.max(1, t - lastT);   // px per ms, positive = upward
+      if (depth > 0.4 && speed > 2.5 && y > 400) { open(); }
+      lastY = y; lastT = t;
+    }, { passive: true });
+  }
 })();
 </script>
 
